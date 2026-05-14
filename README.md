@@ -5,7 +5,10 @@ Official Foundational Reference and Methodology Standard (v1.0)
 
 ## Overview
 IRMS is a universal methodology designed for the structural analysis of cultural heritage, archaeology, and belief systems. It provides a standardized framework to measure and map cultural representations across four core layers: **Belief, Ritual, Space, and Symbol (I-R-M-S).**
-
+## Classification Modules
+Detailed classification and coding standards for specific categories:
+- [F1.a - Tam İnsan Figürü](./F1-a-Tam-Insan-Figuru.md)
+- [F1.b - Büst ve Torso (Gelecek)]
 ## Official Documentation & Archive
 The core methodology is officially registered and archived on Zenodo.
 - **Permanent DOI link:** [https://doi.org/10.5281/zenodo.20179300](https://doi.org/10.5281/zenodo.20179300)
