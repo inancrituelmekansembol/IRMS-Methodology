@@ -8,7 +8,7 @@ IRMS is a universal methodology designed for the structural analysis of cultural
 ## Classification Modules
 Detailed classification and coding standards for specific categories:
 - [F1.a - TAM İNSAN FİGÜRÜ](./F1.a%20-%20TAM%20İNSAN%20FİGÜRÜ.md)
-- [F1.a1 - F1.a1 - STATİK/AYAKTA TAM İNSAN FİGÜRÜ](./https://github.com/inancrituelmekansembol/IRMS-Methodology/blob/main/F1-a1-Statik-Tam-Insan-Figuru.md)
+- [F1.a1 - STATİK/AYAKTA TAM İNSAN FİGÜRÜ](./https://github.com/inancrituelmekansembol/IRMS-Methodology/blob/main/F1-a1-Statik-Tam-Insan-Figuru.md)
 - [F1.b - Büst ve Torso (Gelecek)]
 ## Official Documentation & Archive
 The core methodology is officially registered and archived on Zenodo.
