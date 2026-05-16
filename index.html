@@ -199,3 +199,113 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="sembol" class="layer-content">
+                    <div class="layer-title-area">
+                        <h2>Sembol ve Form Katmanı Hiyerarşisi</h2>
+                        <span class="tag">S-Tree</span>
+                    </div>
+                    <div class="hierarchy-tree">
+                        <div class="tree-branch">
+                            <div class="branch-title"><code>F1</code> Morfolojik Figürasyonlar</div>
+                            <div class="leaf-node"><strong>F1.a</strong> <p>Tam İnsan Figürü (Anatomik Bütünlük Korunmuş Formlar)</p></div>
+                            <div class="leaf-node"><strong>F1.g</strong> <p>Hayvan Figürasyonları ve Zoomorfik Tasvirler</p></div>
+                        </div>
+                        <div class="tree-branch">
+                            <div class="branch-title"><code>Σ3</code> Semantik Göstergeler</div>
+                            <div class="leaf-node"><strong>Σ3.o</strong> <p>Sarsılmaz Siyasi ve İlahi Monarşi Otoritesi Göstergeleri</p></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section" id="kütüphane">
+            <div class="container">
+                <h2>Kütüphane & Yayınlar</h2>
+                <p class="section-desc">IRMS standartlarına ait resmi dökümanları, alt sayfaları (HTML) ve akademik PDF raporlarını buradan inceleyebilirsiniz.</p>
+                
+                <div class="grid-2">
+                    <div class="library-card">
+                        <div class="meta">Akademik Yayın / Metodoloji</div>
+                        <h3>IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)</h3>
+                        <p>Şengül, A. (2026). Metodolojinin matematiksel altyapısını, Q.Stab stabilitesini ve Epsilon (ε) sapma paylarını kuran ana döküman.</p>
+                        <div class="links-group">
+                            <a href="https://doi.org/10.5281/zenodo.20179300" target="_blank" class="view-btn">→ Zenodo Sayfası</a>
+                            <a href="docs/irms-kavramsal-cerceve-v1.pdf" target="_blank" class="view-btn pdf">📄 PDF Oku</a>
+                        </div>
+                    </div>
+
+                    <div class="library-card">
+                        <div class="meta">Uygulama / Vaka Analizi</div>
+                        <h3>Sayburç Neolitik Kabartmaları Taksonomik Analiz Raporu</h3>
+                        <p>Neolitik dönem (~MÖ 9000) Sayburç açık hava sunağında yer alan şaman ve leopar figürlerinin tam IRMS-U kodlama çıktısı.</p>
+                        <div class="links-group">
+                            <a href="examples/sayburc-analiz.html" class="view-btn">🖥️ HTML Raporu Aç</a>
+                            <a href="docs/sayburc-report.pdf" target="_blank" class="view-btn pdf">📄 PDF İndir</a>
+                        </div>
+                    </div>
+
+                    <div class="library-card">
+                        <div class="meta">El Kitabı / Rehber</div>
+                        <h3>IRMS Kodlama ve Envanter Giriş Kılavuzu</h3>
+                        <p>Veri tabanına ilk defa nesne girecek saha araştırmacıları için I-R-M-Σ katman eşleşmelerini örnekleyen pratik saha rehberi.</p>
+                        <div class="links-group">
+                            <a href="guides/saha-rehberi.html" class="view-btn">🖥️ Rehberi Aç (HTML)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="moduller" style="background:#fff; border-top: 1px solid var(--border);">
+            <div class="container">
+                <h2>Aktif Uygulama Sınıfları</h2>
+                <p class="section-desc">GitHub dökümantasyon dizininde doğrudan erişilebilir durumdaki ana sınıflar.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sınıf Kodu</th>
+                            <th>Modül Açıklaması</th>
+                            <th>Kaynak Belge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>F1.a</strong></td>
+                            <td>Tam İnsan Figürasyonu Ana Modülü</td>
+                            <td><a href="F1.a - TAM İNSAN FİGÜRÜ.md" style="color:var(--accent); text-decoration:none; font-weight:500;">İncele (.md)</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>F1.a1</strong></td>
+                            <td>Statik Tam İnsan Figürleri Postür İndeksi</td>
+                            <td><a href="F1-a1-Statik-Tam-Insan-Figuru.md" style="color:var(--accent); text-decoration:none; font-weight:500;">İncele (.md)</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><b>IRMS v1.0</b> | Şengül, A. (2026) | DOI: 10.5281/zenodo.20179300</p>
+            <p style="margin-top:10px; font-size:13px; color:#8A857E;">CC BY-ND 4.0 | Küresel Otorite Kontrol ve Somut Olmayan Miras Standardı.</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchLayer(layerId) {
+            const contents = document.querySelectorAll('.layer-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.layer-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(layerId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
