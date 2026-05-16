@@ -3,10 +3,10 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20179300.svg)](https://doi.org/10.5281/zenodo.20179300)
 [![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC_BY--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nd/4.0/)
-[![Examples](https://img.shields.io/badge/Examples-Coming_Soon-blue)](/examples)
+[![Examples](https://img.shields.io/badge/Examples-3-blue)](/examples)
 
-> **Ne yapar?** Göbeklitepe ile Ayasofya'yı aynı skalada ölçer.  
-> **Neden?** “Kutsal mı?” tartışmasını bitirir, “nasıl kurulmuş?” sorusunu cevaplar.  
+> **Ne yapar?** Göbeklitepe ile Ayasofya'yı aynı skalada ölçer.
+> **Neden?** “Kutsal mı?” tartışmasını bitirir, “nasıl kurulmuş?” sorusunu cevaplar.
 > **IRMS < 1** = Hiçbir sistem tamam değildir. ε boşluğu her zaman kalır.
 
 [🚀 Canlı Dene](#-30-saniyede-dene) | [📖 Protokol](https://doi.org/10.5281/zenodo.20179300) | [💬 Tartış](https://github.com/inancrituelmekansembol/IRMS-Methodology/discussions)
@@ -15,11 +15,9 @@
 
 ## 🎯 30 Saniyede Dene
 
-**Örnek:** Sayburç Kabartması
-
-**Yakında:**
-```bash
-python irms.py examples/sayburc.json
+**Girdi:** Sayburç Kabartması  
+**Örnek Dosya:** [`examples/sayburc.json`](./examples/sayburc.json)  
+**Çıktı:**
 -------------------------
 # IRMS (Integrated Representation Measurement System)
 Official Foundational Reference and Methodology Standard (v1.0)
