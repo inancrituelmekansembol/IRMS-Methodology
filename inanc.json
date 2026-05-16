@@ -1,1 +1,513 @@
-
+[
+  {
+    "code": "I0",
+    "title": "TEMEL İNANÇ ÇEKİRDEĞİ (Evrensel Bilişsel Eğilimler)",
+    "branches": [
+      {
+        "subcode": "I0.a",
+        "subtitle": "Temel Animistik Çekirdek",
+        "leaves": [
+          {"id": "I0.a1", "desc": "Doğa varlıklarında ajan/ruh algısı (bilişsel öncül)"},
+          {"id": "I0.a2", "desc": "Yaşam-ölüm döngüsü bilinci"},
+          {"id": "I0.a9", "desc": "Diğer tanımlanamayan temel animistik formlar"}
+        ]
+      },
+      {
+        "subcode": "I0.b",
+        "subtitle": "Temel Sembolik ve Mitik Çekirdek",
+        "leaves": [
+          {"id": "I0.b1", "desc": "Kozmik köken mitleri (tema düzeyinde)"},
+          {"id": "I0.b2", "desc": "Yaşam enerjisi ve güç kavramı (mana, orenda, vb.)"},
+          {"id": "I0.b9", "desc": "Diğer tanımlanamayan temel sembolik formlar"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I1",
+    "title": "ANİMİSTİK (Doğa, nesne ve varlıkların ruhsal ajansta olması)",
+    "branches": [
+      {
+        "subcode": "I1.a",
+        "subtitle": "Doğa-Ruhu Animizmi",
+        "leaves": [
+          {"id": "I1.a1", "desc": "Ağaç ruhları"},
+          {"id": "I1.a2", "desc": "Dağ ruhları"},
+          {"id": "I1.a3", "desc": "Su/nehir ruhları"},
+          {"id": "I1.a9", "desc": "Diğer tanımlanamayan doğa-ruhu formları"}
+        ]
+      },
+      {
+        "subcode": "I1.b",
+        "subtitle": "Atalar Animizmi",
+        "leaves": [
+          {"id": "I1.b1", "desc": "Aile ataları"},
+          {"id": "I1.b2", "desc": "Klan ataları"},
+          {"id": "I1.b3", "desc": "Mitik/kurucu atalar"},
+          {"id": "I1.b9", "desc": "Diğer tanımlanamayan atalar animizmi formları"}
+        ]
+      },
+      {
+        "subcode": "I1.c",
+        "subtitle": "Nesne-Fetiş Animizmi",
+        "leaves": [
+          {"id": "I1.c1", "desc": "Tılsımlı nesneler"},
+          {"id": "I1.c2", "desc": "Kutsal objeler"},
+          {"id": "I1.c3", "desc": "Güç yüklenmiş eşyalar"},
+          {"id": "I1.c9", "desc": "Diğer tanımlanamayan nesne-fetiş formları"}
+        ]
+      },
+      {
+        "subcode": "I1.d",
+        "subtitle": "Çevresel / Alan Ruhları",
+        "leaves": [
+          {"id": "I1.d1", "desc": "Yer (toprak) ruhları"},
+          {"id": "I1.d2", "desc": "Ev/ocak ruhları"},
+          {"id": "I1.d3", "desc": "Orman ruhları"},
+          {"id": "I1.d9", "desc": "Diğer tanımlanamayan çevresel/alan ruhları formları"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I2",
+    "title": "TOTEMİK (Topluluk kimliğinin sembolik varlıklarla kurulması)",
+    "branches": [
+      {
+        "subcode": "I2.a",
+        "subtitle": "Hayvan Totemleri",
+        "leaves": [
+          {"id": "I2.a1", "desc": "Yırtıcı hayvan totemleri"},
+          {"id": "I2.a2", "desc": "Kuş totemleri"},
+          {"id": "I2.a3", "desc": "Deniz hayvanları totemleri"},
+          {"id": "I2.a9", "desc": "Diğer tanımlanamayan hayvan totemleri"}
+        ]
+      },
+      {
+        "subcode": "I2.b",
+        "subtitle": "Bitki Totemleri",
+        "leaves": [
+          {"id": "I2.b1", "desc": "Ağaç totemleri"},
+          {"id": "I2.b2", "desc": "Kutsal bitkiler"},
+          {"id": "I2.b3", "desc": "Tarımsal semboller"},
+          {"id": "I2.b9", "desc": "Diğer tanımlanamayan bitki totemleri"}
+        ]
+      },
+      {
+        "subcode": "I2.c",
+        "subtitle": "Nesne Totemleri",
+        "leaves": [
+          {"id": "I2.c1", "desc": "Doğal nesneler"},
+          {"id": "I2.c2", "desc": "Yapay semboller"},
+          {"id": "I2.c3", "desc": "Silah/araç gereç totemleri"},
+          {"id": "I2.c9", "desc": "Diğer tanımlanamayan nesne totemleri"}
+        ]
+      },
+      {
+        "subcode": "I2.d",
+        "subtitle": "Klan/Atasal Totemizm",
+        "leaves": [
+          {"id": "I2.d1", "desc": "Soy temelli totem"},
+          {"id": "I2.d2", "desc": "Kabile/kimlik totemi"},
+          {"id": "I2.d3", "desc": "Mitik köken anlatısı"},
+          {"id": "I2.d9", "desc": "Diğer tanımlanamayan klan/atasal totemizm formları"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I3",
+    "title": "ŞAMANİSTİK (Trans, ruh yolculuğu ve aracı figür)",
+    "branches": [
+      {
+        "subcode": "I3.a",
+        "subtitle": "Ekstatik Şamanizm",
+        "leaves": [
+          {"id": "I3.a1", "desc": "Davul/ritmik trans"},
+          {"id": "I3.a2", "desc": "Dans/hareket ile trans"},
+          {"id": "I3.a3", "desc": "Bitki/substans destekli trans"},
+          {"id": "I3.a4", "desc": "Açlık/uykusuzluk/izolasyon ile trans"},
+          {"id": "I3.a9", "desc": "Diğer tanımlanamayan ekstatik yöntemler"}
+        ]
+      },
+      {
+        "subcode": "I3.b",
+        "subtitle": "Ruh Yolculuğu",
+        "leaves": [
+          {"id": "I3.b1", "desc": "Üst dünya yolculuğu"},
+          {"id": "I3.b2", "desc": "Alt dünya inişi"},
+          {"id": "I3.b3", "desc": "Ruh rehberi eşliği"},
+          {"id": "I3.b9", "desc": "Diğer tanımlanamayan ruh yolculuğu formları"}
+        ]
+      },
+      {
+        "subcode": "I3.c",
+        "subtitle": "Şifacı Şamanizm",
+        "leaves": [
+          {"id": "I3.c1", "desc": "Ruh geri getirme"},
+          {"id": "I3.c2", "desc": "Hastalık kovma/çıkarma"},
+          {"id": "I3.c3", "desc": "Enerji dengeleme"},
+          {"id": "I3.c9", "desc": "Diğer tanımlanamayan şifacı şamanizm formları"}
+        ]
+      },
+      {
+        "subcode": "I3.d",
+        "subtitle": "Şamanik Kehanet (Aracı figür gerektiren)",
+        "leaves": [
+          {"id": "I3.d1", "desc": "Trans halinde gelecek okuma"},
+          {"id": "I3.d2", "desc": "Ruh mesajı iletimi"},
+          {"id": "I3.d3", "desc": "Zihin okuma/gizli bilgiye erişim"},
+          {"id": "I3.d9", "desc": "Diğer tanımlanamayan şamanik kehanet formları"}
+        ]
+      },
+      {
+        "subcode": "I3.e",
+        "subtitle": "Gizem/İnisiyasyon Sistemleri (Esoterik bilgi merkezli)",
+        "leaves": [
+          {"id": "I3.e1", "desc": "Dereceli inisiyasyon"},
+          {"id": "I3.e2", "desc": "Gizli (sır) öğretiler"},
+          {"id": "I3.e3", "desc": "Ritüel ölüm-yeniden doğuş"},
+          {"id": "I3.e9", "desc": "Diğer tanımlanamayan gizem/inisiyasyon formları"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I4",
+    "title": "POLİTEİSTİK (Çoklu ilahi ajanların sistematik örgütlenmesi)",
+    "branches": [
+      {
+        "subcode": "I4.a",
+        "subtitle": "Hiyerarşik Panteon",
+        "leaves": [
+          {"id": "I4.a1", "desc": "Baş tanrı sistemi"},
+          {"id": "I4.a2", "desc": "Tanrılar hiyerarşisi (ast-üst)"},
+          {"id": "I4.a3", "desc": "İlahi aile yapısı (soyağacı)"},
+          {"id": "I4.a9", "desc": "Diğer tanımlanamayan hiyerarşik panteon formları"}
+        ]
+      },
+      {
+        "subcode": "I4.b",
+        "subtitle": "Fonksiyonel Tanrılar",
+        "leaves": [
+          {"id": "I4.b1", "desc": "Doğa tanrıları (güneş, fırtına, deniz, vb.)"},
+          {"id": "I4.b2", "desc": "Savaş tanrıları"},
+          {"id": "I4.b3", "desc": "Bereket/tarım tanrıları"},
+          {"id": "I4.b4", "desc": "Aşk/doğurganlık tanrıları"},
+          {"id": "I4.b5", "desc": "Ölüm/ölüler diyarı tanrıları"},
+          {"id": "I4.b9", "desc": "Diğer tanımlanamayan fonksiyonel tanrılar"}
+        ]
+      },
+      {
+        "subcode": "I4.c",
+        "subtitle": "Yerel/Bölgesel Tanrılar",
+        "leaves": [
+          {"id": "I4.c1", "desc": "Şehir/devlet tanrıları"},
+          {"id": "I4.c2", "desc": "Bölgesel koruyucular"},
+          {"id": "I4.c3", "desc": "Kabile/klan tanrıları"},
+          {"id": "I4.c4", "desc": "Ev/ocak tanrıları"},
+          {"id": "I4.c9", "desc": "Diğer tanımlanamayan yerel/bölgesel tanrılar"}
+        ]
+      },
+      {
+        "subcode": "I4.d",
+        "subtitle": "Senkretik Politeizm",
+        "leaves": [
+          {"id": "I4.d1", "desc": "Kült birleşmeleri (sinkretizm)"},
+          {"id": "I4.d2", "desc": "Tanrı özdeşleştirme (interpretatio)"},
+          {"id": "I4.d3", "desc": "İmparatorluk sentezleri"},
+          {"id": "I4.d9", "desc": "Diğer tanımlanamayan senkretik politeizm formları"}
+        ]
+      },
+      {
+        "subcode": "I4.e",
+        "subtitle": "Henoteizm / Katalog Teizm (Bir tanrı yüceltilir, diğerleri inkar edilmez)",
+        "leaves": [
+          {"id": "I4.e1", "desc": "Tek tanrı yüceltme"},
+          {"id": "I4.e2", "desc": "Diğer tanrıların varlığını kabul"},
+          {"id": "I4.e3", "desc": "Diğer tanrılara tapınmama/pratik etmeme"},
+          {"id": "I4.e9", "desc": "Diğer tanımlanamayan henoteistik formlar"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I5",
+    "title": "DUALİSTİK (Gerçekliğin iki karşıt ilke üzerinden modellenmesi)",
+    "branches": [
+      {
+        "subcode": "I5.a",
+        "subtitle": "Kozmik Dualizm",
+        "leaves": [
+          {"id": "I5.a1", "desc": "Işık-karanlık"},
+          {"id": "I5.a2", "desc": "İyi-kötü (ahlaki karşıtlık)"},
+          {"id": "I5.a3", "desc": "Düzen-kaos"},
+          {"id": "I5.a9", "desc": "Diğer tanımlanamayan kozmik dualizm formları"}
+        ]
+      },
+      {
+        "subcode": "I5.b",
+        "subtitle": "Ontolojik Dualizm",
+        "leaves": [
+          {"id": "I5.b1", "desc": "Ruh-madde ayrımı"},
+          {"id": "I5.b2", "desc": "Beden-ruh ikiliği"},
+          {"id": "I5.b3", "desc": "Geçici-kalıcı varlık"},
+          {"id": "I5.b9", "desc": "Diğer tanımlanamayan ontolojik dualizm formları"}
+        ]
+      },
+      {
+        "subcode": "I5.c",
+        "subtitle": "Etik Dualizm",
+        "leaves": [
+          {"id": "I5.c1", "desc": "Günah-sevap"},
+          {"id": "I5.c2", "desc": "Saflık-kirlilik (ritüel)"},
+          {"id": "I5.c3", "desc": "Doğru-yanlış (keskin ayrım)"},
+          {"id": "I5.c9", "desc": "Diğer tanımlanamayan etik dualizm formları"}
+        ]
+      },
+      {
+        "subcode": "I5.d",
+        "subtitle": "Radikal Dualizm (İki eşit/ezeli karşıt güç)",
+        "leaves": [
+          {"id": "I5.d1", "desc": "Uzlaşmaz karşıtlık"},
+          {"id": "I5.d2", "desc": "İki eşit ilahi güç"},
+          {"id": "I5.d3", "desc": "Sonsuz çatışma/bakımından denge"},
+          {"id": "I5.d9", "desc": "Diğer tanımlanamayan radikal dualizm formları"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I6",
+    "title": "MONOTEİSTİK (Tek ilahi otorite merkezli)",
+    "branches": [
+      {
+        "subcode": "I6.a",
+        "subtitle": "Katı Monoteizm",
+        "leaves": [
+          {"id": "I6.a1", "desc": "Mutlak teklik (tevhid)"},
+          {"id": "I6.a2", "desc": "Bölünmez ilahi yapı"},
+          {"id": "I6.a3", "desc": "Ortaksız tanrı (şeriksiz)"},
+          {"id": "I6.a9", "desc": "Diğer tanımlanamayan katı monoteizm formları"}
+        ]
+      },
+      {
+        "subcode": "I6.b",
+        "subtitle": "Kişisel Tanrı",
+        "leaves": [
+          {"id": "I6.b1", "desc": "İrade sahibi tanrı"},
+          {"id": "I6.b2", "desc": "İlişki kuran/dua alan tanrı"},
+          {"id": "I6.b3", "desc": "Dua-etkileşim-ibadet"},
+          {"id": "I6.b4", "desc": "Varlığa müdahale eden"},
+          {"id": "I6.b9", "desc": "Diğer tanımlanamayan kişisel tanrı formları"}
+        ]
+      },
+      {
+        "subcode": "I6.c",
+        "subtitle": "Vahiy Temelli Monoteizm",
+        "leaves": [
+          {"id": "I6.c1", "desc": "Peygamberlik kurumu"},
+          {"id": "I6.c2", "desc": "Kutsal metin/vahiy"},
+          {"id": "I6.c3", "desc": "İlahi yasa (şeriat, halakha)"},
+          {"id": "I6.c9", "desc": "Diğer tanımlanamayan vahiy temelli monoteizm formları"}
+        ]
+      },
+      {
+        "subcode": "I6.d",
+        "subtitle": "Felsefi Monoteizm (Kişisel olmayan)",
+        "leaves": [
+          {"id": "I6.d1", "desc": "İlk neden (arche)"},
+          {"id": "I6.d2", "desc": "Saf varlık (ipsum esse)"},
+          {"id": "I6.d3", "desc": "Mutlak akıl (nous)"},
+          {"id": "I6.d9", "desc": "Diğer tanımlanamayan felsefi monoteizm formları"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I7",
+    "title": "PANTEİSTİK / PANENTEİSTİK / NON-DUAL",
+    "branches": [
+      {
+        "subcode": "I7.a",
+        "subtitle": "Klasik Panteizm (Tanrı = evren)",
+        "leaves": [
+          {"id": "I7.a1", "desc": "Tanrı-doğa özdeşliği"},
+          {"id": "I7.a2", "desc": "Kozmik özdeşlik"},
+          {"id": "I7.a3", "desc": "Deterministik bütünlük"},
+          {"id": "I7.a9", "desc": "Diğer tanımlanamayan panteist formlar"}
+        ]
+      },
+      {
+        "subcode": "I7.b",
+        "subtitle": "Panenteizm (Tanrı evreni içerir ve aşar)",
+        "leaves": [
+          {"id": "I7.b1", "desc": "Tanrı evreni kapsar"},
+          {"id": "I7.b2", "desc": "Aşkın + içkin yapı"},
+          {"id": "I7.b3", "desc": "Dinamik evren-tanrı ilişkisi"},
+          {"id": "I7.b9", "desc": "Diğer tanımlanamayan panenteist formlar"}
+        ]
+      },
+      {
+        "subcode": "I7.c",
+        "subtitle": "İçkin Birlik (Her şeyde ilahi)",
+        "leaves": [
+          {"id": "I7.c1", "desc": "Her şeyin ilahi özü"},
+          {"id": "I7.c2", "desc": "Mikro-makro kozmos yansıması"},
+          {"id": "I7.c3", "desc": "Bilinç birliği (her şey bilinçtir)"},
+          {"id": "I7.c9", "desc": "Diğer tanımlanamayan içkin birlik formları"}
+        ]
+      },
+      {
+        "subcode": "I7.d",
+        "subtitle": "Metafizik Birlikçilik (İllüzyon/Maya)",
+        "leaves": [
+          {"id": "I7.d1", "desc": "Tek varlık öğretisi"},
+          {"id": "I7.d2", "desc": "İllüzyon (maya) teorisi"},
+          {"id": "I7.d3", "desc": "Fenomenal dünyanın gerçek dışılığı"},
+          {"id": "I7.d9", "desc": "Diğer tanımlanamayan metafizik birlikçilik formları"}
+        ]
+      },
+      {
+        "subcode": "I7.e",
+        "subtitle": "Non-Dualizm (Advaita, İkilik Ötesi)",
+        "leaves": [
+          {"id": "I7.e1", "desc": "Özne-nesne ayrımının aşılması"},
+          {"id": "I7.e2", "desc": "Ne birlik ne çokluk"},
+          {"id": "I7.e3", "desc": "Tasavvufi vahdet-i vücud tipi"},
+          {"id": "I7.e4", "desc": "Meditasyon/yol ile doğrudan deneyim"},
+          {"id": "I7.e9", "desc": "Diğer tanımlanamayan non-dual formlar"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I8",
+    "title": "ETİK–FELSEFİ / YAŞAM SİSTEMLERİ",
+    "branches": [
+      {
+        "subcode": "I8.a",
+        "subtitle": "Erdem Etiği",
+        "leaves": [
+          {"id": "I8.a1", "desc": "Karakter/ahlaki gelişim"},
+          {"id": "I8.a2", "desc": "Altın orta / ölçülülük"},
+          {"id": "I8.a3", "desc": "Ahlaki alışkanlık (hexis)"},
+          {"id": "I8.a9", "desc": "Diğer tanımlanamayan erdem etiği formları"}
+        ]
+      },
+      {
+        "subcode": "I8.b",
+        "subtitle": "Rasyonel Etik",
+        "leaves": [
+          {"id": "I8.b1", "desc": "Akıl temelli karar"},
+          {"id": "I8.b2", "desc": "Evrensel etik ilkeler"},
+          {"id": "I8.b3", "desc": "Mantıksal normlar (deontik)"},
+          {"id": "I8.b9", "desc": "Diğer tanımlanamayan rasyonel etik formları"}
+        ]
+      },
+      {
+        "subcode": "I8.c",
+        "subtitle": "Doğalcı Etik",
+        "leaves": [
+          {"id": "I8.c1", "desc": "Doğaya uygun yaşam"},
+          {"id": "I8.c2", "desc": "Deterministik etik"},
+          {"id": "I8.c3", "desc": "Evrimsel etik"},
+          {"id": "I8.c9", "desc": "Diğer tanımlanamayan doğalcı etik formları"}
+        ]
+      },
+      {
+        "subcode": "I8.d",
+        "subtitle": "Yaşam Öğretileri (Pratik Bilgelik)",
+        "leaves": [
+          {"id": "I8.d1", "desc": "Disiplin sistemi (çilecilik veya düzenli pratik)"},
+          {"id": "I8.d2", "desc": "Günlük ritüeller/pratikler (inançtan bağımsız)"},
+          {"id": "I8.d3", "desc": "Bilgelik gelenekleri (hikmet)"},
+          {"id": "I8.d9", "desc": "Diğer tanımlanamayan yaşam öğretileri formları"}
+        ]
+      },
+      {
+        "subcode": "I8.e",
+        "subtitle": "Seküler / Agnostik Metafizik Sistemler",
+        "leaves": [
+          {"id": "I8.e1", "desc": "Stoacılık ve erdem felsefeleri"},
+          {"id": "I8.e2", "desc": "Konfüçyüsçülük tipi toplumsal düzen öğretileri"},
+          {"id": "I8.e3", "desc": "Agnostik spiritualizm (inançsız maneviyat)"},
+          {"id": "I8.e4", "desc": "Transhümanist ve post-insan etik sistemleri"},
+          {"id": "I8.e5", "desc": "Materyalist ateizm / ruhsuz metafizik"},
+          {"id": "I8.e9", "desc": "Diğer tanımlanamayan seküler/agnostik sistemler"}
+        ]
+      },
+      {
+        "subcode": "I8.f",
+        "subtitle": "Kaderci / Kozmik Determinizm Sistemleri",
+        "leaves": [
+          {"id": "I8.f1", "desc": "Mutlak predestinasyon"},
+          {"id": "I8.f2", "desc": "Yazgı (kader, moira) inancı"},
+          {"id": "I8.f3", "desc": "Katı karmik determinizm"},
+          {"id": "I8.f9", "desc": "Diğer tanımlanamayan kaderci/determinist formlar"}
+        ]
+      },
+      {
+        "subcode": "I8.g",
+        "subtitle": "Epistemik Şüphecilik / Agnostisizm (Metafizik İnançsızlık Değil)",
+        "leaves": [
+          {"id": "I8.g1", "desc": "Pyrrhonist tip şüphecilik"},
+          {"id": "I8.g2", "desc": "Bilemizcilik (agnostisizm proper)"},
+          {"id": "I8.g3", "desc": "Metafizik yargılardan kaçınma (epoche)"},
+          {"id": "I8.g9", "desc": "Diğer tanımlanamayan şüphecilik/agnostisizm formları"}
+        ]
+      }
+    ]
+  },
+  {
+    "code": "I9",
+    "title": "HİBRİT / CROSS-DIMENSIONAL SİSTEMLER",
+    "branches": [
+      {
+        "subcode": "I9.a",
+        "subtitle": "Melez Sistemler (İki veya daha fazla ana tipin güçlü sentezi)",
+        "leaves": [
+          {"id": "I9.a1", "desc": "İki tip eşit ağırlık"},
+          {"id": "I9.a2", "desc": "Üç veya daha fazla tip bileşimi"},
+          {"id": "I9.a9", "desc": "Diğer tanımlanamayan melez sistemler"}
+        ]
+      },
+      {
+        "subcode": "I9.b",
+        "subtitle": "Geçişsel / Tarihi Dönüşüm Sistemleri",
+        "leaves": [
+          {"id": "I9.b1", "desc": "Gelenekselden moderne geçiş formları"},
+          {"id": "I9.b9", "desc": "Diğer tanımlanamayan geçişsel sistemler"}
+        ]
+      },
+      {
+        "subcode": "I9.c",
+        "subtitle": "Yeni ve Sınıflanamayan Sentetik Yapılar",
+        "leaves": [
+          {"id": "I9.c1", "desc": "Yeni Çağ (New Age) sentezleri"},
+          {"id": "I9.c2", "desc": "Dijital / siber-spiritüel yapılar"},
+          {"id": "I9.c3", "desc": "Bilim-dini sentezleri"},
+          {"id": "I9.c9", "desc": "Diğer tanımlanamayan yeni sentetik yapılar"}
+        ]
+      },
+      {
+        "subcode": "I9.d",
+        "subtitle": "Aşırı Senkretik ve Meta-Sistemler",
+        "leaves": [
+          {"id": "I9.d1", "desc": "Çoklu gelenekten yüksek düzeyde harmanlanmış yapılar"},
+          {"id": "I9.d9", "desc": "Diğer tanımlanamayan aşırı senkretik/meta-sistemler"}
+        ]
+      },
+      {
+        "subcode": "I9.e",
+        "subtitle": "Kolonyal / Direnç Senkretizmi (Zorunlu veya Direnç Amaçlı)",
+        "leaves": [
+          {"id": "I9.e1", "desc": "Sömürge dönemi zorunlu senkretizm (aziz = tanrı)"},
+          {"id": "I9.e2", "desc": "Direnç senkretizmi (kimlik koruma)"},
+          {"id": "I9.e3", "desc": "Afro-diasporik senkretizm (Candomblé, Santería, Vodou)"},
+          {"id": "I9.e9", "desc": "Diğer tanımlanamayan kolonyal/direnç senkretizmi formları"}
+        ]
+      }
+    ]
+  }
+]
