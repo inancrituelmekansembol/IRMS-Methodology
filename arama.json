@@ -18,21 +18,63 @@
   "taksonomi": {
     "inanc": [
       {
-        "code": "I1", "title": "Kozmolojik Temeller",
+        "code": "I1", 
+        "title": "Kozmolojik Temeller",
         "branches": [
-          { "subcode": "I1.a", "subtitle": "Aşkın Boyut", "leaves": [{ "id": "I1.a.1", "desc": "Tek Tanrılı Yapılar" }] }
+          { 
+            "subcode": "I1.a", 
+            "subtitle": "Aşkın Boyut", 
+            "leaves": [
+              { "id": "I1.a.1", "desc": "Tek Tanrılı Yapılar" }
+            ] 
+          }
         ]
       }
     ],
     "rituel": [
       {
-        "code": "R1", "title": "Kurban ve Takdimeler",
+        "code": "R1", 
+        "title": "Kurban ve Takdimeler",
         "branches": [
-          { "subcode": "R1.a", "subtitle": "Kanlı Kurbanlar", "leaves": [{ "id": "R1.a.1", "desc": "Büyükbaş / Küçükbaş Kesimi" }] }
+          { 
+            "subcode": "R1.a", 
+            "subtitle": "Kanlı Kurbanlar", 
+            "leaves": [
+              { "id": "R1.a.1", "desc": "Büyükbaş / Küçükbaş Kesimi" }
+            ] 
+          }
         ]
       }
     ],
-    "mekan": [],
-    "sembol": []
+    "mekan": [
+      {
+        "code": "M1",
+        "title": "Kutsal Alan Tanımları (Henüz Veri Girilmedi)",
+        "branches": [
+          {
+            "subcode": "M1.a",
+            "subtitle": "Matris Yapısı",
+            "leaves": [
+              { "id": "M1.a.1", "desc": "Saha Çalışması Bekleniyor" }
+            ]
+          }
+        ]
+      }
+    ],
+    "sembol": [
+      {
+        "code": "S1",
+        "title": "İkonografik Unsurlar (Henüz Veri Girilmedi)",
+        "branches": [
+          {
+            "subcode": "S1.a",
+            "subtitle": "Sembol Anatomisi",
+            "leaves": [
+              { "id": "S1.a.1", "desc": "Saha Çalışması Bekleniyor" }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
