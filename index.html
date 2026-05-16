@@ -8,228 +8,54 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #F7F5F2; --text: #2D2A26; --accent: #A4492F; 
-            --stone: #D9D5D0; --code: #EAE7E2; --border: #C9C5C0;
-            --white: #FFFFFF;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
-        /* SABİT ÜST MENÜ */
-        header { 
-            border-bottom: 1px solid var(--border); 
-            padding: 16px 0; 
-            position: sticky; 
-            top: 0; 
-            background: rgba(247,245,242,0.96); 
-            backdrop-filter: blur(8px); 
-            z-index: 1000; 
-        }
-        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; text-decoration: none; color: var(--text); }
-        .logo span { color: var(--accent); }
-        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 24px; font-weight: 500; font-size: 15px; cursor: pointer; transition: color 0.2s; }
-        nav .nav-links a:hover { color: var(--accent); }
-
-        /* Giriş ve Felsefe */
-        .hero { padding: 80px 0 40px 0; max-width: 850px; margin: 0 auto; text-align: center; }
-        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.2; margin-bottom: 20px; }
-        .hero p { font-size: 17px; color: #5E5A54; margin-bottom: 30px; }
-
-        /* ANA SAYFA DOĞRUDAN KATMAN LİNKLERİ (QUICK ACCESS) */
-        .layer-quick-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
-        .layer-chip { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); background: var(--white); border: 1px solid var(--border); padding: 10px 20px; border-radius: 30px; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
-        .layer-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); background: #FAF9F6; }
-        .layer-chip span { color: var(--accent); font-family: monospace; margin-right: 4px; }
-
-        /* ARAMA ÇUBUKLARI */
-        .search-wrapper { max-width: 500px; margin: 0 auto 10px auto; position: relative; }
-        .search-input { width: 100%; padding: 12px 18px; border: 1px solid var(--border); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; background: var(--white); color: var(--text); outline: none; transition: border-color 0.2s; }
-        .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(164, 73, 47, 0.1); }
-
-        /* DİNAMİK MAKALE VİTRİNİ */
-        .section { padding: 20px 0 80px 0; }
-        .section-title-area { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
-        .section-title-area h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; }
-        
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
-        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); transition: transform 0.2s, opacity 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
-        .library-card:hover { transform: translateY(-2px); }
-        .library-card .meta { font-size: 12px; color: #8A857E; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin-bottom: 10px; line-height: 1.3; }
-        .library-card p { font-size: 14px; color: #5E5A54; margin-bottom: 20px; flex-grow: 1; }
-        
-        .links-group { display: flex; gap: 12px; }
-        .view-btn { display: inline-flex; align-items: center; background: var(--text); color: var(--white); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; }
-        .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-        .view-btn:hover { opacity: 0.9; }
-
-        /* --- KATMAN ENVENTERİ MODAL YAPISI --- */
-        .inventory-modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(45, 42, 38, 0.5); 
-            backdrop-filter: blur(4px);
-            z-index: 2000; 
-            justify-content: center; align-items: flex-start;
-            overflow-y: auto; padding: 40px 20px;
-        }
-        .modal-content { 
-            background: var(--white); border: 1px solid var(--border); 
-            width: 100%; max-width: 900px; border-radius: 12px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            animation: modalFadeIn 0.25s ease;
-        }
-        .modal-header { 
-            padding: 20px 28px; border-bottom: 1px solid var(--border); 
-            display: flex; justify-content: space-between; align-items: center;
-            background: var(--bg); border-top-left-radius: 12px; border-top-right-radius: 12px;
-        }
-        .modal-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; }
-        .close-modal { font-size: 24px; cursor: pointer; color: var(--text); background: none; border: none; font-weight: bold; }
-        .close-modal:hover { color: var(--accent); }
-        
-        .modal-search-bar { padding: 16px 28px 0 28px; }
-        .modal-tabs { display: flex; gap: 8px; padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border); }
-        .tab-btn { font-family: 'Space Grotesk', sans-serif; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; color: var(--text); }
-        .tab-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
-        .modal-body { padding: 28px; max-height: 55vh; overflow-y: auto; }
-
-        /* AKORDEON */
-        .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
-        .accordion-header { padding: 14px 18px; background: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .accordion-header:hover { background: var(--code); }
-        .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 6px; border-radius: 4px; font-size: 13px; margin-right: 10px; }
-        .accordion-icon { font-size: 12px; transition: transform 0.2s; }
-        .accordion-body { display: none; padding: 16px; border-top: 1px solid var(--border); background: var(--white); }
-        .accordion-item.open > .accordion-body { display: block; }
-        .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
-        .accordion-item.open > .accordion-header code { background: var(--accent); }
-
-        /* HİYERARŞİ 2. SEVİYE */
-        .tree-branch { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 4px; margin-bottom: 10px; background: var(--white); }
-        .branch-header { padding: 10px 14px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .branch-header:hover { background: var(--bg); }
-        .branch-header code { background: var(--code); color: var(--text); padding: 1px 5px; font-size: 12px; border-radius: 4px; font-family: monospace; margin-right: 6px; }
-        .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
-        .branch-body { display: none; padding: 10px 14px; background: var(--bg); border-top: 1px solid var(--border); }
-        .tree-branch.branch-open { border-left-color: var(--accent); }
-        .tree-branch.branch-open > .branch-body { display: block; }
-        .tree-branch.branch-open > .branch-header { color: var(--accent); }
-        .tree-branch.branch-open > .branch-header .branch-icon { transform: rotate(180deg); }
-
-        /* 3. SEVİYE YAPRAKLAR */
-        .leaf-node { background: var(--white); padding: 8px 12px; border-radius: 4px; margin-bottom: 6px; border: 1px solid var(--border); font-size: 13.5px; display: flex; align-items: flex-start; }
-        .leaf-node strong { font-family: monospace; background: var(--stone); padding: 1px 5px; border-radius: 3px; margin-right: 10px; font-size: 12px; flex-shrink: 0; }
-
-        footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; border-top: 1px solid var(--border); }
-        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-            <nav>
-                <a class="logo" href="#">IRMS<span>.</span></a>
-                <div class="nav-links">
-                    <a onclick="openInventoryModal('inanc.json', 'tab-inanc')">Katman Envanteri</a>
-                    <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>IRMS, inanç sistemlerini ve somut sanatsal temsilleri örtüşmeyen katmanlar halinde formüle eder. Doğrudan incelemek istediğiniz ana katmana tıklayabilir ya da yayınlarda arama yapabilirsiniz.</p>
-                
-                <div class="layer-quick-links">
-                    <a class="layer-chip" onclick="openInventoryModal('inanc.json', 'tab-inanc')"><span>[I]</span> İnanç Sistemi</a>
-                    <a class="layer-chip" onclick="openInventoryModal('rituel.json', 'tab-rituel')"><span>[R]</span> Ritüel Yapısı</a>
-                    <a class="layer-chip" onclick="openInventoryModal('mekan.json', 'tab-mekan')"><span>[M]</span> Mekânsal Matris</a>
-                    <a class="layer-chip" onclick="openInventoryModal('sembol.json', 'tab-sembol')"><span>[S]</span> Sembol Anatomisi</a>
-                </div>
-
-                <div class="search-wrapper">
-                    <input type="text" id="mainSearchInput" class="search-input" placeholder="Yayınlarda veya saha raporlarında ara..." oninput="filterArticles()">
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-title-area">
-                    <h2>Son Yüklenen Yayınlar & Saha Analizleri</h2>
-                </div>
-                
-                <div class="grid-2" id="articles-showcase-container"></div>
-            </div>
-        </section>
-    </main>
-
-    <div id="inventoryModal" class="inventory-modal" onclick="closeInventoryModalOutside(event)">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>IRMS Katman Taksonomisi</h2>
-                <button class="close-modal" onclick="closeInventoryModal()">&times;</button>
-            </div>
-            
-            <div class="modal-search-bar">
-                <input type="text" id="modalSearchInput" class="search-input" placeholder="Kod veya kavram ara (Örn: R1.a veya Kurban)..." oninput="filterModalTaxonomy()">
-            </div>
-
-            <div class="modal-tabs">
-                <button class="tab-btn active" id="tab-inanc" onclick="switchModalLayer('inanc.json', 'tab-inanc')">İnanç [I]</button>
-                <button class="tab-btn" id="tab-rituel" onclick="switchModalLayer('rituel.json', 'tab-rituel')">Ritüel [R]</button>
-                <button class="tab-btn" id="tab-mekan" onclick="switchModalLayer('mekan.json', 'tab-mekan')">Mekân [M]</button>
-                <button class="tab-btn" id="tab-sembol" onclick="switchModalLayer('sembol.json', 'tab-sembol')">Sembol [S]</button>
-            </div>
-            <div class="modal-body" id="modal-accordion-container"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p><b>IRMS v1.0</b> | Şengül, A. (2026) | DOI: 10.5281/zenodo.20179300</p>
-        </div>
-    </footer>
-
-    <script>
+   <script>
         let allArticlesData = [];
 
+        // Sayfa yüklenir yüklenmez çalışacak ana motor
         window.addEventListener('DOMContentLoaded', () => {
             renderArticlesShowcase();
         });
 
-        // VİTRİN MOTORU
+        // VİTRİN MOTORU (Geliştirilmiş Güvenli Sürüm)
         function renderArticlesShowcase() {
             const container = document.getElementById('articles-showcase-container');
             container.innerHTML = "<p style='color:#8A857E;'>Yayınlar yükleniyor...</p>";
 
-            fetch('makaleler.json')
-                .then(response => response.json())
-                .then(articles => {
-                    allArticlesData = articles;
-                    displayArticles(articles);
+            // GitHub Pages yollarını garantiye almak için "./makaleler.json" kullanımı
+            fetch('./makaleler.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("HTTP hata kodu: " + response.status);
+                    }
+                    return response.json();
                 })
-                .catch(() => {
-                    container.innerHTML = "<p style='color:var(--accent);'>Yayın listesi yüklenemedi.</p>";
+                .then(articles => {
+                    // Gelen verinin dizi (array) olduğundan emin olalım
+                    if (Array.isArray(articles)) {
+                        allArticlesData = articles;
+                        displayArticles(articles);
+                    } else {
+                        container.innerHTML = "<p style='color:var(--accent);'>Hata: JSON verisi beklenen formatta değil (Dizi olmalı).</p>";
+                    }
+                })
+                .catch(err => {
+                    console.error("Arama Motoru Hatası:", err);
+                    container.innerHTML = `
+                        <div style="grid-column: 1/-1; border: 1px dashed var(--accent); padding: 20px; border-radius: 8px; background: rgba(164,73,47,0.05);">
+                            <p style="color:var(--accent); font-weight:bold; margin-bottom: 8px;">⚠️ Yayınlar Listelenemedi</p>
+                            <p style="font-size: 13px; color:#5E5A54;">Lütfen projenizin kök dizininde <strong>makaleler.json</strong> dosyasının olduğundan ve içinde yazım hatası (eksik virgül, tırnak işareti vb.) olmadığından emin olun.</p>
+                        </div>
+                    `;
                 });
         }
 
+        // MAKALELERİ VE BUTONLARI EKRANA BASAN MOTOR
         function displayArticles(articles) {
             const container = document.getElementById('articles-showcase-container');
             container.innerHTML = "";
             
-            if(articles.length === 0) {
-                container.innerHTML = "<p style='color:#8A857E; grid-column: 1/-1; text-align:center;'>Aramanızla eşleşen yayın bulunamadı.</p>";
+            if (!articles || articles.length === 0) {
+                container.innerHTML = "<p style='color:#8A857E; grid-column: 1/-1; text-align:center; padding: 20px;'>Eşleşen yayın veya rapor bulunamadı.</p>";
                 return;
             }
 
@@ -237,18 +63,20 @@
                 const card = document.createElement('div');
                 card.className = 'library-card';
                 
+                // Akıllı Buton Metni Çözümü (Eğer veri varsa çalışır)
                 let webBtnText = "→ İncele";
                 if (art.url_web && art.url_web.includes('.html')) webBtnText = "🖥️ Raporu İncele";
                 else if (art.url_web && art.url_web.includes('doi.org')) webBtnText = "→ Zenodo Verisi";
 
+                // Eğer JSON'da link alanları boşsa butonlar hiç oluşturulmaz (Arayüz kırılmaz)
                 const webLinkHtml = art.url_web ? `<a href="${art.url_web}" target="_blank" class="view-btn">${webBtnText}</a>` : '';
                 const pdfLinkHtml = art.url_pdf ? `<a href="${art.url_pdf}" target="_blank" class="view-btn pdf">📄 PDF Oku</a>` : '';
 
                 card.innerHTML = `
                     <div>
-                        <div class="meta">${art.kategori}</div>
-                        <h3>${art.baslik}</h3>
-                        <p>${art.ozet}</p>
+                        <div class="meta">${art.kategori || 'Genel'}</div>
+                        <h3>${art.baslik || 'Başlıksız İçerik'}</h3>
+                        <p>${art.ozet || ''}</p>
                     </div>
                     <div class="links-group" style="margin-top:20px;">
                         ${webLinkHtml}
@@ -259,16 +87,24 @@
             });
         }
 
+        // REAKTİF ARAMA FİLTRESİ
         function filterArticles() {
             const query = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+            
+            // Veri henüz yüklenmediyse filtreleme yapma
+            if (!allArticlesData || allArticlesData.length === 0) return;
+
             const filtered = allArticlesData.filter(art => {
-                return art.baslik.toLowerCase().includes(query) || 
-                       art.ozet.toLowerCase().includes(query) || 
-                       art.kategori.toLowerCase().includes(query);
+                const baslik = (art.baslik || "").toLowerCase();
+                const ozet = (art.ozet || "").toLowerCase();
+                const kategori = (art.kategori || "").toLowerCase();
+                
+                return baslik.includes(query) || ozet.includes(query) || kategori.includes(query);
             });
             displayArticles(filtered);
         }
 
+        // MODAL İÇİ TAKSONOMİ ARAMA MOTORU
         function filterModalTaxonomy() {
             const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
             
@@ -310,7 +146,7 @@
             });
         }
 
-        // PARAMETRİK MODAL AÇILIŞI (Hızlı Zıplama İçin Güncellendi)
+        // MODAL PENCERE YÖNETİMİ
         function openInventoryModal(targetJson = 'inanc.json', targetTabId = 'tab-inanc') {
             document.getElementById('inventoryModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
@@ -334,8 +170,11 @@
             const container = document.getElementById('modal-accordion-container');
             container.innerHTML = "<p style='text-align:center; color:#8A857E; font-size:14px;'>Hiyerarşi yükleniyor...</p>";
 
-            fetch(jsonFile)
-                .then(response => response.json())
+            fetch('./' + jsonFile)
+                .then(response => {
+                    if(!response.ok) throw new Error();
+                    return response.json();
+                })
                 .then(data => {
                     container.innerHTML = "";
                     data.forEach(item => {
@@ -368,7 +207,7 @@
                     });
                 })
                 .catch(() => {
-                    container.innerHTML = `<p style='text-align:center; font-size:14px; color:var(--accent);'>Veri dosyası (${jsonFile}) yüklenemedi.</p>`;
+                    container.innerHTML = `<p style='text-align:center; font-size:14px; color:var(--accent);'>Veri dosyası (${jsonFile}) yüklenemedi. Dosya adını kontrol edin.</p>`;
                 });
         }
 
