@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IRMS - Integrated Representation Measurement System</title>
-    <meta name="description" content="İnanç · Ritüel · Mekân · Sembol Ölçüm Sistemi. IRMS < 1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -18,7 +17,6 @@
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* SABİT ÜST MENÜ */
         header { 
             border-bottom: 1px solid var(--border); 
             padding: 12px 0; 
@@ -37,7 +35,7 @@
         .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(164, 73, 47, 0.1); }
 
         .nav-links { flex-shrink: 0; }
-        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 20px; font-weight: 500; font-size: 14.5px; cursor: pointer; transition: color 0.2s; }
+        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 20px; font-weight: 500; font-size: 14.5px; cursor: pointer; }
         nav .nav-links a:hover { color: var(--accent); }
 
         .hero { padding: 60px 0 30px 0; max-width: 850px; margin: 0 auto; text-align: center; }
@@ -45,8 +43,8 @@
         .hero p { font-size: 16px; color: #5E5A54; margin-bottom: 24px; }
 
         .layer-quick-links { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .layer-chip { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text); background: var(--white); border: 1px solid var(--border); padding: 8px 18px; border-radius: 30px; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
-        .layer-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); background: #FAF9F6; }
+        .layer-chip { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text); background: var(--white); border: 1px solid var(--border); padding: 8px 18px; border-radius: 30px; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+        .layer-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
         .layer-chip span { color: var(--accent); font-family: monospace; margin-right: 4px; }
 
         .section { padding: 20px 0 80px 0; }
@@ -54,87 +52,55 @@
         .section-title-area h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; }
         
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
-        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); transition: transform 0.2s, opacity 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
-        .library-card:hover { transform: translateY(-2px); }
-        .library-card .meta { font-size: 12px; color: #8A857E; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin-bottom: 10px; line-height: 1.3; }
+        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+        .library-card .meta { font-size: 12px; color: #8A857E; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; }
+        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin-bottom: 10px; }
         .library-card p { font-size: 14px; color: #5E5A54; margin-bottom: 20px; flex-grow: 1; }
         
         .links-group { display: flex; gap: 12px; }
         .view-btn { display: inline-flex; align-items: center; background: var(--text); color: var(--white); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; }
         .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-        .view-btn:hover { opacity: 0.9; }
 
-        /* MODAL VE HİYERARŞİK AKORDEON */
+        /* MODAL VE HİYERARŞİ */
         .inventory-modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(45, 42, 38, 0.5); 
-            backdrop-filter: blur(4px);
-            z-index: 2000; 
-            justify-content: center; align-items: flex-start;
-            overflow-y: auto; padding: 40px 20px;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(45, 42, 38, 0.5); backdrop-filter: blur(4px); z-index: 2000; 
+            justify-content: center; align-items: flex-start; overflow-y: auto; padding: 40px 20px;
         }
-        .modal-content { 
-            background: var(--white); border: 1px solid var(--border); 
-            width: 100%; max-width: 900px; border-radius: 12px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            animation: modalFadeIn 0.25s ease;
-        }
-        .modal-header { 
-            padding: 20px 28px; border-bottom: 1px solid var(--border); 
-            display: flex; justify-content: space-between; align-items: center;
-            background: var(--bg); border-top-left-radius: 12px; border-top-right-radius: 12px;
-        }
-        .modal-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; }
+        .modal-content { background: var(--white); border: 1px solid var(--border); width: 100%; max-width: 900px; border-radius: 12px; }
+        .modal-header { padding: 20px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg); border-top-left-radius: 12px; border-top-right-radius: 12px; }
         .close-modal { font-size: 24px; cursor: pointer; color: var(--text); background: none; border: none; font-weight: bold; }
-        .close-modal:hover { color: var(--accent); }
         
         .modal-search-bar { padding: 16px 28px 0 28px; }
         .modal-tabs { display: flex; gap: 8px; padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border); }
-        .tab-btn { font-family: 'Space Grotesk', sans-serif; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; color: var(--text); }
+        .tab-btn { font-family: 'Space Grotesk', sans-serif; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; }
         .tab-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
         .modal-body { padding: 28px; max-height: 55vh; overflow-y: auto; }
 
-        /* AKORDEON (1. SEVİYE) */
-        .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
-        .accordion-header { padding: 14px 18px; background: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
-        .accordion-header:hover { background: var(--code); }
+        /* HİYERARŞİK AKORDEON */
+        .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
+        .accordion-header { padding: 14px 18px; background: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 6px; border-radius: 4px; font-size: 13px; margin-right: 10px; }
         .accordion-icon { font-size: 12px; transition: transform 0.2s; }
         .accordion-body { display: none; padding: 16px; border-top: 1px solid var(--border); background: var(--white); }
         
         .accordion-item.open > .accordion-body { display: block; }
         .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
-        .accordion-item.open > .accordion-header code { background: var(--accent); }
 
-        /* HİYERARŞİ (2. SEVİYE) */
-        .tree-branch { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 4px; margin-bottom: 10px; background: var(--white); }
+        .tree-branch { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 4px; margin-bottom: 10px; }
         .branch-header { padding: 10px 14px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .branch-header:hover { background: var(--bg); }
-        .branch-header code { background: var(--code); color: var(--text); padding: 1px 5px; font-size: 12px; border-radius: 4px; font-family: monospace; margin-right: 6px; }
-        .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
+        .branch-header code { background: var(--code); color: var(--text); padding: 1px 5px; font-size: 12px; border-radius: 4px; margin-right: 6px; }
+        .branch-icon { font-size: 10px; transition: transform 0.2s; }
         .branch-body { display: none; padding: 10px 14px; background: var(--bg); border-top: 1px solid var(--border); }
         
         .tree-branch.branch-open { border-left-color: var(--accent); }
         .tree-branch.branch-open > .branch-body { display: block; }
-        .tree-branch.branch-open > .branch-header { color: var(--accent); }
         .tree-branch.branch-open > .branch-header .branch-icon { transform: rotate(180deg); }
 
-        /* YAPRAKLAR (3. SEVİYE) */
         .leaf-node { background: var(--white); padding: 8px 12px; border-radius: 4px; margin-bottom: 6px; border: 1px solid var(--border); font-size: 13.5px; display: flex; align-items: flex-start; }
-        .leaf-node strong { font-family: monospace; background: var(--stone); padding: 1px 5px; border-radius: 3px; margin-right: 10px; font-size: 12px; flex-shrink: 0; }
+        .leaf-node strong { font-family: monospace; background: var(--stone); padding: 1px 5px; border-radius: 3px; margin-right: 10px; font-size: 12px; }
 
-        footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; border-top: 1px solid var(--border); }
-        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 10px; }
-            .search-wrapper { max-width: 100%; width: 100%; margin: 5px 0; }
-            nav .nav-links { margin-top: 5px; }
-            nav .nav-links a { margin: 0 10px; }
-        }
+        footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -143,11 +109,9 @@
         <div class="container">
             <nav>
                 <a class="logo" href="#">IRMS<span>.</span></a>
-                
                 <div class="search-wrapper">
                     <input type="text" id="mainSearchInput" class="search-input" placeholder="Yayınlarda veya saha raporlarında ara..." oninput="filterArticles()">
                 </div>
-
                 <div class="nav-links">
                     <a onclick="openInventoryModal('inanc')">Katman Envanteri</a>
                     <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
@@ -160,8 +124,7 @@
         <section class="hero">
             <div class="container">
                 <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>IRMS; tek bir merkezi veri havuzu üzerinden tüm taksonomik kırılımları ve yayın dökümanlarını eş zamanlı çalıştırır.</p>
-                
+                <p>Yayınlar tek merkezden aranırken, katman hiyerarşileri kendi orijinal bağımsız JSON dosyalarından beslenir.</p>
                 <div class="layer-quick-links">
                     <a class="layer-chip" onclick="openInventoryModal('inanc')"><span>[I]</span> İnanç Sistemi</a>
                     <a class="layer-chip" onclick="openInventoryModal('rituel')"><span>[R]</span> Ritüel Yapısı</a>
@@ -187,11 +150,9 @@
                 <h2>IRMS Katman Taksonomisi</h2>
                 <button class="close-modal" onclick="closeInventoryModal()">&times;</button>
             </div>
-            
             <div class="modal-search-bar">
-                <input type="text" id="modalSearchInput" class="search-input" placeholder="Kod veya kavram ara (Örn: R1.a veya Kurban)..." oninput="filterModalTaxonomy()">
+                <input type="text" id="modalSearchInput" class="search-input" placeholder="Mevcut katmanda dinamik ara..." oninput="filterModalTaxonomy()">
             </div>
-
             <div class="modal-tabs">
                 <button class="tab-btn" id="tab-inanc" onclick="switchModalLayer('inanc')">İnanç [I]</button>
                 <button class="tab-btn" id="tab-rituel" onclick="switchModalLayer('rituel')">Ritüel [R]</button>
@@ -209,160 +170,95 @@
     </footer>
 
     <script>
-        const GITHUB_USER = "inancrituelmekansembol"; 
-        const GITHUB_REPO = "IRMS-Methodology";
-        const DATA_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/arama.json`;
-
-        let dbMasterData = null; 
+        const GITHUB_BASE = "https://raw.githubusercontent.com/inancrituelmekansembol/IRMS-Methodology/main";
+        let dbMasterArama = null; 
 
         window.addEventListener('DOMContentLoaded', () => {
-            loadMasterDatabase();
+            loadSearchDatabase();
         });
 
-        function loadMasterDatabase() {
-            const container = document.getElementById('articles-showcase-container');
-            container.innerHTML = "<p style='color:#8A857E;'>Sistem veritabanı yükleniyor...</p>";
-
-            fetch(DATA_URL)
-                .then(res => {
-                    if(!res.ok) throw new Error();
-                    return res.json();
-                })
+        // 1. ADIM: ARAMA.JSON SADECE ANA EKRAN VE YAYINLAR İÇİN OKUNUR
+        function loadSearchDatabase() {
+            fetch(`${GITHUB_BASE}/arama.json`)
+                .then(res => res.json())
                 .then(data => {
-                    dbMasterData = data; 
-                    displayArticles(dbMasterData.yayinlar || []);
+                    dbMasterArama = data;
+                    displayArticles(data.yayinlar || []);
                 })
-                .catch(err => {
-                    console.error("Yükleme Hatası: ", err);
-                    container.innerHTML = `<p style='color:var(--accent); font-weight:bold;'>Hata: arama.json yüklenemedi.</p>`;
+                .catch(() => {
+                    document.getElementById('articles-showcase-container').innerHTML = "<p>arama.json yüklenemedi.</p>";
                 });
         }
 
         function displayArticles(articles) {
             const container = document.getElementById('articles-showcase-container');
             container.innerHTML = "";
-            
-            if (!articles || articles.length === 0) {
-                container.innerHTML = "<p style='color:#8A857E; grid-column: 1/-1; text-align:center;'>Eşleşen yayın bulunamadı.</p>";
-                return;
-            }
-
             articles.forEach(art => {
                 const card = document.createElement('div');
                 card.className = 'library-card';
-                
-                let webBtnText = "→ İncele";
-                if (art.url_web && art.url_web.includes('.html')) webBtnText = "🖥️ Raporu İncele";
-                else if (art.url_web && art.url_web.includes('doi.org')) webBtnText = "→ Zenodo Verisi";
-
-                const webLinkHtml = art.url_web ? `<a href="${art.url_web}" target="_blank" class="view-btn">${webBtnText}</a>` : '';
-                const pdfLinkHtml = art.url_pdf ? `<a href="${art.url_pdf}" target="_blank" class="view-btn pdf">📄 PDF Oku</a>` : '';
-
-                card.innerHTML = `
-                    <div>
-                        <div class="meta">${art.kategori || 'Genel'}</div>
-                        <h3>${art.baslik || 'Başlıksız'}</h3>
-                        <p>${art.ozet || ''}</p>
-                    </div>
-                    <div class="links-group" style="margin-top:20px;">
-                        ${webLinkHtml}
-                        ${pdfLinkHtml}
-                    </div>
-                `;
+                const webLinkHtml = art.url_web ? `<a href="${art.url_web}" target="_blank" class="view-btn"> İncele</a>` : '';
+                const pdfLinkHtml = art.url_pdf ? `<a href="${art.url_pdf}" target="_blank" class="view-btn pdf">📄 PDF</a>` : '';
+                card.innerHTML = `<div><div class="meta">${art.kategori}</div><h3>${art.baslik}</h3><p>${art.ozet}</p></div><div class="links-group">${webLinkHtml}${pdfLinkHtml}</div>`;
                 container.appendChild(card);
             });
         }
 
         function filterArticles() {
             const query = document.getElementById('mainSearchInput').value.toLowerCase().trim();
-            if (!dbMasterData || !dbMasterData.yayinlar) return;
-
-            const filtered = dbMasterData.yayinlar.filter(art => {
-                return (art.baslik || "").toLowerCase().includes(query) || 
-                       (art.ozet || "").toLowerCase().includes(query) || 
-                       (art.kategori || "").toLowerCase().includes(query);
-            });
+            if (!dbMasterArama || !dbMasterArama.yayinlar) return;
+            const filtered = dbMasterArama.yayinlar.filter(art => art.baslik.toLowerCase().includes(query) || art.ozet.toLowerCase().includes(query));
             displayArticles(filtered);
         }
 
-        function filterModalTaxonomy() {
-            const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                let itemMatch = false;
-                item.querySelectorAll('.tree-branch').forEach(branch => {
-                    let branchMatch = false;
-                    branch.querySelectorAll('.leaf-node').forEach(leaf => {
-                        if (leaf.textContent.toLowerCase().includes(query)) {
-                            leaf.style.display = 'flex';
-                            branchMatch = true;
-                        } else { leaf.style.display = 'none'; }
-                    });
-                    if (branch.querySelector('.branch-header').textContent.toLowerCase().includes(query) || branchMatch) {
-                        branch.style.display = 'block';
-                        if(query !== "") branch.classList.add('branch-open');
-                        itemMatch = true;
-                    } else { branch.style.display = 'none'; branch.classList.remove('branch-open'); }
-                });
-                if (item.querySelector('.accordion-header').textContent.toLowerCase().includes(query) || itemMatch) {
-                    item.style.display = 'block';
-                    if(query !== "") item.classList.add('open');
-                } else { item.style.display = 'none'; item.classList.remove('open'); }
-            });
-        }
-
-        function openInventoryModal(layerKey) {
-            document.getElementById('inventoryModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            switchModalLayer(layerKey);
-        }
-        function closeInventoryModal() {
-            document.getElementById('inventoryModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        function closeInventoryModalOutside(event) { if (event.target.id === 'inventoryModal') closeInventoryModal(); }
-
-        // DÜZELTİLEN ANA MOTOR KISMI
+        // 2. ADIM: SEKME DEĞİŞİNCE HER KATMANIN KENDİ BAĞIMSIZ DOSYASI ÇAĞRILIR (.json uzantısıyla)
         function switchModalLayer(layerKey) {
-            // Önce sekme boyamalarını her koşulda sıfırla ve yenisini aktifleştir
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            const activeTab = document.getElementById('tab-' + layerKey);
-            if(activeTab) activeTab.classList.add('active');
+            if(document.getElementById('tab-' + layerKey)) document.getElementById('tab-' + layerKey).classList.add('active');
             
-            document.getElementById('modalSearchInput').value = "";
+            const container = document.getElementById('modal-accordion-container');
+            container.innerHTML = "<p style='color:#8A857E;'>Orijinal katman hiyerarşisi yükleniyor...</p>";
+
+            // DOĞRUDAN ILGILI KATMANIN TAM JSON DOSYASINA GİDİYORUZ
+            fetch(`${GITHUB_BASE}/${layerKey}.json`)
+                .then(res => {
+                    if(!res.ok) throw new Error();
+                    return res.json();
+                })
+                .then(data => {
+                    renderHierarchicalTaxonomy(data);
+                })
+                .catch(() => {
+                    container.innerHTML = `<p style='color:var(--accent); text-align:center; padding:20px;'>${layerKey}.json dökümanı bulunamadı veya içi boş.</p>`;
+                });
+        }
+
+        // GERÇEK HİYERARŞİYİ KORUYAN RENDER MOTORU
+        function renderHierarchicalTaxonomy(data) {
             const container = document.getElementById('modal-accordion-container');
             container.innerHTML = "";
 
-            if(!dbMasterData || !dbMasterData.taksonomi) {
-                container.innerHTML = "<p style='text-align:center; color:var(--accent);'>Hata: Master veri henüz yüklenemedi.</p>";
-                return;
-            }
-            
-            // Eğer katman dizide yoksa veya içi boşsa güvenli duruş sağla
-            const data = dbMasterData.taksonomi[layerKey] || [];
-            
-            if(data.length === 0) {
-                container.innerHTML = `<p style='text-align:center; color:#8A857E; font-size:14px; padding:40px;'>[${layerKey.toUpperCase()}] katmanına ait hiyerarşik veri dökümü şu an boş.</p>`;
+            if(!data || data.length === 0) {
+                container.innerHTML = "<p style='text-align:center; color:#8A857E;'>Veri yok.</p>";
                 return;
             }
 
-            // Hiyerarşik Döngü Motoru (JSON Nesnesindeki array yapılarını tam eşler)
             data.forEach(item => {
                 const accordionItem = document.createElement('div');
                 accordionItem.className = 'accordion-item';
                 
                 let branchesHtml = '';
-                if(item.branches && Array.isArray(item.branches)) {
+                if(item.branches) {
                     item.branches.forEach(branch => {
                         let leavesHtml = '';
-                        if(branch.leaves && Array.isArray(branch.leaves)) {
+                        if(branch.leaves) {
                             branch.leaves.forEach(leaf => {
-                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id || ''}</strong> <span>${leaf.desc || ''}</span></div>`;
+                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong> <span>${leaf.desc}</span></div>`;
                             });
                         }
                         branchesHtml += `
                             <div class="tree-branch">
                                 <div class="branch-header" onclick="toggleBranch(this, event)">
-                                    <div><code>${branch.subcode || ''}</code> ${branch.subtitle || ''}</div>
+                                    <div><code>${branch.subcode}</code> ${branch.subtitle}</div>
                                     <div class="branch-icon">▼</div>
                                 </div>
                                 <div class="branch-body">${leavesHtml}</div>
@@ -373,7 +269,7 @@
 
                 accordionItem.innerHTML = `
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div><code>${item.code || ''}</code> ${item.title || ''}</div>
+                        <div><code>${item.code}</code> ${item.title}</div>
                         <div class="accordion-icon">▼</div>
                     </div>
                     <div class="accordion-body">${branchesHtml}</div>
@@ -382,15 +278,35 @@
             });
         }
 
-        function toggleAccordion(headerElement) {
-            const currentItem = headerElement.parentElement;
-            currentItem.classList.toggle('open');
+        function filterModalTaxonomy() {
+            const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                let itemMatch = false;
+                item.querySelectorAll('.tree-branch').forEach(branch => {
+                    let branchMatch = false;
+                    branch.querySelectorAll('.leaf-node').forEach(leaf => {
+                        if (leaf.textContent.toLowerCase().includes(query)) { leaf.style.display = 'flex'; branchMatch = true; } 
+                        else { leaf.style.display = 'none'; }
+                    });
+                    if (branch.querySelector('.branch-header').textContent.toLowerCase().includes(query) || branchMatch) {
+                        branch.style.display = 'block'; if(query !== "") branch.classList.add('branch-open'); itemMatch = true;
+                    } else { branch.style.display = 'none'; branch.classList.remove('branch-open'); }
+                });
+                if (item.querySelector('.accordion-header').textContent.toLowerCase().includes(query) || itemMatch) {
+                    item.style.display = 'block'; if(query !== "") item.classList.add('open');
+                } else { item.style.display = 'none'; item.classList.remove('open'); }
+            });
         }
-        function toggleBranch(branchHeaderElement, event) {
-            event.stopPropagation();
-            const currentBranch = branchHeaderElement.parentElement;
-            currentBranch.classList.toggle('branch-open');
+
+        function openInventoryModal(layerKey) {
+            document.getElementById('inventoryModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            switchModalLayer(layerKey);
         }
+        function closeInventoryModal() { document.getElementById('inventoryModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function closeInventoryModalOutside(event) { if (event.target.id === 'inventoryModal') closeInventoryModal(); }
+        function toggleAccordion(header) { header.parentElement.classList.toggle('open'); }
+        function toggleBranch(header, e) { e.stopPropagation(); header.parentElement.classList.toggle('branch-open'); }
     </script>
 </body>
 </html>
