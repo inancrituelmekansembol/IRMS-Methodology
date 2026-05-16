@@ -1,0 +1,38 @@
+{
+  "yayinlar": [
+    {
+      "kategori": "Akademik Yayın / Metodoloji",
+      "baslik": "IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)",
+      "ozet": "Şengül, A. (2026). Metodolojinin matematiksel altyapısını kuran ana döküman.",
+      "url_web": "https://doi.org/10.5281/zenodo.20179300",
+      "url_pdf": "docs/irms-kavramsal-cerceve-v1.pdf"
+    },
+    {
+      "kategori": "Uygulama / Vaka Analizi",
+      "baslik": "Sayburç Neolitik Kabartmaları Analiz Raporu",
+      "ozet": "Sayburç açık hava sunağında yer alan figürlerin tam IRMS-U kodlama çıktısı.",
+      "url_web": "examples/sayburc-analiz.html",
+      "url_pdf": "docs/sayburc-report.pdf"
+    }
+  ],
+  "taksonomi": {
+    "inanc": [
+      {
+        "code": "I1", "title": "Kozmolojik Temeller",
+        "branches": [
+          { "subcode": "I1.a", "subtitle": "Aşkın Boyut", "leaves": [{ "id": "I1.a.1", "desc": "Tek Tanrılı Yapılar" }] }
+        ]
+      }
+    ],
+    "rituel": [
+      {
+        "code": "R1", "title": "Kurban ve Takdimeler",
+        "branches": [
+          { "subcode": "R1.a", "subtitle": "Kanlı Kurbanlar", "leaves": [{ "id": "R1.a.1", "desc": "Büyükbaş / Küçükbaş Kesimi" }] }
+        ]
+      }
+    ],
+    "mekan": [],
+    "sembol": []
+  }
+}
