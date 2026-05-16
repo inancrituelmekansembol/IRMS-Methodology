@@ -55,13 +55,12 @@
         .layer-btn:hover { border-color: var(--accent); color: var(--accent); }
         .layer-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
 
-        /* DİNAMİK HİYERARŞİK ALAN VE AKORDEON */
+        /* DİNAMİK HİYERARŞİK ALAN VE ÇOK KATMANLI AKORDEON */
         .layer-display-section { padding: 40px 0; background: var(--white); border-bottom: 1px solid var(--border); min-height: 400px; }
         
-        /* Akordeon Kapsayıcı Kart */
+        /* 1. SEVİYE: ANA BAŞLIKLAR (I0, I1 vb.) */
         .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
         
-        /* Akordeon Başlığı (Tıklanan Kısım) */
         .accordion-header { 
             padding: 16px 20px; 
             background: var(--bg); 
@@ -73,27 +72,65 @@
             justify-content: space-between; 
             align-items: center; 
             user-select: none; 
-            transition: background 0.2s; 
         }
         .accordion-header:hover { background: var(--code); }
-        .accordion-header code { font-family: monospace; background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 12px; }
-        .accordion-icon { font-size: 14px; color: var(--accent); transition: transform 0.2s; }
+        .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 12px; }
+        .accordion-icon { font-size: 12px; color: var(--text); transition: transform 0.2s; }
         
-        /* Akordeon Gövdesi (Gizli Bölüm) */
         .accordion-body { display: none; padding: 20px; border-top: 1px solid var(--border); background: var(--white); }
         
-        /* Aktiflik Durumu */
-        .accordion-item.open .accordion-body { display: block; animation: slideDown 0.2s ease; }
-        .accordion-item.open .accordion-icon { transform: rotate(180deg); }
+        /* 1. Seviye Açılma Durumu */
+        .accordion-item.open > .accordion-body { display: block; animation: slideDown 0.2s ease; }
+        .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
+        .accordion-item.open > .accordion-header code { background: var(--accent); }
 
-        /* Hiyerarşik Ağaç Çizgileri */
-        .tree-branch { border-left: 2px dashed var(--border); margin-left: 10px; padding-left: 20px; margin-bottom: 24px; }
+        /* 2. SEVİYE: ALT DALLAR (I0.a, I0.b vb.) */
+        .tree-branch { 
+            border: 1px solid var(--border); 
+            border-left: 4px solid var(--border);
+            border-radius: 4px; 
+            margin-bottom: 12px; 
+            background: var(--white);
+        }
         .tree-branch:last-child { margin-bottom: 0; }
-        .branch-title { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
-        .branch-title code { background: var(--code); color: var(--text); padding: 2px 6px; font-size: 13px; border-radius: 4px; font-family: monospace; }
         
-        .leaf-node { background: var(--bg); padding: 10px 14px; border-radius: 6px; margin-bottom: 8px; border: 1px solid var(--border); font-size: 14px; }
-        .leaf-node strong { font-family: monospace; background: var(--stone); padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
+        .branch-header { 
+            padding: 12px 16px; 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 15px; 
+            font-weight: 700; 
+            color: var(--text); 
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .branch-header:hover { background: var(--bg); }
+        .branch-header code { background: var(--code); color: var(--text); padding: 2px 6px; font-size: 13px; border-radius: 4px; font-family: monospace; margin-right: 8px; }
+        .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
+
+        .branch-body { display: none; padding: 12px 16px; background: var(--bg); border-top: 1px solid var(--border); }
+
+        /* 2. Seviye Açılma Durumu */
+        .tree-branch.branch-open { border-left-color: var(--accent); }
+        .tree-branch.branch-open > .branch-body { display: block; animation: slideDown 0.15s ease; }
+        .tree-branch.branch-open > .branch-header { color: var(--accent); }
+        .tree-branch.branch-open > .branch-header .branch-icon { transform: rotate(180deg); color: var(--accent); }
+
+        /* 3. SEVİYE: EN ALT YAPRAKLAR (I0.a1, I0.a2 vb.) */
+        .leaf-node { 
+            background: var(--white); 
+            padding: 10px 14px; 
+            border-radius: 4px; 
+            margin-bottom: 8px; 
+            border: 1px solid var(--border); 
+            font-size: 14px; 
+            display: flex;
+            align-items: flex-start;
+        }
+        .leaf-node:last-child { margin-bottom: 0; }
+        .leaf-node strong { font-family: monospace; background: var(--stone); color: var(--text); padding: 1px 6px; border-radius: 3px; margin-right: 12px; font-size: 13px; flex-shrink: 0; }
 
         /* KÜTÜPHANE VE DÖKÜMANLAR */
         .section { padding: 60px 0; }
@@ -135,7 +172,7 @@
         <section class="hero">
             <div class="container">
                 <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>IRMS hiyerarşik envanter ağacını incelemek için aşağıdaki katman butonlarını kullanın. Ana başlıkların üzerine tıklayarak alt kod kırılımlarını açabilirsiniz.</p>
+                <p>İncelemek istediğiniz katmanı seçin. Önce ana sınıflar açılır, ardından alt kırılımlara ve spesifik kodlara hiyerarşik olarak erişebilirsiniz.</p>
             </div>
         </section>
 
@@ -190,50 +227,53 @@
     </footer>
 
     <script>
-        // Sayfa ilk yüklendiğinde otomatik olarak İnanç katmanını çek
         window.addEventListener('DOMContentLoaded', () => {
             loadLayerData('inanc.json', 'btn-inanc');
         });
 
-        // Belirtilen JSON dosyasını çekip ekrana basan ana fonksiyon
         function loadLayerData(jsonFile, activeBtnId) {
-            // Butonların aktiflik durumunu güncelle
             document.querySelectorAll('.layer-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(activeBtnId).classList.add('active');
 
             const container = document.getElementById('dynamic-accordion-container');
             container.innerHTML = "<p style='text-align:center; color:#8A857E;'>Katman verileri yükleniyor...</p>";
 
-            // JSON Dosyasını oku
             fetch(jsonFile)
                 .then(response => {
                     if (!response.ok) throw new Error("JSON dosyası bulunamadı.");
                     return response.json();
                 })
                 .then(data => {
-                    container.innerHTML = ""; // Yükleniyor yazısını temizle
+                    container.innerHTML = ""; 
 
-                    // JSON'daki her ana başlık (I0, I1 vs.) için bir akordeon oluştur
                     data.forEach(item => {
                         const accordionItem = document.createElement('div');
                         accordionItem.className = 'accordion-item';
 
-                        // Başlık Bölümü (Görünen Kısım)
+                        // 2. Seviye Alt Dalları (I0.a, I0.b) kurguluyoruz
                         let branchesHtml = '';
                         item.branches.forEach(branch => {
+                            
+                            // 3. Seviye En Alt Yaprakları (I0.a1, I0.a2) kurguluyoruz
                             let leavesHtml = '';
                             branch.leaves.forEach(leaf => {
-                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong>${leaf.desc}</div>`;
+                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong> <span>${leaf.desc}</span></div>`;
                             });
 
                             branchesHtml += `
                                 <div class="tree-branch">
-                                    <div class="branch-title"><code>${branch.subcode}</code> ${branch.subtitle}</div>
-                                    ${leavesHtml}
+                                    <div class="branch-header" onclick="toggleBranch(this, event)">
+                                        <div><code>${branch.subcode}</code> ${branch.subtitle}</div>
+                                        <div class="branch-icon">▼</div>
+                                    </div>
+                                    <div class="branch-body">
+                                        ${leavesHtml}
+                                    </div>
                                 </div>
                             `;
                         });
 
+                        // 1. Seviye Ana Gövdeyi Birleştiriyoruz
                         accordionItem.innerHTML = `
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 <div><code>${item.code}</code> ${item.title}</div>
@@ -251,18 +291,30 @@
                 });
         }
 
-        // Akordeon açma-kapama fonksiyonu
+        // 1. Seviye Açma-Kapama Fonksiyonu (I0, I1 vb.)
         function toggleAccordion(headerElement) {
             const currentItem = headerElement.parentElement;
             const isOpen = currentItem.classList.contains('open');
             
-            // İsteğe bağlı: Diğer açık akordeonları kapatmak isterseniz alttaki iki satırı aktif edin
-            // document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('open'));
-
             if (!isOpen) {
                 currentItem.classList.add('open');
             } else {
                 currentItem.classList.remove('open');
+                // Ana dal kapanırken altındaki açık alt dalları da otomatik temizle (şık dursun)
+                currentItem.querySelectorAll('.tree-branch').forEach(b => b.classList.remove('branch-open'));
+            }
+        }
+
+        // 2. Seviye Açma-Kapama Fonksiyonu (I0.a, I0.b vb.)
+        function toggleBranch(branchHeaderElement, event) {
+            event.stopPropagation(); // Tıklama olayının üst akordeonu tetiklemesini engeller
+            const currentBranch = branchHeaderElement.parentElement;
+            const isBranchOpen = currentBranch.classList.contains('branch-open');
+
+            if (!isBranchOpen) {
+                currentBranch.classList.add('branch-open');
+            } else {
+                currentBranch.classList.remove('branch-open');
             }
         }
     </script>
