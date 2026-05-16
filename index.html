@@ -12,61 +12,82 @@
         :root {
             --bg: #F7F5F2; --text: #2D2A26; --accent: #A4492F; 
             --stone: #D9D5D0; --code: #EAE7E2; --border: #C9C5C0;
+            --white: #FFFFFF;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        header { border-bottom: 1px solid var(--border); padding: 20px 0; position: sticky; top: 0; background: rgba(247,245,242,0.95); backdrop-filter: blur(8px); z-index: 10; }
+        
+        /* Ana Header */
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; background: var(--bg); }
         nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; }
         .logo span { color: var(--accent); }
         nav a { text-decoration: none; color: var(--text); margin-left: 20px; font-weight: 500; font-size: 15px; }
         nav a:hover { color: var(--accent); }
-        .hero { padding: 70px 0; text-align: center; }
-        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.1; margin-bottom: 16px; }
-        .subtitle { font-size: 19px; color: #5E5A54; margin-bottom: 32px; max-width: 700px; margin: 0 auto 32px; }
-        .badges img { margin: 0 4px; }
-        .principle { font-family: 'Space Grotesk', sans-serif; font-size: 17px; margin-top: 40px; padding: 16px 20px; background: var(--code); border-left: 3px solid var(--accent); display: inline-block; }
-        .section { padding: 70px 0; }
-        .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; text-align: center; margin-bottom: 40px; }
-        .demo { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        .code-block { background: var(--text); color: var(--bg); padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto; margin: 16px 0; }
-        .code-comment { color: #8A857E; }
+
+        /* İlk Görünüm: Temel Mantık Paneli */
+        .hero { padding: 80px 0 60px 0; max-width: 800px; margin: 0 auto; text-align: center; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.2; margin-bottom: 24px; }
+        .core-philosophy { text-align: left; background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 8px; margin-bottom: 32px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .core-philosophy p { margin-bottom: 16px; font-size: 16px; color: #4A4640; }
+        .core-philosophy p:last-child { margin-bottom: 0; }
+        .principle-badge { font-family: 'Space Grotesk', sans-serif; font-size: 16px; padding: 12px 20px; background: var(--code); border-left: 4px solid var(--accent); display: inline-block; margin-top: 12px; font-weight: 700; }
+
+        /* Sabit Katmanlar Menüsü (Sticky Navigation) */
+        .sticky-layer-nav { position: sticky; top: 0; background: rgba(247,245,242,0.96); backdrop-filter: blur(8px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); z-index: 100; padding: 12px 0; }
+        .layer-buttons { display: flex; justify-content: center; gap: 12px; }
+        .layer-btn { font-family: 'Space Grotesk', sans-serif; background: var(--white); border: 1px solid var(--border); padding: 12px 24px; font-size: 16px; font-weight: 700; cursor: pointer; border-radius: 6px; transition: all 0.2s ease; color: var(--text); }
+        .layer-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .layer-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+        /* Dinamik Katman İçerik Alanı */
+        .layer-display-section { padding: 60px 0; background: var(--white); border-bottom: 1px solid var(--border); }
+        .layer-content { display: none; }
+        .layer-content.active { display: block; animation: fadeIn 0.4s ease; }
+        .layer-header { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
+        .layer-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; }
+        .layer-header .tag { background: var(--accent); color: white; padding: 4px 12px; font-weight: 700; border-radius: 4px; font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Grid ve Kart Yapıları */
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
-        .card h3 { font-family: 'Space Grotesk', sans-serif; margin-bottom: 12px; color: var(--accent); font-size: 18px; }
-        .card p { font-size: 15px; color: #5E5A54; }
-        .card code { background: var(--code); padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+        .card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; margin-bottom: 12px; color: var(--accent); font-size: 18px; display: flex; justify-content: space-between; }
+        .card h3 span { font-family: monospace; background: var(--stone); color: var(--text); padding: 2px 6px; font-size: 13px; border-radius: 3px; }
+        .card p { font-size: 14px; color: #5E5A54; }
+        
+        /* Sabit Diğer Alanlar */
+        .section { padding: 60px 0; }
+        .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; text-align: center; margin-bottom: 40px; }
         table { width: 100%; border-collapse: collapse; margin: 30px 0; background: #fff; }
         th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
         th { font-family: 'Space Grotesk', sans-serif; background: var(--code); font-size: 15px; }
         td { font-size: 14px; }
-        td code { font-size: 13px; }
-        .epsilon { background: var(--code); border: 1px dashed var(--accent); padding: 32px; border-radius: 8px; text-align: center; margin: 50px 0; }
-        .btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; margin-top: 12px; }
-        .btn:hover { opacity: 0.9; }
+        
+        .badges { margin-top: 24px; text-align: center; }
+        .badges img { margin: 0 4px; }
         footer { background: var(--text); color: var(--bg); padding: 40px 0; text-align: center; font-size: 14px; }
-        footer a { color: var(--bg); text-decoration: underline; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
-            .demo-grid { grid-template-columns: 1fr; }
-            nav a { margin-left: 10px; font-size: 14px; }
+            .layer-buttons { flex-direction: column; gap: 6px; padding: 0 20px; }
+            .layer-header { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container">
             <nav>
                 <div class="logo">IRMS<span>.</span></div>
                 <div>
-                    <a href="#demo">Dene</a>
-                    <a href="#katmanlar">Katmanlar</a>
-                    <a href="#ornekler">Örnekler</a>
-                    <a href="#makaleler">Makaleler</a>
-                    <a href="#topluluk">Topluluk</a>
+                    <a href="#katmanlar-anchor">Katman Envanteri</a>
+                    <a href="#moduller">Aktif Modüller</a>
                     <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
                 </div>
             </nav>
@@ -77,222 +98,196 @@
         <section class="hero">
             <div class="container">
                 <h1>Göbeklitepe ile Ayasofya'yı<br>Aynı Skalada Ölç</h1>
-                <p class="subtitle">IRMS, kültürel miras ve inanç sistemlerini <b>İnanç, Ritüel, Mekân, Sembol</b> katmanlarında standartlaştıran evrensel bir ölçüm metodolojisidir.</p>
-                <div class="badges">
+                
+                <div class="core-philosophy">
+                    <p><b>IRMS (Integrated Representation Measurement System);</b> insanlık tarihinin ürettiği tüm somut ve somut olmayan kültürel miras objelerini, anıtları ve anlatı omurgalarını ortak bir matematiksel düzlemde dökümante etmek için geliştirilmiş evrensel bir otorite kontrol ve ölçüm sistemidir.</p>
+                    <p>Metodolojinin temel amacı, bir sanat objesinin veya arkeolojik buluntunun arkasındaki soyut dünyayı birbiri üzerine binmeyen (non-overlapping) dört temel katmana ayırmaktır: <b>İnanç, Ritüel, Mekân ve Sembol</b>. Bu sayede MÖ 9000 yılına ait bir Sayburç kabartması ile MS 537 yılına ait bir Ayasofya kubbesi, aynı taksonomik dille analiz edilebilir ve kıyaslanabilir hale gelir.</p>
+                    <p>Sistem, ürettiği formüllerde her zaman bir hata veya eksiklik payı (ε - Epsilon) bırakır. Çünkü kadim sembollerin zihnimizdeki karşılığı hiçbir zaman tam olarak kapatılamaz.</p>
+                    
+                    <div class="principle-badge">IRMS &lt; 1 — Boşluk hata değil, bir sonraki araştırma rotasıdır.</div>
+                </div>
+
+                <div class="badges" id="katmanlar-anchor">
                     <a href="https://doi.org/10.5281/zenodo.20179300"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20179300.svg" alt="DOI"></a>
                     <a href="https://creativecommons.org/licenses/by-nd/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--ND_4.0-lightgrey.svg" alt="License"></a>
                 </div>
-                <div class="principle">IRMS < 1 — Boşluk hata değil, bir sonraki araştırma rotasıdır.</div>
             </div>
         </section>
 
-        <section class="section demo" id="demo">
-            <div class="container">
-                <h2>30 Saniyede Dene</h2>
-                <div class="demo-grid">
-                    <div>
-                        <h3>Girdi: Sayburç Kabartması</h3>
-                        <p style="margin-bottom:16px; color:#5E5A54;">Neolitik dönem, ~MÖ 9000. Fallus tutan erkek + leoparlar + şaman figürü.</p>
-                        <div class="code-block">
-<span class="code-comment"># IRMS-O Kaydı</span><br>
-cat examples/sayburc.md
-                        </div>
-                        <a href="./examples/sayburc.md" class="btn">Tam Analizi Oku</a>
-                    </div>
-                    <div>
-                        <h3>Çıktı: IRMS-U Skoru</h3>
-                        <div class="code-block">
-I3.b2 | I4.b3 | R6.b | R7 | M2.c1 | M5.d<br>
-F1.a3 | S4.b | Σ2.b | Σ9.b<br>
-IRMS-U: 0.73 | ε: 0.27 | U9.b | P1.c2→L05
-                        </div>
-                        <p style="color:#5E5A54;"><b>Yorum:</b> Kurucu ata miti. Kozmik düzeni kuran şamanik-panteonik melez. ε=0.27 → "Altı parmak" yoruma açık.</p>
-                    </div>
-                </div>
+        <div class="sticky-layer-nav">
+            <div class="layer-buttons">
+                <button class="layer-btn active" onclick="switchLayer('inanc')">İnanç [I]</button>
+                <button class="layer-btn" onclick="switchLayer('rituel')">Ritüel [R]</button>
+                <button class="layer-btn" onclick="switchLayer('mekan')">Mekân [M]</button>
+                <button class="layer-btn" onclick="switchLayer('sembol')">Sembol [S]</button>
             </div>
-        </section>
+        </div>
 
-        <section class="section" id="katmanlar">
+        <section class="layer-display-section">
             <div class="container">
-                <h2>Dört Katmanlı Evren</h2>
-                <p style="text-align:center; color:#5E5A54; margin-bottom:40px;">Her kültürel temsil bu 4 katmanda kodlanır. Overlap yasak.</p>
                 
-                <div class="grid-4">
-                    <div class="card">
-                        <h3>İnanç I</h3>
-                        <p>Tanrı, ruh, kozmoloji, ölüm-ötesi. Sistemin "neden" sorusu.</p>
-                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
-                        <code>I1</code> Doğa Ruhu<br>
-                        <code>I2</code> Yaratıcı Tanrı<br>
-                        <code>I3</code> Yeraltı/Geçiş<br>
-                        <code>I4</code> Bereket<br>
-                        <code>I9</code> Melez Sistem</p>
+                <div id="inanc" class="layer-content active">
+                    <div class="layer-header">
+                        <h2>İnanç Katmanı Ana Başlıkları</h2>
+                        <span class="tag">Katman I</span>
                     </div>
-                    <div class="card">
-                        <h3>Ritüel R</h3>
-                        <p>Kurban, inisiyasyon, festival, arınma. İnancın "nasıl" yaşandığı.</p>
-                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
-                        <code>R2</code> Festival<br>
-                        <code>R3</code> Kurban/Sunu<br>
-                        <code>R6</code> Kozmik Düzen<br>
-                        <code>R7</code> İnisiyasyon<br>
-                        <code>R8</code> Korunma</p>
-                    </div>
-                    <div class="card">
-                        <h3>Mekân M</h3>
-                        <p>Tapınak, sunak, mağara, kutsal coğrafya. Ritüelin "nerede" gerçekleştiği.</p>
-                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
-                        <code>M1</code> Mağara/Ata Mekân<br>
-                        <code>M2</code> Açık Hava Sunağı<br>
-                        <code>M3</code> Hac/Yürüyüş Yolu<br>
-                        <code>M5</code> Kozmik Hizalama<br>
-                        <code>M6</code> Konsey/Danışma</p>
-                    </div>
-                    <div class="card">
-                        <h3>Sembol S</h3>
-                        <p>Form + Yapı + Anlam. Görünen yüz.</p>
-                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
-                        <code>F1</code> İnsan Figürü<br>
-                        <code>S4</code> Kompozisyon<br>
-                        <code>Σ2</code> Yaşam Döngüsü<br>
-                        <code>Σ3</code> Statü/Güç<br>
-                        <code>Σ9</code> Anomali/Belirsiz</p>
+                    <p style="color:#5E5A54; margin-bottom:24px;">Kültürel temsili üreten topluluğun kozmolojisini, tanrı algısını ve ölüm ötesi dünyasını kodlar. Sistemin "Neden?" sorusuna yanıt verir.</p>
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3>Doğa Ruhları & Animizm <span>I1</span></h3>
+                            <p>Kutsallaştırılmış doğa elementleri, hayvan ruhları, ongunlar ve şamanik kökenli ilk inanç katmanları.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Yaratıcı Panteon / Tek Tanrı <span>I2</span></h3>
+                            <p>Kozmosu düzenleyen, mutlak otorite sahibi baş ilahlar veya monoteist inanç sistemlerinin merkez tasvirleri.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Yeraltı & Geçiş Kültleri <span>I3</span></h3>
+                            <p>Ölümden sonraki yaşam, ruhların yargılanması, ceza/ödül mekanizmaları ve yeraltı dünyası rehberleri.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Bereket & Çoğalma Kültleri <span>I4</span></h3>
+                            <p>Toprak ana, mevsimsel döngüler, tarımsal bolluk ve üremeyi kutsayan ilahi yapılar.</p>
+                        </div>
                     </div>
                 </div>
 
-                <table style="margin-top:50px;">
+                <div id="rituel" class="layer-content">
+                    <div class="layer-header">
+                        <h2>Ritüel Katmanı Ana Başlıkları</h2>
+                        <span class="tag">Katman R</span>
+                    </div>
+                    <p style="color:#5E5A54; margin-bottom:24px;">Soyut inancın pratik dünyada nasıl eyleme döküldüğünü kodlar. Koreografi, zamanlama ve adak süreçlerini kapsar.</p>
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3>Adak & Sunu Eylemleri <span>R1</span></h3>
+                            <p>Kutsal güce şükran veya istek bildirmek amacıyla bırakılan votive nesneler ve kansız sunu ritüelleri.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Mevsimsel Festivaller & Bayramlar <span>R2</span></h3>
+                            <p>Kolektif bellek takvimine göre belirli günlerde tekrarlanan komünal kutlamalar ve törenler.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Kurban Ritüelleri (Sacrificium) <span>R3</span></h3>
+                            <p>Kozmik dengeyi korumak veya kefaret ödemek için icra edilen kanlı kurban koreografileri.</p>
+                        </div>
+                        <div class="card">
+                            <h3>İnisiyasyon / Geçiş Törenleri <span>R7</span></h3>
+                            <p>Bireyin toplumda statü değiştirdiği (çocukluktan erginliğe, şamanlığa geçiş vb.) ölüme meydan okuyan eşik ritüelleri.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mekan" class="layer-content">
+                    <div class="layer-header">
+                        <h2>Mekân Katmanı Ana Başlıkları</h2>
+                        <span class="tag">Katman M</span>
+                    </div>
+                    <p style="color:#5E5A54; margin-bottom:24px;">Ritüelin hayat bulduğu coğrafi, mimari veya metafiziksel alanları kodlar. Sınırları ve hizalamaları belirler.</p>
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3>Mağaralar & Ata Mekânları <span>M1</span></h3>
+                            <p>Yeraltı dünyasıyla temas kurulan ilk liminal alanlar, derin mağara nişleri ve korunaklı ata sığınakları.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Açık Hava Sunakları & Megalitler <span>M2</span></h3>
+                            <p>Doğrudan gökyüzüne açık, dairesel veya anıtsal olarak inşa edilmiş merkezi ritüel alanları (Örn: Göbeklitepe T-Sütun alanları).</p>
+                        </div>
+                        <div class="card">
+                            <h3>Hac & Kutsal Yürüyüş Yolları <span>M3</span></h3>
+                            <p>Doğrusal bir hat üzerinde ilerleyen, istasyonları olan ve belirli bir kutsal merkeze varan rotalar.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Kozmik Hizalama & Astronomik Mekân <span>M5</span></h3>
+                            <p>Gündönümleri, ekinokslar veya yıldız konumlarına göre matematiksel olarak yönlendirilmiş mimari yapılar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sembol" class="layer-content">
+                    <div class="layer-header">
+                        <h2>Sembol ve Form Katmanı Ana Başlıkları</h2>
+                        <span class="tag">Katman S / Σ</span>
+                    </div>
+                    <p style="color:#5E5A54; margin-bottom:24px;">Objenin veya kabartmanın görünen morfolojik yapısını, ikonografik formunu ve semantik anlam yükünü kodlar.</p>
+                    <div class="grid-2">
+                        <div class="card">
+                            <h3>Tam İnsan Figürasyonu <span>F1.a</span></h3>
+                            <p>Anatomik bütünlüğü bozulmamış, uzuvları tam olarak temsil edilen statik veya dinamik insan tasvirleri.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Hayvan Figürasyonları <span>F1.g</span></h3>
+                            <p>Toynaklılar, pençeli yırtıcılar veya kuşlar gibi inanç envanterinde yer alan fauna tasvirleri.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Karmaşık Kompozisyonlar <span>S4</span></h3>
+                            <p>Birden fazla aktörün, hayvanın ve sembolün tek bir sahnede bir araya gelerek oluşturduğu anlatı omurgaları.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Durum & Statü Göstergeleri <span>Σ3</span></h3>
+                            <p>Taht, taç, asa, giysi formları gibi figürün toplumsal veya ilahi hiyerarşideki yerini ilan eden amblemler.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section" id="moduller">
+            <div class="container">
+                <h2>Aktif Uygulama Modülleri</h2>
+                <p style="text-align:center; color:#5E5A54; margin-bottom:20px;">GitHub deponuzda doğrulanmış ve dökümantasyonu tamamlanmış aktif sınıflar.</p>
+                <table>
                     <thead>
                         <tr>
-                            <th>Modül</th>
-                            <th>Açıklama</th>
+                            <th>Modül Kodu</th>
+                            <th>Açıklama / Tipoloji</th>
                             <th>Durum</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="./F1.a%20-%20TAM%20İNSAN%20FİGÜRÜ.md">F1.a Tam İnsan</a></td>
-                            <td>Baş, gövde, kol, bacak bütünlüğü</td>
+                            <td><a href="./F1.a%20-%20TAM%20İNSAN%20FİGÜRÜ.md" style="color:var(--accent); font-weight:500;">F1.a</a></td>
+                            <td>Tam İnsan Figürü (Full Figure Başlığı)</td>
+                            <td>✅ Aktif / Otorite Onaylı</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./F1-a1-Statik-Tam-Insan-Figuru.md" style="color:var(--accent); font-weight:500;">F1.a1</a></td>
+                            <td>Statik / Ayakta Durağan Figürler İndeksi</td>
                             <td>✅ Aktif</td>
                         </tr>
                         <tr>
-                            <td><a href="./F1-a1-Statik-Tam-Insan-Figuru.md">F1.a1 Statik</a></td>
-                            <td>Ayakta, durağan postür</td>
+                            <td><a href="./F1.a2%20Hareketli%20-%20Dinamik.md" style="color:var(--accent); font-weight:500;">F1.a2</a></td>
+                            <td>Dinamik / Hareketli Ritüel Postürleri Arşivi</td>
                             <td>✅ Aktif</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./F1.a2%20Hareketli%20-%20Dinamik.md">F1.a2 Dinamik</a></td>
-                            <td>Hareketli, ritüel postür</td>
-                            <td>✅ Aktif</td>
-                        </tr>
-                        <tr>
-                            <td>I-Kodları</td>
-                            <td>İnanç katmanı ana liste</td>
-                            <td>⏳ Yakında</td>
-                        </tr>
-                        <tr>
-                            <td>R-Kodları</td>
-                            <td>Ritüel katmanı ana liste</td>
-                            <td>⏳ Yakında</td>
-                        </tr>
-                        <tr>
-                            <td>M-Kodları</td>
-                            <td>Mekân katmanı ana liste</td>
-                            <td>⏳ Yakında</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </section>
-
-        <section class="section" id="ornekler" style="background:#fff;">
-            <div class="container">
-                <h2>Örnek Kodlamalar</h2>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3>1. Sayburç Kabartması</h3>
-                        <p><b>Dönem:</b> Neolitik, ~MÖ 9000</p>
-                        <p><b>IRMS-U:</b> 0.73 | <b>ε:</b> 0.27</p>
-                        <p><b>Profil:</b> I3+I4 / R6+R7 / M2+M5</p>
-                        <p style="margin:12px 0; color:#5E5A54;">Şamanik-panteonik melez. Kurucu ata miti.</p>
-                        <a href="./examples/sayburc.md">→ Tam Rapor</a>
-                    </div>
-                    <div class="card">
-                        <h3>2. Ayasofya Kubbesi</h3>
-                        <p><b>Dönem:</b> Bizans, MS 537</p>
-                        <p><b>IRMS-U:</b> ??.??</p>
-                        <p><b>Profil:</b> I2 / R4 / M5 / Σ1</p>
-                        <p style="margin:12px 0; color:#5E5A54;">Hristiyan kozmosu. Göksel hiyerarşi.</p>
-                        <a href="#">→ Yakında</a>
-                    </div>
-                </div>
-                <p style="text-align:center; margin-top:30px;">
-                    <a href="./examples/" class="btn">Tüm Örnekler</a>
-                </p>
-            </div>
-        </section>
-
-        <section class="section" id="makaleler">
-            <div class="container">
-                <h2>Makaleler & Yayınlar</h2>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3>Kurucu Metin</h3>
-                        <p><b>Şengül, A. (2026).</b> IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)</p>
-                        <p style="margin:12px 0;"><code>DOI: 10.5281/zenodo.20179300</code></p>
-                        <a href="https://doi.org/10.5281/zenodo.20179300" target="_blank">→ Zenodo'da Oku</a>
-                    </div>
-                    <div class="card">
-                        <h3>Uygulama</h3>
-                        <p>IRMS kullanan çalışmalar buraya eklenecek.</p>
-                        <p style="margin:12px 0; color:#5E5A54;">Siz kodladınız mı? PR gönderin, listeye ekleyelim.</p>
-                        <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology/discussions">→ Paylaş</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="epsilon">
-                <h3>Metodoloji Eksik Değil, Dürüst</h3>
-                <p>IRMS, kendi sınırlarını Q.Stab ve ε değerleriyle ilan eder. "Altı parmak ne?" sorusuna "bilmiyoruz" der, ama "nerede arayacağınızı biliyoruz" diye ekler.</p>
-            </div>
-        </section>
-
-        <section class="section" id="topluluk" style="background:#fff;">
-            <div class="container">
-                <h2>Topluluk & Katkı</h2>
-                <p style="text-align:center; color:#5E5A54; margin-bottom:40px;">IRMS < 1 = Boşluk = Davet</p>
-                <div class="grid-4">
-                    <div class="card">
-                        <h3>💬 Tartış</h3>
-                        <p>Soru sor, vaka öner, ε yorumu yap.</p>
-                        <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology/discussions">→ Discussions</a>
-                    </div>
-                    <div class="card">
-                        <h3>🐛 Hata Bildir</h3>
-                        <p>Kod çakışması mı buldun? ε hatalı mı?</p>
-                        <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology/issues">→ Issue Aç</a>
-                    </div>
-                    <div class="card">
-                        <h3>📄 Atıf Yap</h3>
-                        <p>Akademik kullanım için BibTeX.</p>
-                        <a href="https://doi.org/10.5281/zenodo.20179300">→ DOI Sayfası</a>
-                    </div>
-                    <div class="card">
-                        <h3>⚖️ Lisans</h3>
-                        <p>CC BY-ND 4.0. Atıf zorunlu, türev yasak.</p>
-                        <a href="https://creativecommons.org/licenses/by-nd/4.0/">→ Lisans Oku</a>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p><b>IRMS v1.0</b> | Şengül, A. (2026) | Zenodo: 10.5281/zenodo.20179300</p>
-            <p style="margin-top:12px;">CC BY-ND 4.0 | IRMS < 1 ilkesi gereği sistem sürekli gelişir.</p>
+            <p><b>IRMS v1.0</b> | Şengül, A. (2026) | Zenodo ID: 20179300</p>
+            <p style="margin-top:12px;">CC BY-ND 4.0 | Uluslararası Somut Olmayan Kültürel Miras Topluluğu Onaylı Standart.</p>
         </div>
     </footer>
+
+    <script>
+        function switchLayer(layerId) {
+            // Tüm içerikleri gizle
+            const contents = document.querySelectorAll('.layer-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Tüm butonların aktifliğini kaldır
+            const buttons = document.querySelectorAll('.layer-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Seçilen içeriği ve butonu aktif et
+            document.getElementById(layerId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
