@@ -3,20 +3,14 @@
     "kategori": "Akademik Yayın / Metodoloji",
     "baslik": "IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)",
     "ozet": "Şengül, A. (2026). Metodolojinin matematiksel altyapısını, Q.Stab stabilitesini ve Epsilon (ε) sapma paylarını kuran ana döküman.",
-    "link_sol": "https://doi.org/10.5281/zenodo.20179300",
-    "link_sol_metin": "→ Zenodo",
-    "link_sag": "docs/irms-kavramsal-cerceve-v1.pdf",
-    "link_sag_metin": "📄 PDF Oku",
-    "pdf_mi": true
+    "url_web": "https://doi.org/10.5281/zenodo.20179300",
+    "url_pdf": "docs/irms-kavramsal-cerceve-v1.pdf"
   },
   {
     "kategori": "Uygulama / Vaka Analizi",
     "baslik": "Sayburç Neolitik Kabartmaları Analiz Raporu",
     "ozet": "Neolitik dönem (~MÖ 9000) Sayburç açık hava sunağında yer alan şaman ve leopar figürlerinin tam IRMS-U kodlama çıktısı.",
-    "link_sol": "examples/sayburc-analiz.html",
-    "link_sol_metin": "🖥️ HTML Raporu",
-    "link_sag": "docs/sayburc-report.pdf",
-    "link_sag_metin": "📄 PDF İndir",
-    "pdf_mi": true
+    "url_web": "examples/sayburc-analiz.html",
+    "url_pdf": "docs/sayburc-report.pdf"
   }
 ]
