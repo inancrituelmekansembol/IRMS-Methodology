@@ -1,0 +1,416 @@
+[
+  {
+    "code": "R1",
+    "title": "GEÇİŞ/DÖNÜŞÜM RİTÜELLERİ (BİYOGRAFİK/SOSYAL EŞİKLER)",
+    "branches": [
+      {
+        "subcode": "R1.a",
+        "subtitle": "Doğum/Başlangıç",
+        "leaves": [
+          { "id": "R1.a1", "desc": "Adlandırma/isim verme merasimi" },
+          { "id": "R1.a2", "desc": "İlk bakım/koruma ritüelleri" },
+          { "id": "R1.a3", "desc": "Aileye/sopa kabul töreni" },
+          { "id": "R1.a9", "desc": "Diğer tanımlanamayan doğum/başlangıç ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R1.b",
+        "subtitle": "Ergenlik/Yetişkinlik",
+        "leaves": [
+          { "id": "R1.b1", "desc": "Cinsel olgunluk başlatma" },
+          { "id": "R1.b2", "desc": "Sınava/deneyime dayalı geçiş" },
+          { "id": "R1.b3", "desc": "Toplumsal rol atama töreni" },
+          { "id": "R1.b9", "desc": "Diğer tanımlanamayan ergenlik/yetişkinlik ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R1.c",
+        "subtitle": "Evlilik/Bağlaşma",
+        "leaves": [
+          { "id": "R1.c1", "desc": "Aileler arası birleşme ritüeli" },
+          { "id": "R1.c2", "desc": "Yemin/sözleşme kutsama" },
+          { "id": "R1.c3", "desc": "Ortak mülkiyet/hane kurma" },
+          { "id": "R1.c9", "desc": "Diğer tanımlanamayan evlilik/bağlaşma ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R1.d",
+        "subtitle": "Ölüm/Anma",
+        "leaves": [
+          { "id": "R1.d1", "desc": "Beden hazırlama/gömme ritüeli" },
+          { "id": "R1.d2", "desc": "Ruh geçişi/eşlik törenleri" },
+          { "id": "R1.d3", "desc": "Yas/dönemsel anma pratikleri" },
+          { "id": "R1.d9", "desc": "Diğer tanımlanamayan ölüm/anma ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R2",
+    "title": "DÖNGÜSEL/TAKVİMSEL RİTÜELLER (ZAMAN/DOĞA SENKRONİZASYONU)",
+    "branches": [
+      {
+        "subcode": "R2.a",
+        "subtitle": "Mevsim/Agrar",
+        "leaves": [
+          { "id": "R2.a1", "desc": "Ekin/bitki döngüsü ritüelleri" },
+          { "id": "R2.a2", "desc": "Hasat/şükran törenleri" },
+          { "id": "R2.a3", "desc": "Kış/uyanma geçiş ritüelleri" },
+          { "id": "R2.a9", "desc": "Diğer tanımlanamayan mevsim/agrar ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R2.b",
+        "subtitle": "Astrolojik/Kozmik",
+        "leaves": [
+          { "id": "R2.b1", "desc": "Gündönümü/equinoks ritüelleri" },
+          { "id": "R2.b2", "desc": "Tutulma/gökyüzü olayı törenleri" },
+          { "id": "R2.b3", "desc": "Zaman dilimi/yenilenme kutlaması" },
+          { "id": "R2.b9", "desc": "Diğer tanımlanamayan astrolojik/kozmik ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R2.c",
+        "subtitle": "Tarihsel/Kurucu",
+        "leaves": [
+          { "id": "R2.c1", "desc": "Kuruluş/göç anma törenleri" },
+          { "id": "R2.c2", "desc": "Zafer/kurtuluş kutlamaları" },
+          { "id": "R2.c3", "desc": "Antlaşma/barış yenileme ritüeli" },
+          { "id": "R2.c9", "desc": "Diğer tanımlanamayan tarihsel/kurucu ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R2.d",
+        "subtitle": "Dini Bayram/Festival",
+        "leaves": [
+          { "id": "R2.d1", "desc": "Kutsal zaman kutlaması" },
+          { "id": "R2.d2", "desc": "Topluluk yenileme festivali" },
+          { "id": "R2.d3", "desc": "Pilgrimage/hac döngüsü" },
+          { "id": "R2.d9", "desc": "Diğer tanımlanamayan dini bayram/festival ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R3",
+    "title": "İBADET/TAPINMA RİTÜELLERİ (KUTSALA YÖNELİM)",
+    "branches": [
+      {
+        "subcode": "R3.a",
+        "subtitle": "Kurban/Adak",
+        "leaves": [
+          { "id": "R3.a1", "desc": "Kanlı/nesne fedakarlığı" },
+          { "id": "R3.a2", "desc": "Sembolik/yerine koyma kurbanı" },
+          { "id": "R3.a3", "desc": "Vefa/minnet adak ritüeli" },
+          { "id": "R3.a9", "desc": "Diğer tanımlanamayan kurban/adak ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R3.b",
+        "subtitle": "Dua/Zikir/Söylev",
+        "leaves": [
+          { "id": "R3.b1", "desc": "Sesli/toplu söylev ritüeli" },
+          { "id": "R3.b2", "desc": "Sessiz/meditatif tekrar" },
+          { "id": "R3.b3", "desc": "İlahi/ezgi/ritmik söylem" },
+          { "id": "R3.b9", "desc": "Diğer tanımlanamayan dua/zikir/söylev ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R3.c",
+        "subtitle": "Hac/Ziyaret/Mekân",
+        "leaves": [
+          { "id": "R3.c1", "desc": "Kutsal bölgeye fiziksel yolculuk" },
+          { "id": "R3.c2", "desc": "Mekân içi dolaşım/temas ritüeli" },
+          { "id": "R3.c3", "desc": "Sınır/giriş kutsama töreni" },
+          { "id": "R3.c9", "desc": "Diğer tanımlanamayan hac/ziyaret/mekân ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R3.d",
+        "subtitle": "Günlük/Saatlik Pratik",
+        "leaves": [
+          { "id": "R3.d1", "desc": "Belirli saatlerde zorunlu ibadet" },
+          { "id": "R3.d2", "desc": "Günlük arınma/hazırlık ritüeli" },
+          { "id": "R3.d3", "desc": "Ev/ocak içi küçük pratik" },
+          { "id": "R3.d9", "desc": "Diğer tanımlanamayan günlük/saatlik pratikler" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R4",
+    "title": "ŞİFA/ARINMA RİTÜELLERİ (RESTORATİF/DENGELEYİCİ)",
+    "branches": [
+      {
+        "subcode": "R4.a",
+        "subtitle": "Bedensel/Fiziksel Tedavi",
+        "leaves": [
+          { "id": "R4.a1", "desc": "Bitki/ilaç uygulama ritüeli" },
+          { "id": "R4.a2", "desc": "Dokunma/masaj/beden düzenleme" },
+          { "id": "R4.a3", "desc": "Su/ateş/toprak teması arınma" },
+          { "id": "R4.a9", "desc": "Diğer tanımlanamayan bedensel/fiziksel tedavi ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R4.b",
+        "subtitle": "Ruh/Psiko-sosyal Arınma",
+        "leaves": [
+          { "id": "R4.b1", "desc": "Günah/hata itiraf/affetme" },
+          { "id": "R4.b2", "desc": "Toplumsal dışlanma/geri dönüş" },
+          { "id": "R4.b3", "desc": "Travma/yas işleme töreni" },
+          { "id": "R4.b9", "desc": "Diğer tanımlanamayan ruh/psiko-sosyal arınma ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R4.c",
+        "subtitle": "Trans/Ekstaz/Deneyim",
+        "leaves": [
+          { "id": "R4.c1", "desc": "Ritim/davul ile bilinç değişimi" },
+          { "id": "R4.c2", "desc": "Dans/dönme ile beden arınma" },
+          { "id": "R4.c3", "desc": "Açlık/uçku ile vizyon arayışı" },
+          { "id": "R4.c9", "desc": "Diğer tanımlanamayan trans/ekstaz/deneyim ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R4.d",
+        "subtitle": "Sembolik/İnanç Temelli",
+        "leaves": [
+          { "id": "R4.d1", "desc": "Nazar/kötü göz savma ritüeli" },
+          { "id": "R4.d2", "desc": "Tılsım/muska koruma uygulaması" },
+          { "id": "R4.d3", "desc": "İnanç temelli plasebo şifa" },
+          { "id": "R4.d9", "desc": "Diğer tanımlanamayan sembolik/inanç temelli ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R5",
+    "title": "TOPLUMSAL/KURUMSAL RİTÜELLER (YAPI/STATÜ PEKİŞTİRME)",
+    "branches": [
+      {
+        "subcode": "R5.a",
+        "subtitle": "Devlet/Resmi Tören",
+        "leaves": [
+          { "id": "R5.a1", "desc": "Lider taçlanma/görev başlama" },
+          { "id": "R5.a2", "desc": "Yasama/hukuk açılış ritüeli" },
+          { "id": "R5.a3", "desc": "Ulusal bayrak/marş töreni" },
+          { "id": "R5.a9", "desc": "Diğer tanımlanamayan devlet/resmi törenler" }
+        ]
+      },
+      {
+        "subcode": "R5.b",
+        "subtitle": "Lonca/Meslek Başlatma",
+        "leaves": [
+          { "id": "R5.b1", "desc": "Çırak/kalfa/usta geçiş töreni" },
+          { "id": "R5.b2", "desc": "Zanaat sırrı/devir ritüeli" },
+          { "id": "R5.b3", "desc": "Meslek yemini/sorumluluk" },
+          { "id": "R5.b9", "desc": "Diğer tanımlanamayan lonca/meslek başlatma ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R5.c",
+        "subtitle": "And/Yemin/Hukuk",
+        "leaves": [
+          { "id": "R5.c1", "desc": "Mahkeme yemin/söz ritüeli" },
+          { "id": "R5.c2", "desc": "Kan davası/barış antlaşma" },
+          { "id": "R5.c3", "desc": "Mülkiyet/sınır belirleme" },
+          { "id": "R5.c9", "desc": "Diğer tanımlanamayan and/yemin/hukuk ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R5.d",
+        "subtitle": "Eğitim/Başarı/Kutlama",
+        "leaves": [
+          { "id": "R5.d1", "desc": "Diploma/mezuniyet töreni" },
+          { "id": "R5.d2", "desc": "Yarışma/spor başlama/son" },
+          { "id": "R5.d3", "desc": "Topluluk ödül/takdir ritüeli" },
+          { "id": "R5.d9", "desc": "Diğer tanımlanamayan eğitim/başarı/kutlama ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R6",
+    "title": "KOZMİK/DÜZEN KURUCU RİTÜELLER (EVRENSEL SENKRONİZASYON)",
+    "branches": [
+      {
+        "subcode": "R6.a",
+        "subtitle": "Yaratılış Yeniden Canlandırma",
+        "leaves": [
+          { "id": "R6.a1", "desc": "Kozmogoni sahneleme/temsil" },
+          { "id": "R6.a2", "desc": "İlahi düzen kutlama töreni" },
+          { "id": "R6.a3", "desc": "Mitik olay yeniden enactment" },
+          { "id": "R6.a9", "desc": "Diğer tanımlanamayan yaratılış yeniden canlandırma ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R6.b",
+        "subtitle": "Kaos-Düzen Dengesi",
+        "leaves": [
+          { "id": "R6.b1", "desc": "Şeytan/kaos kovma ritüeli" },
+          { "id": "R6.b2", "desc": "Sınır/koruma çizme töreni" },
+          { "id": "R6.b3", "desc": "Düzen yeniden kurma seremoni" },
+          { "id": "R6.b9", "desc": "Diğer tanımlanamayan kaos-düzen dengesi ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R6.c",
+        "subtitle": "Doğa Gücü Yatıştırma",
+        "leaves": [
+          { "id": "R6.c1", "desc": "Rüzgar/yağmur çağırma" },
+          { "id": "R6.c2", "desc": "Deprem/volkan yatıştırma" },
+          { "id": "R6.c3", "desc": "Hayvan/doğa ruhları uzlaşma" },
+          { "id": "R6.c9", "desc": "Diğer tanımlanamayan doğa gücü yatıştırma ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R6.d",
+        "subtitle": "Zaman/Yıl Başı Yenileme",
+        "leaves": [
+          { "id": "R6.d1", "desc": "Eski yılı gönderme/temizleme" },
+          { "id": "R6.d2", "desc": "Yeni yıl açılış/kutsama" },
+          { "id": "R6.d3", "desc": "Takvim sıfırlama/uyum töreni" },
+          { "id": "R6.d9", "desc": "Diğer tanımlanamayan zaman/yıl başı yenileme ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R7",
+    "title": "İNİSİYASYON/GİZLİ BİLGİ RİTÜELLERİ (KAPALI GRUP/DERECESEL)",
+    "branches": [
+      {
+        "subcode": "R7.a",
+        "subtitle": "Sır/Açıklama Merasimi",
+        "leaves": [
+          { "id": "R7.a1", "desc": "Gizli metin/sembol ifşası" },
+          { "id": "R7.a2", "desc": "Şifreli dil/iletişim öğretimi" },
+          { "id": "R7.a3", "desc": "Sırrı taşıma yemini" },
+          { "id": "R7.a9", "desc": "Diğer tanımlanamayan sır/açıklama merasimleri" }
+        ]
+      },
+      {
+        "subcode": "R7.b",
+        "subtitle": "Derece/Seviye Atlama",
+        "leaves": [
+          { "id": "R7.b1", "desc": "İlerleme aşama töreni" },
+          { "id": "R7.b2", "desc": "Rozet/sembol/giyim değişimi" },
+          { "id": "R7.b3", "desc": "Yetki/rol genişleme" },
+          { "id": "R7.b9", "desc": "Diğer tanımlanamayan derece/seviye atlama ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R7.c",
+        "subtitle": "Sembolik Ölüm-Yeniden Doğuş",
+        "leaves": [
+          { "id": "R7.c1", "desc": "Eski kimlik bırakma ritüeli" },
+          { "id": "R7.c2", "desc": "Karanlık/yalnızlık sınama" },
+          { "id": "R7.c3", "desc": "Yeni isim/rol verme töreni" },
+          { "id": "R7.c9", "desc": "Diğer tanımlanamayan sembolik ölüm-yeniden doğuş ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R7.d",
+        "subtitle": "Öğretmen-Öğrenci Aktarımı",
+        "leaves": [
+          { "id": "R7.d1", "desc": "Elden ele bilgi devir töreni" },
+          { "id": "R7.d2", "desc": "İcazet/diploma verme" },
+          { "id": "R7.d3", "desc": "Silsile/zincir onaylama" },
+          { "id": "R7.d9", "desc": "Diğer tanımlanamayan öğretmen-öğrenci aktarımı ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R8",
+    "title": "KRİZ/KORUYUCU RİTÜELLER (REAKTİF/DEFANSİF)",
+    "branches": [
+      {
+        "subcode": "R8.a",
+        "subtitle": "Doğal Afet/Savaş",
+        "leaves": [
+          { "id": "R8.a1", "desc": "Savaş öncesi kutsama" },
+          { "id": "R8.a2", "desc": "Afet sonrası yas/şükran" },
+          { "id": "R8.a3", "desc": "Koruyucu kalkan/tören" },
+          { "id": "R8.a9", "desc": "Diğer tanımlanamayan doğal afet/savaş ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R8.b",
+        "subtitle": "Kıtlık/Salgın",
+        "leaves": [
+          { "id": "R8.b1", "desc": "Oruç/kesme ritüeli" },
+          { "id": "R8.b2", "desc": "Topluluk arınma/yıkama" },
+          { "id": "R8.b3", "desc": "İyileşme/teşekkür töreni" },
+          { "id": "R8.b9", "desc": "Diğer tanımlanamayan kıtlık/salgın ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R8.c",
+        "subtitle": "Kişisel Felaket/Kayıp",
+        "leaves": [
+          { "id": "R8.c1", "desc": "Aniden kayıp/arama ritüeli" },
+          { "id": "R8.c2", "desc": "Maddi/manevi zarar giderme" },
+          { "id": "R8.c3", "desc": "Yeni başlangıç hazırlık" },
+          { "id": "R8.c9", "desc": "Diğer tanımlanamayan kişisel felaket/kayıp ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R8.d",
+        "subtitle": "Kehanet/Uyarı Temelli",
+        "leaves": [
+          { "id": "R8.d1", "desc": "Fal/kehanet danışma töreni" },
+          { "id": "R8.d2", "desc": "Uyarı işareti yorumlama" },
+          { "id": "R8.d3", "desc": "Kaderi etkileme/dua ritüeli" },
+          { "id": "R8.d9", "desc": "Diğer tanımlanamayan kehanet/uyarı temelli ritüelleri" }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "R9",
+    "title": "TEKNİK & PROTO-RİTÜELLER (EVRİMSEL/ÖNCÜL TEKRARLAR)",
+    "branches": [
+      {
+        "subcode": "R9.a",
+        "subtitle": "Alet Üretim & Teknoloji Döngüsü",
+        "leaves": [
+          { "id": "R9.a1", "desc": "Standardize yonga kırma/tekrar" },
+          { "id": "R9.a2", "desc": "Alet bileme/bakım rutini" },
+          { "id": "R9.a3", "desc": "İlk kullanım/odaklanma töreni" },
+          { "id": "R9.a9", "desc": "Diğer tanımlanamayan alet üretim/teknoloji döngüsü ritüelleri" }
+        ]
+      },
+      {
+        "subcode": "R9.b",
+        "subtitle": "Besin Paylaşım & Dağıtım Rutini",
+        "leaves": [
+          { "id": "R9.b1", "desc": "Av sonrası sabit dağıtım eylemi" },
+          { "id": "R9.b2", "desc": "Toplama/hasat paylaşım düzeni" },
+          { "id": "R9.b3", "desc": "Kıtlık dönemi kaynak yönetimi" },
+          { "id": "R9.b9", "desc": "Diğer tanımlanamayan besin paylaşım/dağıtım rutinleri" }
+        ]
+      },
+      {
+        "subcode": "R9.c",
+        "subtitle": "Mekânsal Yerleşim & Güvenlik Kalıbı",
+        "leaves": [
+          { "id": "R9.c1", "desc": "Geceleme/korunma düzeni" },
+          { "id": "R9.c2", "desc": "Ateş/ocak merkezi yerleşim" },
+          { "id": "R9.c3", "desc": "Sınır/işaret koyma davranışı" },
+          { "id": "R9.c9", "desc": "Diğer tanımlanamayan mekânsal yerleşim/güvenlik kalıpları" }
+        ]
+      },
+      {
+        "subcode": "R9.d",
+        "subtitle": "Gövde & Motor Standardizasyon",
+        "leaves": [
+          { "id": "R9.d1", "desc": "Av/hareket senkronizasyonu" },
+          { "id": "R9.d2", "desc": "Ritmik tekrar/beden hafızası" },
+          { "id": "R9.d3", "desc": "İşaret/dil öncesi iletişim" },
+          { "id": "R9.d9", "desc": "Diğer tanımlanamayan gövde/motor standardizasyon ritüelleri" }
+        ]
+      }
+    ]
+  }
+]
