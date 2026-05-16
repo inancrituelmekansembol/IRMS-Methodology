@@ -18,7 +18,7 @@
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* SABİT ÜST MENÜ VE ARAMA */
+        /* SABİT ÜST MENÜ VE ÜSTE ALINAN ARAMA */
         header { 
             border-bottom: 1px solid var(--border); 
             padding: 12px 0; 
@@ -65,7 +65,7 @@
         .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
         .view-btn:hover { opacity: 0.9; }
 
-        /* MODAL */
+        /* MODAL VE HİYERARŞİK AKORDEON YAPISI */
         .inventory-modal { 
             display: none; 
             position: fixed; 
@@ -97,28 +97,32 @@
         .tab-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
         .modal-body { padding: 28px; max-height: 55vh; overflow-y: auto; }
 
-        /* AKORDEON YAPISI */
+        /* AKORDEON (1. SEVİYE - ANA KODLAR) */
         .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
         .accordion-header { padding: 14px 18px; background: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
         .accordion-header:hover { background: var(--code); }
         .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 6px; border-radius: 4px; font-size: 13px; margin-right: 10px; }
         .accordion-icon { font-size: 12px; transition: transform 0.2s; }
         .accordion-body { display: none; padding: 16px; border-top: 1px solid var(--border); background: var(--white); }
+        
         .accordion-item.open > .accordion-body { display: block; }
         .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
         .accordion-item.open > .accordion-header code { background: var(--accent); }
 
+        /* HİYERARŞİ (2. SEVİYE - ALT DALLAR) */
         .tree-branch { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 4px; margin-bottom: 10px; background: var(--white); }
         .branch-header { padding: 10px 14px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .branch-header:hover { background: var(--bg); }
         .branch-header code { background: var(--code); color: var(--text); padding: 1px 5px; font-size: 12px; border-radius: 4px; font-family: monospace; margin-right: 6px; }
         .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
         .branch-body { display: none; padding: 10px 14px; background: var(--bg); border-top: 1px solid var(--border); }
+        
         .tree-branch.branch-open { border-left-color: var(--accent); }
         .tree-branch.branch-open > .branch-body { display: block; }
         .tree-branch.branch-open > .branch-header { color: var(--accent); }
         .tree-branch.branch-open > .branch-header .branch-icon { transform: rotate(180deg); }
 
+        /* YAPRAKLAR (3. SEVİYE - ANATOMİK DETAYLAR) */
         .leaf-node { background: var(--white); padding: 8px 12px; border-radius: 4px; margin-bottom: 6px; border: 1px solid var(--border); font-size: 13.5px; display: flex; align-items: flex-start; }
         .leaf-node strong { font-family: monospace; background: var(--stone); padding: 1px 5px; border-radius: 3px; margin-right: 10px; font-size: 12px; flex-shrink: 0; }
 
@@ -156,7 +160,7 @@
         <section class="hero">
             <div class="container">
                 <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>IRMS; tek bir arama havuzu üzerinden tüm yayın ve taksonomik katmanları anlık olarak listeler.</p>
+                <p>IRMS; inanç sistemlerini, ritüelleri, mekânı ve somut sembolleri bağımsız katmanlar halinde analiz eder. Aşağıdan doğrudan bir katmanı açabilir veya yukarıdaki arama çubuğunu kullanabilirsiniz.</p>
                 
                 <div class="layer-quick-links">
                     <a class="layer-chip" onclick="openInventoryModal('inanc')"><span>[I]</span> İnanç Sistemi</a>
@@ -205,7 +209,7 @@
     </footer>
 
     <script>
-        // TEK DOSYA İÇİN YOL TANIMI (CORS engeline takılmayan Raw URL yapısı)
+        // KENDİ REPO VERİLERİNİZİ OKUYAN MERKEZİ ADRES
         const GITHUB_USER = "inancrituelmekansembol"; 
         const GITHUB_REPO = "IRMS-Methodology";
         const DATA_URL = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main/arama.json`;
@@ -216,7 +220,7 @@
             loadMasterDatabase();
         });
 
-        // TÜM VERİLERİ TEK SEFERDE HAFIZAYA ALAN HAFİF MOTOR
+        // ARMA.JSON'I HAFIZAYA ÇEKEN ANA MOTOR
         function loadMasterDatabase() {
             const container = document.getElementById('articles-showcase-container');
             container.innerHTML = "<p style='color:#8A857E;'>Sistem veritabanı yükleniyor...</p>";
@@ -224,14 +228,16 @@
             fetch(DATA_URL)
                 .then(res => {
                     if(!res.ok) throw new Error();
+                    res.clone().text().then(t => console.log("Gelen Veri Ham Hali:", t)); // Debug kontrolü
                     return res.json();
                 })
                 .then(data => {
                     dbMasterData = data; 
                     displayArticles(dbMasterData.yayinlar || []);
                 })
-                .catch(() => {
-                    container.innerHTML = `<p style='color:var(--accent);'>Hata: arama.json yüklenemedi. GITHUB ayarlarını veya dosya formatını kontrol edin.</p>`;
+                .catch(err => {
+                    console.error("Yükleme Hatası: ", err);
+                    container.innerHTML = `<p style='color:var(--accent); font-weight:bold;'>Hata: arama.json yüklenemedi.</p><p style='font-size:12px; color:#5E5A54;'>Lütfen GitHub'daki arama.json dosyanızın geçerli bir JSON olduğunu teyit edin.</p>`;
                 });
         }
 
@@ -282,6 +288,7 @@
             displayArticles(filtered);
         }
 
+        // HİYERARŞİK KATMAN SÜZGEÇ MOTORU (AKORDEON ARAMASI)
         function filterModalTaxonomy() {
             const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
             document.querySelectorAll('.accordion-item').forEach(item => {
@@ -318,40 +325,57 @@
         }
         function closeInventoryModalOutside(event) { if (event.target.id === 'inventoryModal') closeInventoryModal(); }
 
-        // HAFIZADAKİ MASTER DATA'DAN ANLIK KATMAN GEÇİŞİ YAPAN ULTRA HIZLI MOTOR
+        // GERÇEK HİYERARŞİK REKÜRSİF TAKSONOMİ OLUŞTURUCU MOTOR (KIRILMALARI GERİ GETİREN YER)
         function switchModalLayer(layerKey) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById('tab-' + layerKey).classList.add('active');
-            document.getElementById('modalSearchInput').value = "";
+            const activeTab = document.getElementById('tab-' + layerKey);
+            if(activeTab) activeTab.classList.add('active');
             
+            document.getElementById('modalSearchInput').value = "";
             const container = document.getElementById('modal-accordion-container');
             container.innerHTML = "";
 
-            if(!dbMasterData || !dbMasterData.taksonomi) return;
+            if(!dbMasterData || !dbMasterData.taksonomi) {
+                container.innerHTML = "<p style='text-align:center; color:var(--accent);'>Hata: Master veri henüz yüklenemedi.</p>";
+                return;
+            }
+            
             const data = dbMasterData.taksonomi[layerKey] || [];
             
+            if(data.length === 0) {
+                container.innerHTML = "<p style='text-align:center; color:#8A857E; font-size:14px; padding:20px;'>Bu katmana ait veri bulunamadı.</p>";
+                return;
+            }
+
+            // Hiyerarşik Döngüyü Yeniden İnşa Ediyoruz
             data.forEach(item => {
                 const accordionItem = document.createElement('div');
                 accordionItem.className = 'accordion-item';
+                
                 let branchesHtml = '';
-                item.branches.forEach(branch => {
-                    let leavesHtml = '';
-                    branch.leaves.forEach(leaf => {
-                        leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong> <span>${leaf.desc}</span></div>`;
-                    });
-                    branchesHtml += `
-                        <div class="tree-branch">
-                            <div class="branch-header" onclick="toggleBranch(this, event)">
-                                <div><code>${branch.subcode}</code> ${branch.subtitle}</div>
-                                <div class="branch-icon">▼</div>
+                if(item.branches && Array.isArray(item.branches)) {
+                    item.branches.forEach(branch => {
+                        let leavesHtml = '';
+                        if(branch.leaves && Array.isArray(branch.leaves)) {
+                            branch.leaves.forEach(leaf => {
+                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id || ''}</strong> <span>${leaf.desc || ''}</span></div>`;
+                            });
+                        }
+                        branchesHtml += `
+                            <div class="tree-branch">
+                                <div class="branch-header" onclick="toggleBranch(this, event)">
+                                    <div><code>${branch.subcode || ''}</code> ${branch.subtitle || ''}</div>
+                                    <div class="branch-icon">▼</div>
+                                </div>
+                                <div class="branch-body">${leavesHtml}</div>
                             </div>
-                            <div class="branch-body">${leavesHtml}</div>
-                        </div>
-                    `;
-                });
+                        `;
+                    });
+                }
+
                 accordionItem.innerHTML = `
                     <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div><code>${item.code}</code> ${item.title}</div>
+                        <div><code>${item.code || ''}</code> ${item.title || ''}</div>
                         <div class="accordion-icon">▼</div>
                     </div>
                     <div class="accordion-body">${branchesHtml}</div>
