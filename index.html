@@ -39,9 +39,9 @@
         .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.2; margin-bottom: 20px; }
         .hero p { font-size: 17px; color: #5E5A54; }
 
-        /* KÜTÜPHANE VE DÖKÜMANLAR (VİTRİN) */
+        /* DİNAMİK MAKALE VİTRİNİ */
         .section { padding: 40px 0 80px 0; }
-        .section-title-area { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 12px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .section-title-area { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
         .section-title-area h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; }
         
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
@@ -56,7 +56,7 @@
         .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
         .view-btn:hover { opacity: 0.9; }
 
-        /* --- DİNAMİK ENVENTER MODAL YAPISI --- */
+        /* --- KATMAN ENVENTERİ MODAL YAPISI --- */
         .inventory-modal { 
             display: none; 
             position: fixed; 
@@ -82,34 +82,29 @@
         .close-modal { font-size: 24px; cursor: pointer; color: var(--text); background: none; border: none; font-weight: bold; }
         .close-modal:hover { color: var(--accent); }
         
-        /* Modal İçi Katman Seçim Menüsü */
         .modal-tabs { display: flex; gap: 8px; padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border); }
         .tab-btn { font-family: 'Space Grotesk', sans-serif; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; color: var(--text); }
         .tab-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
-
         .modal-body { padding: 28px; max-height: 65vh; overflow-y: auto; }
 
-        /* AKORDEON STİLLERİ (MODAL İÇİ) */
+        /* AKORDEON */
         .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
         .accordion-header { padding: 14px 18px; background: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
         .accordion-header:hover { background: var(--code); }
         .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 6px; border-radius: 4px; font-size: 13px; margin-right: 10px; }
         .accordion-icon { font-size: 12px; transition: transform 0.2s; }
         .accordion-body { display: none; padding: 16px; border-top: 1px solid var(--border); background: var(--white); }
-        
         .accordion-item.open > .accordion-body { display: block; }
         .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
         .accordion-item.open > .accordion-header code { background: var(--accent); }
 
-        /* İÇE İÇE KATMAN (2. SEVİYE) */
+        /* HİYERARŞİ 2. SEVİYE */
         .tree-branch { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 4px; margin-bottom: 10px; background: var(--white); }
-        .tree-branch:last-child { margin-bottom: 0; }
         .branch-header { padding: 10px 14px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
         .branch-header:hover { background: var(--bg); }
         .branch-header code { background: var(--code); color: var(--text); padding: 1px 5px; font-size: 12px; border-radius: 4px; font-family: monospace; margin-right: 6px; }
         .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
         .branch-body { display: none; padding: 10px 14px; background: var(--bg); border-top: 1px solid var(--border); }
-        
         .tree-branch.branch-open { border-left-color: var(--accent); }
         .tree-branch.branch-open > .branch-body { display: block; }
         .tree-branch.branch-open > .branch-header { color: var(--accent); }
@@ -117,11 +112,9 @@
 
         /* 3. SEVİYE YAPRAKLAR */
         .leaf-node { background: var(--white); padding: 8px 12px; border-radius: 4px; margin-bottom: 6px; border: 1px solid var(--border); font-size: 13.5px; display: flex; align-items: flex-start; }
-        .leaf-node:last-child { margin-bottom: 0; }
         .leaf-node strong { font-family: monospace; background: var(--stone); padding: 1px 5px; border-radius: 3px; margin-right: 10px; font-size: 12px; flex-shrink: 0; }
 
         footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; border-top: 1px solid var(--border); }
-
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -153,27 +146,8 @@
                     <h2>Son Yüklenen Yayınlar & Saha Analizleri</h2>
                 </div>
                 
-                <div class="grid-2">
-                    <div class="library-card">
-                        <div class="meta">Akademik Yayın / Metodoloji</div>
-                        <h3>IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)</h3>
-                        <p>Şengül, A. (2026). Metodolojinin matematiksel altyapısını, Q.Stab stabilitesini ve Epsilon (ε) sapma paylarını kuran ana döküman.</p>
-                        <div class="links-group">
-                            <a href="https://doi.org/10.5281/zenodo.20179300" target="_blank" class="view-btn">→ Zenodo</a>
-                            <a href="docs/irms-kavramsal-cerceve-v1.pdf" target="_blank" class="view-btn pdf">📄 PDF Oku</a>
-                        </div>
+                <div class="grid-2" id="articles-showcase-container">
                     </div>
-
-                    <div class="library-card">
-                        <div class="meta">Uygulama / Vaka Analizi</div>
-                        <h3>Sayburç Neolitik Kabartmaları Analiz Raporu</h3>
-                        <p>Neolitik dönem (~MÖ 9000) Sayburç açık hava sunağında yer alan şaman ve leopar figürlerinin tam IRMS-U kodlama çıktısı.</p>
-                        <div class="links-group">
-                            <a href="examples/sayburc-analiz.html" class="view-btn">🖥️ HTML Raporu</a>
-                            <a href="docs/sayburc-report.pdf" target="_blank" class="view-btn pdf">📄 PDF İndir</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -184,16 +158,13 @@
                 <h2>IRMS Katman Taksonomisi</h2>
                 <button class="close-modal" onclick="closeInventoryModal()">&times;</button>
             </div>
-            
             <div class="modal-tabs">
                 <button class="tab-btn active" id="tab-inanc" onclick="switchModalLayer('inanc.json', 'tab-inanc')">İnanç [I]</button>
                 <button class="tab-btn" id="tab-rituel" onclick="switchModalLayer('rituel.json', 'tab-rituel')">Ritüel [R]</button>
                 <button class="tab-btn" id="tab-mekan" onclick="switchModalLayer('mekan.json', 'tab-mekan')">Mekân [M]</button>
                 <button class="tab-btn" id="tab-sembol" onclick="switchModalLayer('sembol.json', 'tab-sembol')">Sembol [S]</button>
             </div>
-
-            <div class="modal-body" id="modal-accordion-container">
-                </div>
+            <div class="modal-body" id="modal-accordion-container"></div>
         </div>
     </div>
 
@@ -204,106 +175,114 @@
     </footer>
 
     <script>
-        // Modal Açma Fonksiyonu
-        function openInventoryModal() {
-            document.getElementById('inventoryModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Arka plan kaymasını engelle
-            // Varsayılan olarak ilk katmanı (İnanç) yükle
-            switchModalLayer('inanc.json', 'tab-inanc');
+        // SAYFA AÇILDIĞINDA MAKALE VİTRİNİNİ OTOMATİK YÜKLE
+        window.addEventListener('DOMContentLoaded', () => {
+            renderArticlesShowcase();
+        });
+
+        function renderArticlesShowcase() {
+            const container = document.getElementById('articles-showcase-container');
+            container.innerHTML = "<p style='color:#8A857E;'>Yayınlar yükleniyor...</p>";
+
+            fetch('makaleler.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("makaleler.json bulunamadı.");
+                    return response.json();
+                })
+                .then(articles => {
+                    container.innerHTML = "";
+                    articles.forEach(art => {
+                        const card = document.createElement('div');
+                        card.className = 'library-card';
+                        
+                        card.innerHTML = `
+                            <div class="meta">${art.kategori}</div>
+                            <h3>${art.baslik}</h3>
+                            <p>${art.ozet}</p>
+                            <div class="links-group">
+                                <a href="${art.link_sol}" target="_blank" class="view-btn">${art.link_sol_metin}</a>
+                                <a href="${art.link_sag}" target="_blank" class="view-btn ${art.pdf_mi ? 'pdf' : ''}">${art.link_sag_metin}</a>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    });
+                })
+                .catch(err => {
+                    container.innerHTML = "<p style='color:var(--accent);'>Makale listesi yüklenirken bir sorun oluştu.</p>";
+                });
         }
 
-        // Modal Kapatma Fonksiyonu
+        // MODAL VE ENVENTER YÖNETİMİ
+        function openInventoryModal() {
+            document.getElementById('inventoryModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            switchModalLayer('inanc.json', 'tab-inanc');
+        }
         function closeInventoryModal() {
             document.getElementById('inventoryModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-
-        // Dışarı tıklayınca kapatma
         function closeInventoryModalOutside(event) {
-            if (event.target.id === 'inventoryModal') {
-                closeInventoryModal();
-            }
+            if (event.target.id === 'inventoryModal') closeInventoryModal();
         }
 
-        // Modal içinde katman değiştirme ve JSON verisini çekme motoru
         function switchModalLayer(jsonFile, activeTabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(activeTabId).classList.add('active');
-
             const container = document.getElementById('modal-accordion-container');
             container.innerHTML = "<p style='text-align:center; color:#8A857E; font-size:14px;'>Hiyerarşi yükleniyor...</p>";
 
             fetch(jsonFile)
-                .then(response => {
-                    if (!response.ok) throw new Error("JSON bulunamadı.");
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
                     container.innerHTML = "";
-
                     data.forEach(item => {
                         const accordionItem = document.createElement('div');
                         accordionItem.className = 'accordion-item';
-
-                        // 2. Seviye (Alt başlıklar: I0.a, I0.b)
                         let branchesHtml = '';
                         item.branches.forEach(branch => {
-                            
-                            // 3. Seviye (En alt yapraklar: I0.a1, I0.a2)
                             let leavesHtml = '';
                             branch.leaves.forEach(leaf => {
                                 leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong> <span>${leaf.desc}</span></div>`;
                             });
-
                             branchesHtml += `
                                 <div class="tree-branch">
                                     <div class="branch-header" onclick="toggleBranch(this, event)">
                                         <div><code>${branch.subcode}</code> ${branch.subtitle}</div>
                                         <div class="branch-icon">▼</div>
                                     </div>
-                                    <div class="branch-body">
-                                        ${leavesHtml}
-                                    </div>
+                                    <div class="branch-body">${leavesHtml}</div>
                                 </div>
                             `;
                         });
-
-                        // 1. Seviye Ana Gövde
                         accordionItem.innerHTML = `
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 <div><code>${item.code}</code> ${item.title}</div>
                                 <div class="accordion-icon">▼</div>
                             </div>
-                            <div class="accordion-body">
-                                ${branchesHtml}
-                            </div>
+                            <div class="accordion-body">${branchesHtml}</div>
                         `;
                         container.appendChild(accordionItem);
                     });
                 })
-                .catch(error => {
-                    container.innerHTML = `<p style='text-align:center; font-size:14px; color:var(--accent);'>Bu katman dosyası (${jsonFile}) bulunamadı.</p>`;
+                .catch(() => {
+                    container.innerHTML = `<p style='text-align:center; font-size:14px; color:var(--accent);'>Veri dosyası (${jsonFile}) yüklenemedi.</p>`;
                 });
         }
 
-        // 1. Seviye Akordeon Tetikleyici (I0, I1)
         function toggleAccordion(headerElement) {
             const currentItem = headerElement.parentElement;
-            const isOpen = currentItem.classList.contains('open');
-            if (!isOpen) {
+            if (!currentItem.classList.contains('open')) {
                 currentItem.classList.add('open');
             } else {
                 currentItem.classList.remove('open');
                 currentItem.querySelectorAll('.tree-branch').forEach(b => b.classList.remove('branch-open'));
             }
         }
-
-        // 2. Seviye Alt Dal Tetikleyici (I0.a, I0.b)
         function toggleBranch(branchHeaderElement, event) {
             event.stopPropagation();
             const currentBranch = branchHeaderElement.parentElement;
-            const isBranchOpen = currentBranch.classList.contains('branch-open');
-            if (!isBranchOpen) {
+            if (!currentBranch.classList.contains('branch-open')) {
                 currentBranch.classList.add('branch-open');
             } else {
                 currentBranch.classList.remove('branch-open');
