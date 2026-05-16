@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRMS - Integrated Representation Measurement System</title>
+    <meta name="description" content="İnanç · Ritüel · Mekân · Sembol Ölçüm Sistemi. Göbeklitepe ile Ayasofya'yı aynı skalada ölçer. IRMS < 1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F7F5F2; --text: #2D2A26; --accent: #A4492F; 
+            --stone: #D9D5D0; --code: #EAE7E2; --border: #C9C5C0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        header { border-bottom: 1px solid var(--border); padding: 20px 0; position: sticky; top: 0; background: rgba(247,245,242,0.95); backdrop-filter: blur(8px); z-index: 10; }
+        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; }
+        .logo span { color: var(--accent); }
+        nav a { text-decoration: none; color: var(--text); margin-left: 20px; font-weight: 500; font-size: 15px; }
+        nav a:hover { color: var(--accent); }
+        .hero { padding: 70px 0; text-align: center; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 48px; line-height: 1.1; margin-bottom: 16px; }
+        .subtitle { font-size: 19px; color: #5E5A54; margin-bottom: 32px; max-width: 700px; margin: 0 auto 32px; }
+        .badges img { margin: 0 4px; }
+        .principle { font-family: 'Space Grotesk', sans-serif; font-size: 17px; margin-top: 40px; padding: 16px 20px; background: var(--code); border-left: 3px solid var(--accent); display: inline-block; }
+        .section { padding: 70px 0; }
+        .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; text-align: center; margin-bottom: 40px; }
+        .demo { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .code-block { background: var(--text); color: var(--bg); padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 14px; overflow-x: auto; margin: 16px 0; }
+        .code-comment { color: #8A857E; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+        .card h3 { font-family: 'Space Grotesk', sans-serif; margin-bottom: 12px; color: var(--accent); font-size: 18px; }
+        .card p { font-size: 15px; color: #5E5A54; }
+        .card code { background: var(--code); padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; margin: 30px 0; background: #fff; }
+        th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-family: 'Space Grotesk', sans-serif; background: var(--code); font-size: 15px; }
+        td { font-size: 14px; }
+        td code { font-size: 13px; }
+        .epsilon { background: var(--code); border: 1px dashed var(--accent); padding: 32px; border-radius: 8px; text-align: center; margin: 50px 0; }
+        .btn { display: inline-block; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 500; margin-top: 12px; }
+        .btn:hover { opacity: 0.9; }
+        footer { background: var(--text); color: var(--bg); padding: 40px 0; text-align: center; font-size: 14px; }
+        footer a { color: var(--bg); text-decoration: underline; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .demo-grid { grid-template-columns: 1fr; }
+            nav a { margin-left: 10px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">IRMS<span>.</span></div>
+                <div>
+                    <a href="#demo">Dene</a>
+                    <a href="#katmanlar">Katmanlar</a>
+                    <a href="#ornekler">Örnekler</a>
+                    <a href="#makaleler">Makaleler</a>
+                    <a href="#topluluk">Topluluk</a>
+                    <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Göbeklitepe ile Ayasofya'yı<br>Aynı Skalada Ölç</h1>
+                <p class="subtitle">IRMS, kültürel miras ve inanç sistemlerini <b>İnanç, Ritüel, Mekân, Sembol</b> katmanlarında standartlaştıran evrensel bir ölçüm metodolojisidir.</p>
+                <div class="badges">
+                    <a href="https://doi.org/10.5281/zenodo.20179300"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20179300.svg" alt="DOI"></a>
+                    <a href="https://creativecommons.org/licenses/by-nd/4.0/"><img src="https://img.shields.io/badge/License-CC_BY--ND_4.0-lightgrey.svg" alt="License"></a>
+                </div>
+                <div class="principle">IRMS < 1 — Boşluk hata değil, bir sonraki araştırma rotasıdır.</div>
+            </div>
+        </section>
+
+        <section class="section demo" id="demo">
+            <div class="container">
+                <h2>30 Saniyede Dene</h2>
+                <div class="demo-grid">
+                    <div>
+                        <h3>Girdi: Sayburç Kabartması</h3>
+                        <p style="margin-bottom:16px; color:#5E5A54;">Neolitik dönem, ~MÖ 9000. Fallus tutan erkek + leoparlar + şaman figürü.</p>
+                        <div class="code-block">
+<span class="code-comment"># IRMS-O Kaydı</span><br>
+cat examples/sayburc.md
+                        </div>
+                        <a href="./examples/sayburc.md" class="btn">Tam Analizi Oku</a>
+                    </div>
+                    <div>
+                        <h3>Çıktı: IRMS-U Skoru</h3>
+                        <div class="code-block">
+I3.b2 | I4.b3 | R6.b | R7 | M2.c1 | M5.d<br>
+F1.a3 | S4.b | Σ2.b | Σ9.b<br>
+IRMS-U: 0.73 | ε: 0.27 | U9.b | P1.c2→L05
+                        </div>
+                        <p style="color:#5E5A54;"><b>Yorum:</b> Kurucu ata miti. Kozmik düzeni kuran şamanik-panteonik melez. ε=0.27 → "Altı parmak" yoruma açık.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="katmanlar">
+            <div class="container">
+                <h2>Dört Katmanlı Evren</h2>
+                <p style="text-align:center; color:#5E5A54; margin-bottom:40px;">Her kültürel temsil bu 4 katmanda kodlanır. Overlap yasak.</p>
+                
+                <div class="grid-4">
+                    <div class="card">
+                        <h3>İnanç I</h3>
+                        <p>Tanrı, ruh, kozmoloji, ölüm-ötesi. Sistemin "neden" sorusu.</p>
+                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
+                        <code>I1</code> Doğa Ruhu<br>
+                        <code>I2</code> Yaratıcı Tanrı<br>
+                        <code>I3</code> Yeraltı/Geçiş<br>
+                        <code>I4</code> Bereket<br>
+                        <code>I9</code> Melez Sistem</p>
+                    </div>
+                    <div class="card">
+                        <h3>Ritüel R</h3>
+                        <p>Kurban, inisiyasyon, festival, arınma. İnancın "nasıl" yaşandığı.</p>
+                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
+                        <code>R2</code> Festival<br>
+                        <code>R3</code> Kurban/Sunu<br>
+                        <code>R6</code> Kozmik Düzen<br>
+                        <code>R7</code> İnisiyasyon<br>
+                        <code>R8</code> Korunma</p>
+                    </div>
+                    <div class="card">
+                        <h3>Mekân M</h3>
+                        <p>Tapınak, sunak, mağara, kutsal coğrafya. Ritüelin "nerede" gerçekleştiği.</p>
+                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
+                        <code>M1</code> Mağara/Ata Mekân<br>
+                        <code>M2</code> Açık Hava Sunağı<br>
+                        <code>M3</code> Hac/Yürüyüş Yolu<br>
+                        <code>M5</code> Kozmik Hizalama<br>
+                        <code>M6</code> Konsey/Danışma</p>
+                    </div>
+                    <div class="card">
+                        <h3>Sembol S</h3>
+                        <p>Form + Yapı + Anlam. Görünen yüz.</p>
+                        <p style="margin-top:12px;"><b>Ana Kodlar:</b><br>
+                        <code>F1</code> İnsan Figürü<br>
+                        <code>S4</code> Kompozisyon<br>
+                        <code>Σ2</code> Yaşam Döngüsü<br>
+                        <code>Σ3</code> Statü/Güç<br>
+                        <code>Σ9</code> Anomali/Belirsiz</p>
+                    </div>
+                </div>
+
+                <table style="margin-top:50px;">
+                    <thead>
+                        <tr>
+                            <th>Modül</th>
+                            <th>Açıklama</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="./F1.a%20-%20TAM%20İNSAN%20FİGÜRÜ.md">F1.a Tam İnsan</a></td>
+                            <td>Baş, gövde, kol, bacak bütünlüğü</td>
+                            <td>✅ Aktif</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./F1-a1-Statik-Tam-Insan-Figuru.md">F1.a1 Statik</a></td>
+                            <td>Ayakta, durağan postür</td>
+                            <td>✅ Aktif</td>
+                        </tr>
+                        <tr>
+                            <td><a href="./F1.a2%20Hareketli%20-%20Dinamik.md">F1.a2 Dinamik</a></td>
+                            <td>Hareketli, ritüel postür</td>
+                            <td>✅ Aktif</td>
+                        </tr>
+                        <tr>
+                            <td>I-Kodları</td>
+                            <td>İnanç katmanı ana liste</td>
+                            <td>⏳ Yakında</td>
+                        </tr>
+                        <tr>
+                            <td>R-Kodları</td>
+                            <td>Ritüel katmanı ana liste</td>
+                            <td>⏳ Yakında</td>
+                        </tr>
+                        <tr>
+                            <td>M-Kodları</td>
+                            <td>Mekân katmanı ana liste</td>
+                            <td>⏳ Yakında</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section" id="ornekler" style="background:#fff;">
+            <div class="container">
+                <h2>Örnek Kodlamalar</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>1. Sayburç Kabartması</h3>
+                        <p><b>Dönem:</b> Neolitik, ~MÖ 9000</p>
+                        <p><b>IRMS-U:</b> 0.73 | <b>ε:</b> 0.27</p>
+                        <p><b>Profil:</b> I3+I4 / R6+R7 / M2+M5</p>
+                        <p style="margin:12px 0; color:#5E5A54;">Şamanik-panteonik melez. Kurucu ata miti.</p>
+                        <a href="./examples/sayburc.md">→ Tam Rapor</a>
+                    </div>
+                    <div class="card">
+                        <h3>2. Ayasofya Kubbesi</h3>
+                        <p><b>Dönem:</b> Bizans, MS 537</p>
+                        <p><b>IRMS-U:</b> ??.??</p>
+                        <p><b>Profil:</b> I2 / R4 / M5 / Σ1</p>
+                        <p style="margin:12px 0; color:#5E5A54;">Hristiyan kozmosu. Göksel hiyerarşi.</p>
+                        <a href="#">→ Yakında</a>
+                    </div>
+                </div>
+                <p style="text-align:center; margin-top:30px;">
+                    <a href="./examples/" class="btn">Tüm Örnekler</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="makaleler">
+            <div class="container">
+                <h2>Makaleler & Yayınlar</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Kurucu Metin</h3>
+                        <p><b>Şengül, A. (2026).</b> IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)</p>
+                        <p style="margin:12px 0;"><code>DOI: 10.5281/zenodo.20179300</code></p>
+                        <a href="https://doi.org/10.5281/zenodo.20179300" target="_blank">→ Zenodo'da Oku</a>
+                    </div>
+                    <div class="card">
+                        <h3>Uygulama</h3>
+                        <p>IRMS kullanan çalışmalar buraya eklenecek.</p>
+                        <p style="margin:12px 0; color:#5E5A54;">Siz kodladınız mı? PR gönderin, listeye ekleyelim.</p>
+                        <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology/discussions">→ Paylaş</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="epsilon">
+                <h3>Metodoloji Eksik Değil, Dürüst</h3>
+                <p>IRMS, kendi sınırlarını Q.Stab ve ε değerleriyle ilan eder. "Altı parmak ne?" sorusuna "bilmiyoruz" der, ama "nerede arayacağınızı biliyoruz" diye ekler.</p>
+            </div>
+        </section>
+
+        <section class="section" id="topluluk" style="background:#fff;">
+            <div class="container">
+                <h2>Topluluk & Katkı</h2>
+                <p style="text-align:center; color:#5E5A54; margin-bottom:40px;">IRMS < 1 = Boşluk = Davet</p>
+                <div class="grid-4">
+                    <div class="card">
+                        <h3>💬 Tartış</h3>
+                        <p>Soru sor, vaka öner, ε yorumu yap.</p>
+                        <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology/discussions">→ Discussions</a>
+                    </div>
+                    <div class="card">
+                        <h3>🐛 Hata Bildir</h3>
+                        <p>Kod çakışması mı buldun? ε hatalı mı?</p>
+                        <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology/issues">→ Issue Aç</a>
+                    </div>
+                    <div class="card">
+                        <h3>📄 Atıf Yap</h3>
+                        <p>Akademik kullanım için BibTeX.</p>
+                        <a href="https://doi.org/10.5281/zenodo.20179300">→ DOI Sayfası</a>
+                    </div>
+                    <div class="card">
+                        <h3>⚖️ Lisans</h3>
+                        <p>CC BY-ND 4.0. Atıf zorunlu, türev yasak.</p>
+                        <a href="https://creativecommons.org/licenses/by-nd/4.0/">→ Lisans Oku</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><b>IRMS v1.0</b> | Şengül, A. (2026) | Zenodo: 10.5281/zenodo.20179300</p>
+            <p style="margin-top:12px;">CC BY-ND 4.0 | IRMS < 1 ilkesi gereği sistem sürekli gelişir.</p>
+        </div>
+    </footer>
+</body>
+</html>
