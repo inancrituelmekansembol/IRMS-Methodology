@@ -29,128 +29,100 @@
             z-index: 1000; 
         }
         nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; text-decoration: none; color: var(--text); }
         .logo span { color: var(--accent); }
-        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 24px; font-weight: 500; font-size: 15px; }
+        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 24px; font-weight: 500; font-size: 15px; cursor: pointer; transition: color 0.2s; }
         nav .nav-links a:hover { color: var(--accent); }
 
         /* Giriş ve Felsefe */
-        .hero { padding: 50px 0 30px 0; max-width: 850px; margin: 0 auto; text-align: center; }
-        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.2; margin-bottom: 16px; }
-        .hero p { font-size: 16px; color: #5E5A54; }
+        .hero { padding: 80px 0 40px 0; max-width: 850px; margin: 0 auto; text-align: center; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { font-size: 17px; color: #5E5A54; }
 
-        /* SABİT KATMANLAR MENÜSÜ */
-        .sticky-layer-nav { 
-            position: sticky; 
-            top: 65px; 
-            background: rgba(247,245,242,0.96); 
-            backdrop-filter: blur(8px); 
-            border-top: 1px solid var(--border); 
-            border-bottom: 1px solid var(--border); 
-            z-index: 900; 
-            padding: 12px 0; 
-        }
-        .layer-buttons { display: flex; justify-content: center; gap: 12px; }
-        .layer-btn { font-family: 'Space Grotesk', sans-serif; background: var(--white); border: 1px solid var(--border); padding: 12px 24px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 6px; transition: all 0.2s ease; color: var(--text); }
-        .layer-btn:hover { border-color: var(--accent); color: var(--accent); }
-        .layer-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
-
-        /* DİNAMİK HİYERARŞİK ALAN VE ÇOK KATMANLI AKORDEON */
-        .layer-display-section { padding: 40px 0; background: var(--white); border-bottom: 1px solid var(--border); min-height: 400px; }
+        /* KÜTÜPHANE VE DÖKÜMANLAR (VİTRİN) */
+        .section { padding: 40px 0 80px 0; }
+        .section-title-area { margin-bottom: 30px; border-bottom: 1px solid var(--border); padding-bottom: 12px; display: flex; justify-content: space-between; align-items: flex-end; }
+        .section-title-area h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; }
         
-        /* 1. SEVİYE: ANA BAŞLIKLAR (I0, I1 vb.) */
-        .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
-        
-        .accordion-header { 
-            padding: 16px 20px; 
-            background: var(--bg); 
-            font-family: 'Space Grotesk', sans-serif; 
-            font-size: 17px; 
-            font-weight: 700; 
-            cursor: pointer; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            user-select: none; 
-        }
-        .accordion-header:hover { background: var(--code); }
-        .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 12px; }
-        .accordion-icon { font-size: 12px; color: var(--text); transition: transform 0.2s; }
-        
-        .accordion-body { display: none; padding: 20px; border-top: 1px solid var(--border); background: var(--white); }
-        
-        /* 1. Seviye Açılma Durumu */
-        .accordion-item.open > .accordion-body { display: block; animation: slideDown 0.2s ease; }
-        .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
-        .accordion-item.open > .accordion-header code { background: var(--accent); }
-
-        /* 2. SEVİYE: ALT DALLAR (I0.a, I0.b vb.) */
-        .tree-branch { 
-            border: 1px solid var(--border); 
-            border-left: 4px solid var(--border);
-            border-radius: 4px; 
-            margin-bottom: 12px; 
-            background: var(--white);
-        }
-        .tree-branch:last-child { margin-bottom: 0; }
-        
-        .branch-header { 
-            padding: 12px 16px; 
-            font-family: 'Space Grotesk', sans-serif; 
-            font-size: 15px; 
-            font-weight: 700; 
-            color: var(--text); 
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-        .branch-header:hover { background: var(--bg); }
-        .branch-header code { background: var(--code); color: var(--text); padding: 2px 6px; font-size: 13px; border-radius: 4px; font-family: monospace; margin-right: 8px; }
-        .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
-
-        .branch-body { display: none; padding: 12px 16px; background: var(--bg); border-top: 1px solid var(--border); }
-
-        /* 2. Seviye Açılma Durumu */
-        .tree-branch.branch-open { border-left-color: var(--accent); }
-        .tree-branch.branch-open > .branch-body { display: block; animation: slideDown 0.15s ease; }
-        .tree-branch.branch-open > .branch-header { color: var(--accent); }
-        .tree-branch.branch-open > .branch-header .branch-icon { transform: rotate(180deg); color: var(--accent); }
-
-        /* 3. SEVİYE: EN ALT YAPRAKLAR (I0.a1, I0.a2 vb.) */
-        .leaf-node { 
-            background: var(--white); 
-            padding: 10px 14px; 
-            border-radius: 4px; 
-            margin-bottom: 8px; 
-            border: 1px solid var(--border); 
-            font-size: 14px; 
-            display: flex;
-            align-items: flex-start;
-        }
-        .leaf-node:last-child { margin-bottom: 0; }
-        .leaf-node strong { font-family: monospace; background: var(--stone); color: var(--text); padding: 1px 6px; border-radius: 3px; margin-right: 12px; font-size: 13px; flex-shrink: 0; }
-
-        /* KÜTÜPHANE VE DÖKÜMANLAR */
-        .section { padding: 60px 0; }
-        .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; text-align: center; margin-bottom: 12px; }
-        .section-desc { text-align: center; color: #5E5A54; margin-bottom: 40px; font-size: 15px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.01); }
-        .library-card .meta { font-size: 12px; color: #8A857E; margin-bottom: 6px; font-weight: 500; text-transform: uppercase; }
-        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; margin-bottom: 8px; }
-        .library-card p { font-size: 14px; color: #5E5A54; margin-bottom: 16px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.01); transition: transform 0.2s; }
+        .library-card:hover { transform: translateY(-2px); }
+        .library-card .meta { font-size: 12px; color: #8A857E; margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin-bottom: 10px; line-height: 1.3; }
+        .library-card p { font-size: 14px; color: #5E5A54; margin-bottom: 20px; }
         
         .links-group { display: flex; gap: 12px; }
         .view-btn { display: inline-flex; align-items: center; background: var(--text); color: var(--white); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; }
         .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
         .view-btn:hover { opacity: 0.9; }
 
-        footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; }
+        /* --- DİNAMİK ENVENTER MODAL YAPISI --- */
+        .inventory-modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(45, 42, 38, 0.5); 
+            backdrop-filter: blur(4px);
+            z-index: 2000; 
+            justify-content: center; align-items: flex-start;
+            overflow-y: auto; padding: 40px 20px;
+        }
+        .modal-content { 
+            background: var(--white); border: 1px solid var(--border); 
+            width: 100%; max-width: 900px; border-radius: 12px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            animation: modalFadeIn 0.25s ease;
+        }
+        .modal-header { 
+            padding: 20px 28px; border-bottom: 1px solid var(--border); 
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--bg); border-top-left-radius: 12px; border-top-right-radius: 12px;
+        }
+        .modal-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; }
+        .close-modal { font-size: 24px; cursor: pointer; color: var(--text); background: none; border: none; font-weight: bold; }
+        .close-modal:hover { color: var(--accent); }
+        
+        /* Modal İçi Katman Seçim Menüsü */
+        .modal-tabs { display: flex; gap: 8px; padding: 16px 28px; background: var(--white); border-bottom: 1px solid var(--border); }
+        .tab-btn { font-family: 'Space Grotesk', sans-serif; background: var(--bg); border: 1px solid var(--border); padding: 10px 18px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; color: var(--text); }
+        .tab-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
 
-        @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .layer-buttons { flex-direction: column; gap: 6px; padding: 0 16px; } }
+        .modal-body { padding: 28px; max-height: 65vh; overflow-y: auto; }
+
+        /* AKORDEON STİLLERİ (MODAL İÇİ) */
+        .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
+        .accordion-header { padding: 14px 18px; background: var(--bg); font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+        .accordion-header:hover { background: var(--code); }
+        .accordion-header code { font-family: monospace; background: var(--text); color: white; padding: 2px 6px; border-radius: 4px; font-size: 13px; margin-right: 10px; }
+        .accordion-icon { font-size: 12px; transition: transform 0.2s; }
+        .accordion-body { display: none; padding: 16px; border-top: 1px solid var(--border); background: var(--white); }
+        
+        .accordion-item.open > .accordion-body { display: block; }
+        .accordion-item.open > .accordion-header .accordion-icon { transform: rotate(180deg); color: var(--accent); }
+        .accordion-item.open > .accordion-header code { background: var(--accent); }
+
+        /* İÇE İÇE KATMAN (2. SEVİYE) */
+        .tree-branch { border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 4px; margin-bottom: 10px; background: var(--white); }
+        .tree-branch:last-child { margin-bottom: 0; }
+        .branch-header { padding: 10px 14px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .branch-header:hover { background: var(--bg); }
+        .branch-header code { background: var(--code); color: var(--text); padding: 1px 5px; font-size: 12px; border-radius: 4px; font-family: monospace; margin-right: 6px; }
+        .branch-icon { font-size: 10px; color: #8A857E; transition: transform 0.2s; }
+        .branch-body { display: none; padding: 10px 14px; background: var(--bg); border-top: 1px solid var(--border); }
+        
+        .tree-branch.branch-open { border-left-color: var(--accent); }
+        .tree-branch.branch-open > .branch-body { display: block; }
+        .tree-branch.branch-open > .branch-header { color: var(--accent); }
+        .tree-branch.branch-open > .branch-header .branch-icon { transform: rotate(180deg); }
+
+        /* 3. SEVİYE YAPRAKLAR */
+        .leaf-node { background: var(--white); padding: 8px 12px; border-radius: 4px; margin-bottom: 6px; border: 1px solid var(--border); font-size: 13.5px; display: flex; align-items: flex-start; }
+        .leaf-node:last-child { margin-bottom: 0; }
+        .leaf-node strong { font-family: monospace; background: var(--stone); padding: 1px 5px; border-radius: 3px; margin-right: 10px; font-size: 12px; flex-shrink: 0; }
+
+        footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; border-top: 1px solid var(--border); }
+
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -158,10 +130,9 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">IRMS<span>.</span></div>
+                <a class="logo" href="#">IRMS<span>.</span></a>
                 <div class="nav-links">
-                    <a href="#katman-envanteri">Katman Envanteri</a>
-                    <a href="#kütüphane">Kütüphane & Yayınlar</a>
+                    <a onclick="openInventoryModal()">Katman Envanteri</a>
                     <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
                 </div>
             </nav>
@@ -172,28 +143,15 @@
         <section class="hero">
             <div class="container">
                 <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>İncelemek istediğiniz katmanı seçin. Önce ana sınıflar açılır, ardından alt kırılımlara ve spesifik kodlara hiyerarşik olarak erişebilirsiniz.</p>
+                <p>IRMS, inanç sistemlerini ve somut sanatsal temsilleri örtüşmeyen katmanlar halinde formüle eder. Üst menüden sistem taksonomisine erişebilir, aşağıdan ise en son eklenen saha raporlarını inceleyebilirsiniz.</p>
             </div>
         </section>
 
-        <div class="sticky-layer-nav" id="katman-envanteri">
-            <div class="layer-buttons">
-                <button class="layer-btn active" id="btn-inanc" onclick="loadLayerData('inanc.json', 'btn-inanc')">İnanç [I]</button>
-                <button class="layer-btn" id="btn-rituel" onclick="loadLayerData('rituel.json', 'btn-rituel')">Ritüel [R]</button>
-                <button class="layer-btn" id="btn-mekan" onclick="loadLayerData('mekan.json', 'btn-mekan')">Mekân [M]</button>
-                <button class="layer-btn" id="btn-sembol" onclick="loadLayerData('sembol.json', 'btn-sembol')">Sembol [S]</button>
-            </div>
-        </div>
-
-        <section class="layer-display-section">
-            <div class="container" id="dynamic-accordion-container">
-                </div>
-        </section>
-
-        <section class="section" id="kütüphane">
+        <section class="section">
             <div class="container">
-                <h2>Kütüphane & Yayınlar</h2>
-                <p class="section-desc">Metodolojiye ait bağımsız HTML alt sayfalarını ve akademik PDF dökümanlarını buradan inceleyebilirsiniz.</p>
+                <div class="section-title-area">
+                    <h2>Son Yüklenen Yayınlar & Saha Analizleri</h2>
+                </div>
                 
                 <div class="grid-2">
                     <div class="library-card">
@@ -220,6 +178,25 @@
         </section>
     </main>
 
+    <div id="inventoryModal" class="inventory-modal" onclick="closeInventoryModalOutside(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>IRMS Katman Taksonomisi</h2>
+                <button class="close-modal" onclick="closeInventoryModal()">&times;</button>
+            </div>
+            
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="tab-inanc" onclick="switchModalLayer('inanc.json', 'tab-inanc')">İnanç [I]</button>
+                <button class="tab-btn" id="tab-rituel" onclick="switchModalLayer('rituel.json', 'tab-rituel')">Ritüel [R]</button>
+                <button class="tab-btn" id="tab-mekan" onclick="switchModalLayer('mekan.json', 'tab-mekan')">Mekân [M]</button>
+                <button class="tab-btn" id="tab-sembol" onclick="switchModalLayer('sembol.json', 'tab-sembol')">Sembol [S]</button>
+            </div>
+
+            <div class="modal-body" id="modal-accordion-container">
+                </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <p><b>IRMS v1.0</b> | Şengül, A. (2026) | DOI: 10.5281/zenodo.20179300</p>
@@ -227,34 +204,52 @@
     </footer>
 
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            loadLayerData('inanc.json', 'btn-inanc');
-        });
+        // Modal Açma Fonksiyonu
+        function openInventoryModal() {
+            document.getElementById('inventoryModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Arka plan kaymasını engelle
+            // Varsayılan olarak ilk katmanı (İnanç) yükle
+            switchModalLayer('inanc.json', 'tab-inanc');
+        }
 
-        function loadLayerData(jsonFile, activeBtnId) {
-            document.querySelectorAll('.layer-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(activeBtnId).classList.add('active');
+        // Modal Kapatma Fonksiyonu
+        function closeInventoryModal() {
+            document.getElementById('inventoryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-            const container = document.getElementById('dynamic-accordion-container');
-            container.innerHTML = "<p style='text-align:center; color:#8A857E;'>Katman verileri yükleniyor...</p>";
+        // Dışarı tıklayınca kapatma
+        function closeInventoryModalOutside(event) {
+            if (event.target.id === 'inventoryModal') {
+                closeInventoryModal();
+            }
+        }
+
+        // Modal içinde katman değiştirme ve JSON verisini çekme motoru
+        function switchModalLayer(jsonFile, activeTabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(activeTabId).classList.add('active');
+
+            const container = document.getElementById('modal-accordion-container');
+            container.innerHTML = "<p style='text-align:center; color:#8A857E; font-size:14px;'>Hiyerarşi yükleniyor...</p>";
 
             fetch(jsonFile)
                 .then(response => {
-                    if (!response.ok) throw new Error("JSON dosyası bulunamadı.");
+                    if (!response.ok) throw new Error("JSON bulunamadı.");
                     return response.json();
                 })
                 .then(data => {
-                    container.innerHTML = ""; 
+                    container.innerHTML = "";
 
                     data.forEach(item => {
                         const accordionItem = document.createElement('div');
                         accordionItem.className = 'accordion-item';
 
-                        // 2. Seviye Alt Dalları (I0.a, I0.b) kurguluyoruz
+                        // 2. Seviye (Alt başlıklar: I0.a, I0.b)
                         let branchesHtml = '';
                         item.branches.forEach(branch => {
                             
-                            // 3. Seviye En Alt Yaprakları (I0.a1, I0.a2) kurguluyoruz
+                            // 3. Seviye (En alt yapraklar: I0.a1, I0.a2)
                             let leavesHtml = '';
                             branch.leaves.forEach(leaf => {
                                 leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong> <span>${leaf.desc}</span></div>`;
@@ -273,7 +268,7 @@
                             `;
                         });
 
-                        // 1. Seviye Ana Gövdeyi Birleştiriyoruz
+                        // 1. Seviye Ana Gövde
                         accordionItem.innerHTML = `
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 <div><code>${item.code}</code> ${item.title}</div>
@@ -287,30 +282,27 @@
                     });
                 })
                 .catch(error => {
-                    container.innerHTML = `<p style='text-align:center; color:var(--accent);'>Bu katmana ait veri dosyası (${jsonFile}) henüz yüklenmemiş veya yolu hatalı.</p>`;
+                    container.innerHTML = `<p style='text-align:center; font-size:14px; color:var(--accent);'>Bu katman dosyası (${jsonFile}) bulunamadı.</p>`;
                 });
         }
 
-        // 1. Seviye Açma-Kapama Fonksiyonu (I0, I1 vb.)
+        // 1. Seviye Akordeon Tetikleyici (I0, I1)
         function toggleAccordion(headerElement) {
             const currentItem = headerElement.parentElement;
             const isOpen = currentItem.classList.contains('open');
-            
             if (!isOpen) {
                 currentItem.classList.add('open');
             } else {
                 currentItem.classList.remove('open');
-                // Ana dal kapanırken altındaki açık alt dalları da otomatik temizle (şık dursun)
                 currentItem.querySelectorAll('.tree-branch').forEach(b => b.classList.remove('branch-open'));
             }
         }
 
-        // 2. Seviye Açma-Kapama Fonksiyonu (I0.a, I0.b vb.)
+        // 2. Seviye Alt Dal Tetikleyici (I0.a, I0.b)
         function toggleBranch(branchHeaderElement, event) {
-            event.stopPropagation(); // Tıklama olayının üst akordeonu tetiklemesini engeller
+            event.stopPropagation();
             const currentBranch = branchHeaderElement.parentElement;
             const isBranchOpen = currentBranch.classList.contains('branch-open');
-
             if (!isBranchOpen) {
                 currentBranch.classList.add('branch-open');
             } else {
