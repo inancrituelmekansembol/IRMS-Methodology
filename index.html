@@ -170,143 +170,207 @@
     </footer>
 
     <script>
-        const GITHUB_BASE = "https://raw.githubusercontent.com/inancrituelmekansembol/IRMS-Methodology/main";
-        let dbMasterArama = null; 
+    const GITHUB_BASE = "https://raw.githubusercontent.com/inancrituelmekansembol/IRMS-Methodology/main";
+    let dbMasterArama = null; 
 
-        window.addEventListener('DOMContentLoaded', () => {
-            loadSearchDatabase();
-        });
+    window.addEventListener('DOMContentLoaded', () => {
+        loadSearchDatabase();
+    });
 
-        // 1. ADIM: ARAMA.JSON SADECE ANA EKRAN VE YAYINLAR İÇİN OKUNUR
-        function loadSearchDatabase() {
-            fetch(`${GITHUB_BASE}/arama.json`)
-                .then(res => res.json())
-                .then(data => {
-                    dbMasterArama = data;
-                    displayArticles(data.yayinlar || []);
-                })
-                .catch(() => {
-                    document.getElementById('articles-showcase-container').innerHTML = "<p>arama.json yüklenemedi.</p>";
-                });
-        }
-
-        function displayArticles(articles) {
-            const container = document.getElementById('articles-showcase-container');
-            container.innerHTML = "";
-            articles.forEach(art => {
-                const card = document.createElement('div');
-                card.className = 'library-card';
-                const webLinkHtml = art.url_web ? `<a href="${art.url_web}" target="_blank" class="view-btn"> İncele</a>` : '';
-                const pdfLinkHtml = art.url_pdf ? `<a href="${art.url_pdf}" target="_blank" class="view-btn pdf">📄 PDF</a>` : '';
-                card.innerHTML = `<div><div class="meta">${art.kategori}</div><h3>${art.baslik}</h3><p>${art.ozet}</p></div><div class="links-group">${webLinkHtml}${pdfLinkHtml}</div>`;
-                container.appendChild(card);
+    // 1. ADIM: ARAMA.JSON OKUMA MOTORU
+    function loadSearchDatabase() {
+        fetch(`${GITHUB_BASE}/arama.json`)
+            .then(res => res.json())
+            .then(data => {
+                dbMasterArama = data;
+                displayArticles(data.yayinlar || []);
+            })
+            .catch(() => {
+                document.getElementById('articles-showcase-container').innerHTML = "<p>arama.json yüklenemedi.</p>";
             });
+    }
+
+    // ANA SAYFA YAYINLARINI EKRANA BASAN MOTOR
+    function displayArticles(articles) {
+        const container = document.getElementById('articles-showcase-container');
+        container.innerHTML = "";
+        
+        if (!articles || articles.length === 0) {
+            container.innerHTML = "<p style='color:#8A857E; grid-column: 1/-1; text-align:center;'>Eşleşen yayın bulunamadı.</p>";
+            return;
         }
 
-        function filterArticles() {
-            const query = document.getElementById('mainSearchInput').value.toLowerCase().trim();
-            if (!dbMasterArama || !dbMasterArama.yayinlar) return;
-            const filtered = dbMasterArama.yayinlar.filter(art => art.baslik.toLowerCase().includes(query) || art.ozet.toLowerCase().includes(query));
-            displayArticles(filtered);
-        }
-
-        // 2. ADIM: SEKME DEĞİŞİNCE HER KATMANIN KENDİ BAĞIMSIZ DOSYASI ÇAĞRILIR (.json uzantısıyla)
-        function switchModalLayer(layerKey) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            if(document.getElementById('tab-' + layerKey)) document.getElementById('tab-' + layerKey).classList.add('active');
+        articles.forEach(art => {
+            const card = document.createElement('div');
+            card.className = 'library-card';
             
-            const container = document.getElementById('modal-accordion-container');
-            container.innerHTML = "<p style='color:#8A857E;'>Orijinal katman hiyerarşisi yükleniyor...</p>";
+            // Güvenli veri okuma (Boş gelme ihtimaline karşı koruma)
+            const kategori = art.kategori || "Genel";
+            const baslik = art.baslik || art.basilik || "Başlıksız";
+            const ozet = art.ozet || "";
+            
+            const webLinkHtml = art.url_web ? `<a href="${art.url_web}" target="_blank" class="view-btn">İncele</a>` : '';
+            const pdfLinkHtml = art.url_pdf ? `<a href="${art.url_pdf}" target="_blank" class="view-btn pdf">📄 PDF</a>` : '';
+            
+            card.innerHTML = `
+                <div>
+                    <div class="meta">${kategori}</div>
+                    <h3>${baslik}</h3>
+                    <p>${ozet}</p>
+                </div>
+                <div class="links-group" style="margin-top:20px;">${webLinkHtml}${pdfLinkHtml}</div>
+            `;
+            container.appendChild(card);
+        });
+    }
 
-            // DOĞRUDAN ILGILI KATMANIN TAM JSON DOSYASINA GİDİYORUZ
-            fetch(`${GITHUB_BASE}/${layerKey}.json`)
-                .then(res => {
-                    if(!res.ok) throw new Error();
-                    return res.json();
-                })
-                .then(data => {
-                    renderHierarchicalTaxonomy(data);
-                })
-                .catch(() => {
-                    container.innerHTML = `<p style='color:var(--accent); text-align:center; padding:20px;'>${layerKey}.json dökümanı bulunamadı veya içi boş.</p>`;
-                });
+    // ÇALIŞMAYAN ÜST BAR ARAMA MOTORU (DÜZELTİLDİ)
+    function filterArticles() {
+        const query = document.getElementById('mainSearchInput').value.toLowerCase().trim();
+        if (!dbMasterArama || !dbMasterArama.yayinlar) return;
+
+        // Arama yaparken hem baslik hem ozet hem kategori alanlarını güvenli kontrol ediyoruz
+        const filtered = dbMasterArama.yayinlar.filter(art => {
+            const baslik = (art.baslik || art.basilik || "").toLowerCase();
+            const ozet = (art.ozet || "").toLowerCase();
+            const kategori = (art.kategori || "").toLowerCase();
+            
+            return baslik.includes(query) || ozet.includes(query) || kategori.includes(query);
+        });
+        
+        displayArticles(filtered);
+    }
+
+    // 2. ADIM: MODAL İÇİ KENDİ BAĞIMSIZ JSON DOSYALARINI OKUMA MOTORU
+    function switchModalLayer(layerKey) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        if(document.getElementById('tab-' + layerKey)) document.getElementById('tab-' + layerKey).classList.add('active');
+        
+        const container = document.getElementById('modal-accordion-container');
+        container.innerHTML = "<p style='color:#8A857E;'>Orijinal katman hiyerarşisi yükleniyor...</p>";
+        document.getElementById('modalSearchInput').value = ""; // Sekme değişince aramayı sıfırla
+
+        fetch(`${GITHUB_BASE}/${layerKey}.json`)
+            .then(res => res.json())
+            .then(data => {
+                renderHierarchicalTaxonomy(data);
+            })
+            .catch(() => {
+                container.innerHTML = `<p style='color:var(--accent); text-align:center; padding:20px;'>[${layerKey.toUpperCase()}] katmanına ait hiyerarşik veri yüklenemedi.</p>`;
+            });
+    }
+
+    // HİYERARŞİYİ MODAL İÇİNE YAZAN MOTOR
+    function renderHierarchicalTaxonomy(data) {
+        const container = document.getElementById('modal-accordion-container');
+        container.innerHTML = "";
+
+        if(!data || data.length === 0) {
+            container.innerHTML = "<p style='text-align:center; color:#8A857E;'>Bu katmanda henüz hiyerarşik veri dökümü bulunmuyor.</p>";
+            return;
         }
 
-        // GERÇEK HİYERARŞİYİ KORUYAN RENDER MOTORU
-        function renderHierarchicalTaxonomy(data) {
-            const container = document.getElementById('modal-accordion-container');
-            container.innerHTML = "";
-
-            if(!data || data.length === 0) {
-                container.innerHTML = "<p style='text-align:center; color:#8A857E;'>Veri yok.</p>";
-                return;
+        data.forEach(item => {
+            const accordionItem = document.createElement('div');
+            accordionItem.className = 'accordion-item';
+            
+            let branchesHtml = '';
+            if(item.branches && Array.isArray(item.branches)) {
+                item.branches.forEach(branch => {
+                    let leavesHtml = '';
+                    if(branch.leaves && Array.isArray(branch.leaves)) {
+                        branch.leaves.forEach(leaf => {
+                            // inanc.json ve rituel.json'daki id ve desc/title uyumsuzluklarına karşı esnek okuma
+                            const leafId = leaf.id || leaf.uid || "";
+                            const leafDesc = leaf.desc || leaf.title || "";
+                            leavesHtml += `<div class="leaf-node"><strong>${leafId}</strong> <span>${leafDesc}</span></div>`;
+                        });
+                    }
+                    branchesHtml += `
+                        <div class="tree-branch">
+                            <div class="branch-header" onclick="toggleBranch(this, event)">
+                                <div><code>${branch.subcode || ''}</code> ${branch.subtitle || branch.title || ''}</div>
+                                <div class="branch-icon">▼</div>
+                            </div>
+                            <div class="branch-body">${leavesHtml}</div>
+                        </div>
+                    `;
+                });
             }
 
-            data.forEach(item => {
-                const accordionItem = document.createElement('div');
-                accordionItem.className = 'accordion-item';
+            accordionItem.innerHTML = `
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <div><code>${item.code || ''}</code> ${item.title || ''}</div>
+                    <div class="accordion-icon">▼</div>
+                </div>
+                <div class="accordion-body">${branchesHtml}</div>
+            `;
+            container.appendChild(accordionItem);
+        });
+    }
+
+    // MODAL İÇİNDE ANLIK DİNAMİK ARAMA VE OTOMATİK AKORDEON AÇMA MOTORU
+    function filterModalTaxonomy() {
+        const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
+        
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            let itemMatch = false;
+            
+            item.querySelectorAll('.tree-branch').forEach(branch => {
+                let branchMatch = false;
                 
-                let branchesHtml = '';
-                if(item.branches) {
-                    item.branches.forEach(branch => {
-                        let leavesHtml = '';
-                        if(branch.leaves) {
-                            branch.leaves.forEach(leaf => {
-                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong> <span>${leaf.desc}</span></div>`;
-                            });
-                        }
-                        branchesHtml += `
-                            <div class="tree-branch">
-                                <div class="branch-header" onclick="toggleBranch(this, event)">
-                                    <div><code>${branch.subcode}</code> ${branch.subtitle}</div>
-                                    <div class="branch-icon">▼</div>
-                                </div>
-                                <div class="branch-body">${leavesHtml}</div>
-                            </div>
-                        `;
-                    });
-                }
-
-                accordionItem.innerHTML = `
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div><code>${item.code}</code> ${item.title}</div>
-                        <div class="accordion-icon">▼</div>
-                    </div>
-                    <div class="accordion-body">${branchesHtml}</div>
-                `;
-                container.appendChild(accordionItem);
-            });
-        }
-
-        function filterModalTaxonomy() {
-            const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                let itemMatch = false;
-                item.querySelectorAll('.tree-branch').forEach(branch => {
-                    let branchMatch = false;
-                    branch.querySelectorAll('.leaf-node').forEach(leaf => {
-                        if (leaf.textContent.toLowerCase().includes(query)) { leaf.style.display = 'flex'; branchMatch = true; } 
-                        else { leaf.style.display = 'none'; }
-                    });
-                    if (branch.querySelector('.branch-header').textContent.toLowerCase().includes(query) || branchMatch) {
-                        branch.style.display = 'block'; if(query !== "") branch.classList.add('branch-open'); itemMatch = true;
-                    } else { branch.style.display = 'none'; branch.classList.remove('branch-open'); }
+                branch.querySelectorAll('.leaf-node').forEach(leaf => {
+                    if (leaf.textContent.toLowerCase().includes(query)) {
+                        leaf.style.setProperty('display', 'flex', 'important');
+                        branchMatch = true;
+                    } else {
+                        leaf.style.display = 'none';
+                    }
                 });
-                if (item.querySelector('.accordion-header').textContent.toLowerCase().includes(query) || itemMatch) {
-                    item.style.display = 'block'; if(query !== "") item.classList.add('open');
-                } else { item.style.display = 'none'; item.classList.remove('open'); }
+                
+                const branchHeaderText = branch.querySelector('.branch-header').textContent.toLowerCase();
+                if (branchHeaderText.includes(query) || branchMatch) {
+                    branch.style.display = 'block';
+                    if(query !== "") {
+                        branch.classList.add('branch-open');
+                    } else {
+                        branch.classList.remove('branch-open');
+                    }
+                    itemMatch = true;
+                } else {
+                    branch.style.display = 'none';
+                    branch.classList.remove('branch-open');
+                }
             });
-        }
+            
+            const accordionHeaderText = item.querySelector('.accordion-header').textContent.toLowerCase();
+            if (accordionHeaderText.includes(query) || itemMatch) {
+                item.style.display = 'block';
+                if(query !== "") {
+                    item.classList.add('open');
+                } else {
+                    item.classList.remove('open');
+                }
+            } else {
+                item.style.display = 'none';
+                item.classList.remove('open');
+            }
+        });
+    }
 
-        function openInventoryModal(layerKey) {
-            document.getElementById('inventoryModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            switchModalLayer(layerKey);
-        }
-        function closeInventoryModal() { document.getElementById('inventoryModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
-        function closeInventoryModalOutside(event) { if (event.target.id === 'inventoryModal') closeInventoryModal(); }
-        function toggleAccordion(header) { header.parentElement.classList.toggle('open'); }
-        function toggleBranch(header, e) { e.stopPropagation(); header.parentElement.classList.toggle('branch-open'); }
-    </script>
+    // MODAL KONTROLLERİ
+    function openInventoryModal(layerKey) {
+        document.getElementById('inventoryModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        switchModalLayer(layerKey);
+    }
+    function closeInventoryModal() { 
+        document.getElementById('inventoryModal').style.display = 'none'; 
+        document.body.style.overflow = 'auto'; 
+    }
+    function closeInventoryModalOutside(event) { if (event.target.id === 'inventoryModal') closeInventoryModal(); }
+    function toggleAccordion(header) { header.parentElement.classList.toggle('open'); }
+    function toggleBranch(header, e) { e.stopPropagation(); header.parentElement.classList.toggle('branch-open'); }
+</script>
 </body>
 </html>
