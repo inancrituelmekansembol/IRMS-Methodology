@@ -39,8 +39,14 @@
         .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 44px; line-height: 1.2; margin-bottom: 20px; }
         .hero p { font-size: 17px; color: #5E5A54; margin-bottom: 30px; }
 
+        /* ANA SAYFA DOĞRUDAN KATMAN LİNKLERİ (QUICK ACCESS) */
+        .layer-quick-links { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
+        .layer-chip { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px; color: var(--text); background: var(--white); border: 1px solid var(--border); padding: 10px 20px; border-radius: 30px; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 2px 6px rgba(0,0,0,0.01); }
+        .layer-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); background: #FAF9F6; }
+        .layer-chip span { color: var(--accent); font-family: monospace; margin-right: 4px; }
+
         /* ARAMA ÇUBUKLARI */
-        .search-wrapper { max-width: 500px; margin: 0 auto 40px auto; position: relative; }
+        .search-wrapper { max-width: 500px; margin: 0 auto 10px auto; position: relative; }
         .search-input { width: 100%; padding: 12px 18px; border: 1px solid var(--border); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; background: var(--white); color: var(--text); outline: none; transition: border-color 0.2s; }
         .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(164, 73, 47, 0.1); }
 
@@ -131,7 +137,7 @@
             <nav>
                 <a class="logo" href="#">IRMS<span>.</span></a>
                 <div class="nav-links">
-                    <a onclick="openInventoryModal()">Katman Envanteri</a>
+                    <a onclick="openInventoryModal('inanc.json', 'tab-inanc')">Katman Envanteri</a>
                     <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
                 </div>
             </nav>
@@ -142,8 +148,15 @@
         <section class="hero">
             <div class="container">
                 <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>IRMS, inanç sistemlerini ve somut sanatsal temsilleri örtüşmeyen katmanlar halinde formüle eder. Üst menüden sistem taksonomisine erişebilir, aşağıdan ise en son eklenen saha raporlarını inceleyebilirsiniz.</p>
+                <p>IRMS, inanç sistemlerini ve somut sanatsal temsilleri örtüşmeyen katmanlar halinde formüle eder. Doğrudan incelemek istediğiniz ana katmana tıklayabilir ya da yayınlarda arama yapabilirsiniz.</p>
                 
+                <div class="layer-quick-links">
+                    <a class="layer-chip" onclick="openInventoryModal('inanc.json', 'tab-inanc')"><span>[I]</span> İnanç Sistemi</a>
+                    <a class="layer-chip" onclick="openInventoryModal('rituel.json', 'tab-rituel')"><span>[R]</span> Ritüel Yapısı</a>
+                    <a class="layer-chip" onclick="openInventoryModal('mekan.json', 'tab-mekan')"><span>[M]</span> Mekânsal Matris</a>
+                    <a class="layer-chip" onclick="openInventoryModal('sembol.json', 'tab-sembol')"><span>[S]</span> Sembol Anatomisi</a>
+                </div>
+
                 <div class="search-wrapper">
                     <input type="text" id="mainSearchInput" class="search-input" placeholder="Yayınlarda veya saha raporlarında ara..." oninput="filterArticles()">
                 </div>
@@ -189,7 +202,7 @@
     </footer>
 
     <script>
-        let allArticlesData = []; // Arama motoru için veriyi hafızada tutacağız.
+        let allArticlesData = [];
 
         window.addEventListener('DOMContentLoaded', () => {
             renderArticlesShowcase();
@@ -203,7 +216,7 @@
             fetch('makaleler.json')
                 .then(response => response.json())
                 .then(articles => {
-                    allArticlesData = articles; // Arama için klonla
+                    allArticlesData = articles;
                     displayArticles(articles);
                 })
                 .catch(() => {
@@ -211,7 +224,6 @@
                 });
         }
 
-        // MAKALELERİ EKRANA BASAN ALT FONKSİYON
         function displayArticles(articles) {
             const container = document.getElementById('articles-showcase-container');
             container.innerHTML = "";
@@ -247,7 +259,6 @@
             });
         }
 
-        // ANA SAYFA REAKTİF ARAMA FİLTRESİ
         function filterArticles() {
             const query = document.getElementById('mainSearchInput').value.toLowerCase().trim();
             const filtered = allArticlesData.filter(art => {
@@ -258,11 +269,9 @@
             displayArticles(filtered);
         }
 
-        // MODAL İÇİ REAKTİF TAKSONOMİ ARAMA FİLTRESİ
         function filterModalTaxonomy() {
             const query = document.getElementById('modalSearchInput').value.toLowerCase().trim();
             
-            // Tüm akordeon elemanlarını, dalları ve yaprakları tara
             document.querySelectorAll('.accordion-item').forEach(item => {
                 let itemMatch = false;
                 
@@ -282,7 +291,6 @@
                     const branchText = branch.querySelector('.branch-header').textContent.toLowerCase();
                     if (branchText.includes(query) || branchMatch) {
                         branch.style.display = 'block';
-                        // Eğer arama sorgusu varsa eşleşen dalları otomatik genişlet
                         if(query !== "") branch.classList.add('branch-open');
                         itemMatch = true;
                     } else {
@@ -302,13 +310,14 @@
             });
         }
 
-        // MODAL VE ENVENTER YÖNETİMİ
-        function openInventoryModal() {
+        // PARAMETRİK MODAL AÇILIŞI (Hızlı Zıplama İçin Güncellendi)
+        function openInventoryModal(targetJson = 'inanc.json', targetTabId = 'tab-inanc') {
             document.getElementById('inventoryModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            document.getElementById('modalSearchInput').value = ""; // Arama çubuğunu sıfırla
-            switchModalLayer('inanc.json', 'tab-inanc');
+            document.getElementById('modalSearchInput').value = "";
+            switchModalLayer(targetJson, targetTabId);
         }
+        
         function closeInventoryModal() {
             document.getElementById('inventoryModal').style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -320,7 +329,7 @@
         function switchModalLayer(jsonFile, activeTabId) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(activeTabId).classList.add('active');
-            document.getElementById('modalSearchInput').value = ""; // Katman değişince aramayı temizle
+            document.getElementById('modalSearchInput').value = "";
             
             const container = document.getElementById('modal-accordion-container');
             container.innerHTML = "<p style='text-align:center; color:#8A857E; font-size:14px;'>Hiyerarşi yükleniyor...</p>";
