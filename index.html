@@ -18,7 +18,7 @@
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* 1. ÜST MENÜ (SABİT / STICKY) */
+        /* SABİT ÜST MENÜ */
         header { 
             border-bottom: 1px solid var(--border); 
             padding: 16px 0; 
@@ -31,18 +31,18 @@
         nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 24px; }
         .logo span { color: var(--accent); }
-        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 24px; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        nav .nav-links a { text-decoration: none; color: var(--text); margin-left: 24px; font-weight: 500; font-size: 15px; }
         nav .nav-links a:hover { color: var(--accent); }
 
-        /* Giriş Bölümü */
-        .hero { padding: 60px 0 40px 0; max-width: 850px; margin: 0 auto; text-align: center; }
-        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 42px; line-height: 1.2; margin-bottom: 20px; }
-        .hero p { font-size: 17px; color: #5E5A54; margin-bottom: 24px; }
+        /* Giriş ve Felsefe */
+        .hero { padding: 50px 0 30px 0; max-width: 850px; margin: 0 auto; text-align: center; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 40px; line-height: 1.2; margin-bottom: 16px; }
+        .hero p { font-size: 16px; color: #5E5A54; }
 
-        /* 2. DEĞİŞKEN KATMANLAR MENÜSÜ (ALT SABİT) */
+        /* SABİT KATMANLAR MENÜSÜ */
         .sticky-layer-nav { 
             position: sticky; 
-            top: 65px; /* Üst menünün hemen altında çakılı kalır */
+            top: 65px; 
             background: rgba(247,245,242,0.96); 
             backdrop-filter: blur(8px); 
             border-top: 1px solid var(--border); 
@@ -55,57 +55,65 @@
         .layer-btn:hover { border-color: var(--accent); color: var(--accent); }
         .layer-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
 
-        /* Hiyerarşik Değişken İçerik Alanı */
-        .layer-display-section { padding: 50px 0; background: var(--white); border-bottom: 1px solid var(--border); }
-        .layer-content { display: none; }
-        .layer-content.active { display: block; animation: fadeIn 0.3s ease; }
-        .layer-title-area { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
-        .layer-title-area h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; }
-        .layer-title-area .tag { background: var(--text); color: white; padding: 4px 12px; font-weight: 700; border-radius: 4px; font-family: 'Space Grotesk', sans-serif; font-size: 14px; }
+        /* DİNAMİK HİYERARŞİK ALAN VE AKORDEON */
+        .layer-display-section { padding: 40px 0; background: var(--white); border-bottom: 1px solid var(--border); min-height: 400px; }
         
-        /* Hiyerarşi Listesi / Ağacı */
-        .hierarchy-tree { margin-top: 20px; }
-        .tree-branch { border-left: 2px dashed var(--border); margin-left: 10px; padding-left: 20px; margin-bottom: 30px; }
-        .tree-branch:last-child { margin-bottom: 0; }
-        .branch-title { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .branch-title code { background: var(--code); color: var(--text); padding: 2px 8px; font-size: 14px; border-radius: 4px; font-family: monospace; }
+        /* Akordeon Kapsayıcı Kart */
+        .accordion-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 12px; overflow: hidden; background: var(--white); }
         
-        .leaf-node { background: var(--bg); padding: 12px 16px; border-radius: 6px; margin-bottom: 10px; border: 1px solid var(--border); }
-        .leaf-node strong { font-family: monospace; font-size: 14px; background: var(--stone); padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
-        .leaf-node p { display: inline; font-size: 14px; color: #4A4640; }
-
-        /* 3. KÜTÜPHANE VE MAKALELER BÖLÜMÜ */
-        .section { padding: 70px 0; }
-        .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; text-align: center; margin-bottom: 16px; }
-        .section-desc { text-align: center; color: #5E5A54; margin-bottom: 40px; font-size: 16px; }
-        
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.01); transition: transform 0.2s; }
-        .library-card:hover { transform: translateY(-2px); }
-        .library-card .meta { font-size: 13px; color: #8A857E; margin-bottom: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; margin-bottom: 12px; line-height: 1.3; }
-        .library-card p { font-size: 14px; color: #5E5A54; margin-bottom: 20px; }
-        
-        /* Link Butonları */
-        .links-group { display: flex; gap: 12px; flex-wrap: wrap; }
-        .view-btn { display: inline-flex; align-items: center; background: var(--text); color: var(--white); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; transition: background 0.2s; }
-        .view-btn:hover { background: var(--accent); }
-        .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-        .view-btn.pdf:hover { background: var(--accent); color: var(--white); }
-
-        /* Alt Modüller Tablosu */
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; border: 1px solid var(--border); }
-        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
-        th { font-family: 'Space Grotesk', sans-serif; background: var(--code); font-size: 15px; }
-        td { font-size: 14px; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 30px; }
-            header { position: relative; }
-            .sticky-layer-nav { top: 0; }
-            .layer-buttons { flex-direction: column; gap: 6px; padding: 0 16px; }
+        /* Akordeon Başlığı (Tıklanan Kısım) */
+        .accordion-header { 
+            padding: 16px 20px; 
+            background: var(--bg); 
+            font-family: 'Space Grotesk', sans-serif; 
+            font-size: 17px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            user-select: none; 
+            transition: background 0.2s; 
         }
+        .accordion-header:hover { background: var(--code); }
+        .accordion-header code { font-family: monospace; background: var(--accent); color: white; padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 12px; }
+        .accordion-icon { font-size: 14px; color: var(--accent); transition: transform 0.2s; }
+        
+        /* Akordeon Gövdesi (Gizli Bölüm) */
+        .accordion-body { display: none; padding: 20px; border-top: 1px solid var(--border); background: var(--white); }
+        
+        /* Aktiflik Durumu */
+        .accordion-item.open .accordion-body { display: block; animation: slideDown 0.2s ease; }
+        .accordion-item.open .accordion-icon { transform: rotate(180deg); }
+
+        /* Hiyerarşik Ağaç Çizgileri */
+        .tree-branch { border-left: 2px dashed var(--border); margin-left: 10px; padding-left: 20px; margin-bottom: 24px; }
+        .tree-branch:last-child { margin-bottom: 0; }
+        .branch-title { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+        .branch-title code { background: var(--code); color: var(--text); padding: 2px 6px; font-size: 13px; border-radius: 4px; font-family: monospace; }
+        
+        .leaf-node { background: var(--bg); padding: 10px 14px; border-radius: 6px; margin-bottom: 8px; border: 1px solid var(--border); font-size: 14px; }
+        .leaf-node strong { font-family: monospace; background: var(--stone); padding: 2px 6px; border-radius: 3px; margin-right: 8px; }
+
+        /* KÜTÜPHANE VE DÖKÜMANLAR */
+        .section { padding: 60px 0; }
+        .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; text-align: center; margin-bottom: 12px; }
+        .section-desc { text-align: center; color: #5E5A54; margin-bottom: 40px; font-size: 15px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .library-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.01); }
+        .library-card .meta { font-size: 12px; color: #8A857E; margin-bottom: 6px; font-weight: 500; text-transform: uppercase; }
+        .library-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; margin-bottom: 8px; }
+        .library-card p { font-size: 14px; color: #5E5A54; margin-bottom: 16px; }
+        
+        .links-group { display: flex; gap: 12px; }
+        .view-btn { display: inline-flex; align-items: center; background: var(--text); color: var(--white); padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 500; }
+        .view-btn.pdf { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+        .view-btn:hover { opacity: 0.9; }
+
+        footer { background: var(--text); color: var(--bg); padding: 30px 0; text-align: center; font-size: 13px; }
+
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .layer-buttons { flex-direction: column; gap: 6px; padding: 0 16px; } }
     </style>
 </head>
 <body>
@@ -117,7 +125,6 @@
                 <div class="nav-links">
                     <a href="#katman-envanteri">Katman Envanteri</a>
                     <a href="#kütüphane">Kütüphane & Yayınlar</a>
-                    <a href="#moduller">Aktif Modüller</a>
                     <a href="https://github.com/inancrituelmekansembol/IRMS-Methodology" target="_blank">GitHub</a>
                 </div>
             </nav>
@@ -128,103 +135,28 @@
         <section class="hero">
             <div class="container">
                 <h1>Kültürel Mirasın Taksonomik Omurgası</h1>
-                <p>IRMS, inanç sistemlerini ve sanatsal temsilleri birbiri üzerine binmeyen katmanlarda formüle eder. Aşağıdaki dinamik menüyü kullanarak sistemin hiyerarşik kod ağacını inceleyebilir, kütüphaneden dokümanlara erişebilirsiniz.</p>
+                <p>IRMS hiyerarşik envanter ağacını incelemek için aşağıdaki katman butonlarını kullanın. Ana başlıkların üzerine tıklayarak alt kod kırılımlarını açabilirsiniz.</p>
             </div>
         </section>
 
         <div class="sticky-layer-nav" id="katman-envanteri">
             <div class="layer-buttons">
-                <button class="layer-btn active" onclick="switchLayer('inanc')">İnanç [I]</button>
-                <button class="layer-btn" onclick="switchLayer('rituel')">Ritüel [R]</button>
-                <button class="layer-btn" onclick="switchLayer('mekan')">Mekân [M]</button>
-                <button class="layer-btn" onclick="switchLayer('sembol')">Sembol [S]</button>
+                <button class="layer-btn active" id="btn-inanc" onclick="loadLayerData('inanc.json', 'btn-inanc')">İnanç [I]</button>
+                <button class="layer-btn" id="btn-rituel" onclick="loadLayerData('rituel.json', 'btn-rituel')">Ritüel [R]</button>
+                <button class="layer-btn" id="btn-mekan" onclick="loadLayerData('mekan.json', 'btn-mekan')">Mekân [M]</button>
+                <button class="layer-btn" id="btn-sembol" onclick="loadLayerData('sembol.json', 'btn-sembol')">Sembol [S]</button>
             </div>
         </div>
 
         <section class="layer-display-section">
-            <div class="container">
-                
-                <div id="inanc" class="layer-content active">
-                    <div class="layer-title-area">
-                        <h2>İnanç Katmanı Hiyerarşisi</h2>
-                        <span class="tag">I-Tree</span>
-                    </div>
-                    <div class="hierarchy-tree">
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>I1</code> Doğa Ruhları & İlk Sistemler</div>
-                            <div class="leaf-node"><strong>I1.1</strong> <p>Ebedi Bağlılık / Gözetleyici Ruh Tasvirleri</p></div>
-                            <div class="leaf-node"><strong>I1.b</strong> <p>Kozmik İkilik ve Dualist Denge Kültleri</p></div>
-                        </div>
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>I2</code> Panteonik & Kozmik İlahlar</div>
-                            <div class="leaf-node"><strong>I2.a</strong> <p>Yaratıcı Baş Tanrı / Evrensel Otorite Formları</p></div>
-                            <div class="leaf-node"><strong>I2.e</strong> <p>Kozmik Arzu ve Soyut Güç Dinamikleri</p></div>
-                        </div>
-                    </div>
+            <div class="container" id="dynamic-accordion-container">
                 </div>
-
-                <div id="rituel" class="layer-content">
-                    <div class="layer-title-area">
-                        <h2>Ritüel Katmanı Hiyerarşisi</h2>
-                        <span class="tag">R-Tree</span>
-                    </div>
-                    <div class="hierarchy-tree">
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>R1</code> Votive / Adak Koreografileri</div>
-                            <div class="leaf-node"><strong>R1.s</strong> <p>Sunak Önü Aktif Adak Bırakma Pozisyonları</p></div>
-                            <div class="leaf-node"><strong>R1.m</strong> <p>Zafer Sonrası Anıtsal Şükran Sunuları</p></div>
-                        </div>
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>R7</code> Ayinsel Hareketler & Trans</div>
-                            <div class="leaf-node"><strong>R7.d</strong> <p>Kozmik Danslar ve Ritmi Belirlenmiş Koreografiler</p></div>
-                            <div class="leaf-node"><strong>R7.s</strong> <p>Şamanik Trans ve Vecd Esnasındaki Beden Formları</p></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="mekan" class="layer-content">
-                    <div class="layer-title-area">
-                        <h2>Mekân Katmanı Hiyerarşisi</h2>
-                        <span class="tag">M-Tree</span>
-                    </div>
-                    <div class="hierarchy-tree">
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>M1</code> Mimari İç Mekan & Odaklar</div>
-                            <div class="leaf-node"><strong>M1.1</strong> <p>Kutsal İç Mekan / Tapınak Çekirdeği (Cella)</p></div>
-                            <div class="leaf-node"><strong>M1.d</strong> <p>Gökyüzünü Temsil Eden Kubbe ve Tavan Yapıları</p></div>
-                        </div>
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>M3</code> Nekropol & Liminal Alanlar</div>
-                            <div class="leaf-node"><strong>M3.g</strong> <p>Kutsal Mezar Alanları ve Yeraltı Odaları (Hypogeum)</p></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="sembol" class="layer-content">
-                    <div class="layer-title-area">
-                        <h2>Sembol ve Form Katmanı Hiyerarşisi</h2>
-                        <span class="tag">S-Tree</span>
-                    </div>
-                    <div class="hierarchy-tree">
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>F1</code> Morfolojik Figürasyonlar</div>
-                            <div class="leaf-node"><strong>F1.a</strong> <p>Tam İnsan Figürü (Anatomik Bütünlük Korunmuş Formlar)</p></div>
-                            <div class="leaf-node"><strong>F1.g</strong> <p>Hayvan Figürasyonları ve Zoomorfik Tasvirler</p></div>
-                        </div>
-                        <div class="tree-branch">
-                            <div class="branch-title"><code>Σ3</code> Semantik Göstergeler</div>
-                            <div class="leaf-node"><strong>Σ3.o</strong> <p>Sarsılmaz Siyasi ve İlahi Monarşi Otoritesi Göstergeleri</p></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </section>
 
         <section class="section" id="kütüphane">
             <div class="container">
                 <h2>Kütüphane & Yayınlar</h2>
-                <p class="section-desc">IRMS standartlarına ait resmi dökümanları, alt sayfaları (HTML) ve akademik PDF raporlarını buradan inceleyebilirsiniz.</p>
+                <p class="section-desc">Metodolojiye ait bağımsız HTML alt sayfalarını ve akademik PDF dökümanlarını buradan inceleyebilirsiniz.</p>
                 
                 <div class="grid-2">
                     <div class="library-card">
@@ -232,58 +164,21 @@
                         <h3>IRMS: Kavramsal Çerçeve ve Standart Uygulama Prosedürleri (v1.0)</h3>
                         <p>Şengül, A. (2026). Metodolojinin matematiksel altyapısını, Q.Stab stabilitesini ve Epsilon (ε) sapma paylarını kuran ana döküman.</p>
                         <div class="links-group">
-                            <a href="https://doi.org/10.5281/zenodo.20179300" target="_blank" class="view-btn">→ Zenodo Sayfası</a>
+                            <a href="https://doi.org/10.5281/zenodo.20179300" target="_blank" class="view-btn">→ Zenodo</a>
                             <a href="docs/irms-kavramsal-cerceve-v1.pdf" target="_blank" class="view-btn pdf">📄 PDF Oku</a>
                         </div>
                     </div>
 
                     <div class="library-card">
                         <div class="meta">Uygulama / Vaka Analizi</div>
-                        <h3>Sayburç Neolitik Kabartmaları Taksonomik Analiz Raporu</h3>
+                        <h3>Sayburç Neolitik Kabartmaları Analiz Raporu</h3>
                         <p>Neolitik dönem (~MÖ 9000) Sayburç açık hava sunağında yer alan şaman ve leopar figürlerinin tam IRMS-U kodlama çıktısı.</p>
                         <div class="links-group">
-                            <a href="examples/sayburc-analiz.html" class="view-btn">🖥️ HTML Raporu Aç</a>
+                            <a href="examples/sayburc-analiz.html" class="view-btn">🖥️ HTML Raporu</a>
                             <a href="docs/sayburc-report.pdf" target="_blank" class="view-btn pdf">📄 PDF İndir</a>
                         </div>
                     </div>
-
-                    <div class="library-card">
-                        <div class="meta">El Kitabı / Rehber</div>
-                        <h3>IRMS Kodlama ve Envanter Giriş Kılavuzu</h3>
-                        <p>Veri tabanına ilk defa nesne girecek saha araştırmacıları için I-R-M-Σ katman eşleşmelerini örnekleyen pratik saha rehberi.</p>
-                        <div class="links-group">
-                            <a href="guides/saha-rehberi.html" class="view-btn">🖥️ Rehberi Aç (HTML)</a>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section" id="moduller" style="background:#fff; border-top: 1px solid var(--border);">
-            <div class="container">
-                <h2>Aktif Uygulama Sınıfları</h2>
-                <p class="section-desc">GitHub dökümantasyon dizininde doğrudan erişilebilir durumdaki ana sınıflar.</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Sınıf Kodu</th>
-                            <th>Modül Açıklaması</th>
-                            <th>Kaynak Belge</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>F1.a</strong></td>
-                            <td>Tam İnsan Figürasyonu Ana Modülü</td>
-                            <td><a href="F1.a - TAM İNSAN FİGÜRÜ.md" style="color:var(--accent); text-decoration:none; font-weight:500;">İncele (.md)</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>F1.a1</strong></td>
-                            <td>Statik Tam İnsan Figürleri Postür İndeksi</td>
-                            <td><a href="F1-a1-Statik-Tam-Insan-Figuru.md" style="color:var(--accent); text-decoration:none; font-weight:500;">İncele (.md)</a></td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </section>
     </main>
@@ -291,20 +186,84 @@
     <footer>
         <div class="container">
             <p><b>IRMS v1.0</b> | Şengül, A. (2026) | DOI: 10.5281/zenodo.20179300</p>
-            <p style="margin-top:10px; font-size:13px; color:#8A857E;">CC BY-ND 4.0 | Küresel Otorite Kontrol ve Somut Olmayan Miras Standardı.</p>
         </div>
     </footer>
 
     <script>
-        function switchLayer(layerId) {
-            const contents = document.querySelectorAll('.layer-content');
-            contents.forEach(content => content.classList.remove('active'));
+        // Sayfa ilk yüklendiğinde otomatik olarak İnanç katmanını çek
+        window.addEventListener('DOMContentLoaded', () => {
+            loadLayerData('inanc.json', 'btn-inanc');
+        });
 
-            const buttons = document.querySelectorAll('.layer-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+        // Belirtilen JSON dosyasını çekip ekrana basan ana fonksiyon
+        function loadLayerData(jsonFile, activeBtnId) {
+            // Butonların aktiflik durumunu güncelle
+            document.querySelectorAll('.layer-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(activeBtnId).classList.add('active');
 
-            document.getElementById(layerId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            const container = document.getElementById('dynamic-accordion-container');
+            container.innerHTML = "<p style='text-align:center; color:#8A857E;'>Katman verileri yükleniyor...</p>";
+
+            // JSON Dosyasını oku
+            fetch(jsonFile)
+                .then(response => {
+                    if (!response.ok) throw new Error("JSON dosyası bulunamadı.");
+                    return response.json();
+                })
+                .then(data => {
+                    container.innerHTML = ""; // Yükleniyor yazısını temizle
+
+                    // JSON'daki her ana başlık (I0, I1 vs.) için bir akordeon oluştur
+                    data.forEach(item => {
+                        const accordionItem = document.createElement('div');
+                        accordionItem.className = 'accordion-item';
+
+                        // Başlık Bölümü (Görünen Kısım)
+                        let branchesHtml = '';
+                        item.branches.forEach(branch => {
+                            let leavesHtml = '';
+                            branch.leaves.forEach(leaf => {
+                                leavesHtml += `<div class="leaf-node"><strong>${leaf.id}</strong>${leaf.desc}</div>`;
+                            });
+
+                            branchesHtml += `
+                                <div class="tree-branch">
+                                    <div class="branch-title"><code>${branch.subcode}</code> ${branch.subtitle}</div>
+                                    ${leavesHtml}
+                                </div>
+                            `;
+                        });
+
+                        accordionItem.innerHTML = `
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                <div><code>${item.code}</code> ${item.title}</div>
+                                <div class="accordion-icon">▼</div>
+                            </div>
+                            <div class="accordion-body">
+                                ${branchesHtml}
+                            </div>
+                        `;
+                        container.appendChild(accordionItem);
+                    });
+                })
+                .catch(error => {
+                    container.innerHTML = `<p style='text-align:center; color:var(--accent);'>Bu katmana ait veri dosyası (${jsonFile}) henüz yüklenmemiş veya yolu hatalı.</p>`;
+                });
+        }
+
+        // Akordeon açma-kapama fonksiyonu
+        function toggleAccordion(headerElement) {
+            const currentItem = headerElement.parentElement;
+            const isOpen = currentItem.classList.contains('open');
+            
+            // İsteğe bağlı: Diğer açık akordeonları kapatmak isterseniz alttaki iki satırı aktif edin
+            // document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('open'));
+
+            if (!isOpen) {
+                currentItem.classList.add('open');
+            } else {
+                currentItem.classList.remove('open');
+            }
         }
     </script>
 </body>
